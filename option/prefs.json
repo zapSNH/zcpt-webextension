@@ -1,0 +1,19 @@
+{
+	"prefs": [
+		["uc.bottom-tabs",						[1, 0, [2], [], []],			"Bottom tabs"],
+		["uc.bottom-tabs.bookmark-on-top",		[2, 1, [], [], [1]],			"Bottom tabs with bookmarks bar on top"],
+		["uc.sidebery",							[3, 0, [], [], []],             "Vertical tabs with Sidebery"],
+		["uc.titlebar-accent.darktext",			[4, 0, [], [5], []],			"Dark titlebar text with titlebar accent color"],
+		["uc.titlebar-accent.lighttext",		[5, 0, [], [4], []],			"Light titlebar text with titlebar accent color"],
+		["uc.theme.tab-color-same-as-navbar",	[6, 0, [], [7], []],			"Tab color takes the navbar color"],
+		["uc.theme.navbar-color-same-as-tab",	[7, 0, [], [6], []],			"Navbar color takes the tab color"],
+		["uc.reduced-megabar",					[8, 0, [], [9], []],			"Slightly smaller Proton-sized megabar"],
+		["uc.no-megabar",						[9, 0, [], [8], []],			"No megabar"],
+		["uc.contextmenu.win-10",				[10, 0, [12, 13], [11], []],	"Windows 10 styled menu"],
+		["uc.contextmenu.win-11",				[11, 0, [12, 13], [10], []],	"Windows 11 styled menu"],
+		["uc.contextmenu.dark",	 				[12, 0, [], [13], []],			"Dark context menu w/ Windows 10/11 styled context menu"],
+		["uc.contextmenu.light",				[13, 0, [], [12], []],			"Light context menu w/ Windows 10/11 styled context menu"],
+		["uc.newtab.background",				[14, 0, [], [], []],			"New tab background"],
+		["uc.full-width-tabs",					[15, 0, [], [], []],			"Full width tabs"]	
+	]
+}

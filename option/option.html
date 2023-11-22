@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Zap's Cool Photon Option Site</title>
+	<link rel="stylesheet" href="option.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet"> 
+</head>
+<body>
+	<div id="sidebar">
+		<div id="title"><img id="fav" src="./images/favicon.svg"><div><a href="https://github.com/zapSNH/zapsCoolPhotonTheme">zapSNH/zapsCoolPhotonTheme</a>Options</div><code title="The preference logic here is slightly broken and different from the normal option site. i.e. Incompatible options wont dim, unselecting some prefs will not unselect its dependents, etc." style="padding-left: 8px; font-weight: 900; rotate: 30deg; text-decoration: underline; font-size: 24px;">NOTE!</code></div>
+		<div id="pref-list">
+		</div>
+		<div id="description">
+            <div id="topbar">
+                <div id="desc-name">
+                    Hover over an item to see its description
+                </div>
+                <div id="incompat-box" class="empty">
+                    Incompatible with:
+                    <div>N/A</div>
+                </div>
+            </div>
+			<div id="img-box">
+				
+			</div>
+		</div>
+		<div id="button-box">
+			<a id="clear">Clear</a>
+			<a id="export">Apply</a>
+		</div>
+	</div>
+	<script type="module" src="option.js"></script>
+</body>
+</html>

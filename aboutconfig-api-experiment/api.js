@@ -21,7 +21,6 @@ this.aboutconfig = class extends ExtensionAPI {
    */
   getAPI(context) {
     const EventManager = ExtensionCommon.EventManager;
-    const extensionPrefNameBase = `uc.`;
 
     return {
       aboutconfig: {
@@ -48,7 +47,7 @@ this.aboutconfig = class extends ExtensionAPI {
         async getPref(name) {
           try {
             return Services.prefs.getBoolPref(
-              `${extensionPrefNameBase}${name}`
+              `${name}`
             );
           } catch (_) {
             return undefined;
@@ -62,7 +61,7 @@ this.aboutconfig = class extends ExtensionAPI {
          * @param {boolean} value the bool value to save in the pref
          */
         async setPref(name, value) {
-          Services.prefs.setBoolPref(`${extensionPrefNameBase}${name}`, value);
+          Services.prefs.setBoolPref(`${name}`, value);
         },
       },
     };

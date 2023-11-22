@@ -9,4 +9,11 @@ function loadSheet(name, type) {
     return;
   }
 }
+function unloadSheet(name, type) {
+  browser.stylesheet.unload(browser.runtime.getURL(name), type);
+}
+
+export function setOptions(option, name) {
+  browser.aboutconfig.setPref(option, name);
+}
 startup();
