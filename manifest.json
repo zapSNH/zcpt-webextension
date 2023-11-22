@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "zap's cool photon theme",
+  "version": "0.9.0",
+  "author": "zapsnh",
+  "description": "cool photon theme but webextension. based off of paxmod.",
+  "icons": {
+    "16": "icon16.svg"
+  },
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "coolPhotonTheme@zapsnh"
+    }
+  },
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+  "experiment_apis": {
+    "stylesheet": {
+      "schema": "stylesheet-api-experiment/schema.json",
+      "parent": {
+        "scopes": ["addon_parent"],
+        "paths": [["stylesheet"]],
+        "script": "stylesheet-api-experiment/api.js"
+      }
+    },
+    "aboutconfig": {
+      "schema": "aboutconfig-api-experiment/schema.json",
+      "parent": {
+        "scopes": ["addon_parent"],
+        "paths": [["aboutconfig"]],
+        "script": "aboutconfig-api-experiment/api.js"
+      }
+    }
+  }
+}
