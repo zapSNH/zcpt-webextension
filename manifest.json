@@ -13,7 +13,8 @@
 
   "browser_specific_settings": {
     "gecko": {
-      "id": "coolPhotonTheme@zapsnh"
+      "id": "coolPhotonTheme@zapsnh",
+      "update_url": "https://github.com/zapSNH/zcpt-webextension/updates.json"
     }
   },
 
