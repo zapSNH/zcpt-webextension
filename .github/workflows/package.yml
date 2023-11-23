@@ -1,0 +1,23 @@
+on:
+  push:
+    tags:
+      - "v*"
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+          fetch-depth: 0
+
+    - name: zip files
+      run: |
+        zip zapsCoolPhotonTheme.zip *
+        
+    - name: release
+      uses: softprops/action-gh-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
+      with:
+        files: |
+            zapsCoolPhotonTheme.xpi
