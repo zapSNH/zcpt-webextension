@@ -12,6 +12,7 @@ jobs:
 
     - name: zip files
       run: |
+        rm -rf ./.git ./.gitignore ./.github
         zip zapsCoolPhotonTheme.zip *
         
     - name: release
