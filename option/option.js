@@ -3,7 +3,7 @@
 // please make sure an emergency line is with you while ya look at this ok?
 // p.s. this is NOT EDIBLE spaghetto code
 // TODO: fix the pref logic
-import { setOptions } from "../background.js";
+import { setOptions, getOption } from "../background.js";
 let imgPath = "./images/light/";
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
 	imgPath = "./images/dark/";
@@ -93,9 +93,11 @@ async function load() {
 				document.querySelector("#incompat-box").classList.remove("empty");
 			}
 		});
-		if (localStorage.getItem(prefRow.innerHTML) == "true") {
-			prefRow.classList.add("true");
-		}
+		await getOption(prefRow.innerHTML).then(val => {
+			if (val == true) {
+				prefRow.classList.add("true");
+			}
+		});
 		document.querySelector("#pref-list").appendChild(prefRow);
 	}
 	refreshWarnings();
@@ -103,10 +105,8 @@ async function load() {
 		document.querySelectorAll(".pref").forEach(function (e) {
 			if (e.classList.contains("true")) {
 				setOptions(e.innerHTML, true);
-				localStorage.setItem(e.innerHTML, true);
 			} else {
 				setOptions(e.innerHTML, false);
-				localStorage.setItem(e.innerHTML, false);
 			}
 		});
 	});
