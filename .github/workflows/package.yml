@@ -12,7 +12,7 @@ jobs:
 
     - name: zip files
       run: |
-        rm -rf ./README.md ./.git ./.gitignore ./.github
+        rm -rf ./README.md ./.git ./.gitignore ./.github ./updates.json
         zip -r -FS zapsCoolPhotonTheme.xpi *
         
     - name: release
