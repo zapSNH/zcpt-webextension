@@ -1,1 +1,1 @@
-A webextension version of [zapsCoolPhotonTheme](zapsnh/zapsCoolPhotonTheme)
+A webextension version of [zapsCoolPhotonTheme](https://github.com/zapsnh/zapsCoolPhotonTheme)
