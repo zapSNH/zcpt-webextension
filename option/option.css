@@ -121,7 +121,7 @@ body {
 }
 #topbar {
     display: flex;
-    padding-block: 4px;
+    padding-bottom: 4px;
 }
 #desc-name {
 	background: var(--background-2);
@@ -265,7 +265,6 @@ button.true #check {
 body {
     overflow: scroll;
     overflow-x: hidden;
-	width: 500px;
 }
 /* reshponivv! */
 @media (max-width: 900px) {

@@ -1,9 +1,12 @@
 {
   "manifest_version": 3,
   "name": "zap's cool photon theme",
-  "version": "0.9.0",
+  "short_name": "ZCPT",
+  "homepage_url": "https://github.com/zapSNH/zapsCoolPhotonTheme",
+  "version": "0.1.0",
   "author": "zapsnh",
-  "description": "cool photon theme but webextension. based off of paxmod.",
+  "description": "a cool photon theme. webextension version based off of paxmod.",
+
   "icons": {
     "16": "icon16.svg"
   },
@@ -18,9 +21,8 @@
     "page": "background.html"
   },
 
-  "action": {
-    "default_icon": "icon16.svg",
-    "default_popup": "option/option.html"
+  "options_ui": {
+    "page": "option/option.html"
   },
 
   "experiment_apis": {
