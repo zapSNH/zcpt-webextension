@@ -29,44 +29,37 @@ function toggle() {
 
 		if (this.classList.contains("warning")) this.classList.remove("warning");
 
+
 		if (requires != 0) {
 			document.querySelector(".pref:nth-child(" + requires + ")").classList.add("true");
 			document.querySelector(".pref:nth-child(" + requires + ")").classList.remove("warning");
 		}
 		if (negates.length) {
-			for (let i = 1; i <= provides.length; i++) {
+			for (let i = 1; i <= negates.length; i++) {
 				document.querySelector(".pref:nth-child(" + negates[i-1] + ")").classList.remove("true");
-
-				refreshWarnings();
 				document.querySelector(".pref:nth-child(" + negates[i-1] + ")").classList.add("warning");
 			}
 		}
 
-		document.querySelector("#left").prepend(imgContainer);
-
 	} else {
 		this.classList.remove("true");
-
 		if (provides.length) {
 			for (let i = 1; i <= provides.length; i++) {
 				document.querySelector(".pref:nth-child(" + provides[i-1] + ")").classList.remove("true");
-				refreshWarnings();
 			}
 		}
-		
-		if (negates.length) refreshWarnings();
-
 	}
+	refreshWarnings();
 }
 
 function refreshWarnings() {
-	// instead of doing this why not make this also handle the creation of warnings
-	for (let e of document.querySelectorAll(".warning")) {
-		let canBeRemoved = true;
+	for (let e of document.querySelectorAll(".pref")) {
+		let hasWarning = false;
 		for (let f of document.querySelectorAll(".true:not(button)")) {
-			if (e.negates.includes(f.index)) canBeRemoved = false;
+			if (f.negates.includes(e.index)) hasWarning = true;
 		}
-		if (canBeRemoved) e.classList.remove("warning");
+		if (hasWarning) e.classList.add("warning");
+		if (!hasWarning) e.classList.remove("warning");
 	}
 }
 
@@ -89,6 +82,7 @@ async function load() {
 		prefRow.addEventListener("mouseover", function () {
 			document.querySelector("#img-box").innerHTML = "<img src=\"" + imgPath + this.innerHTML + ".png" + "\">";
 			document.querySelector("#desc-name").innerHTML = this.innerHTML;
+			document.querySelector("#desc-box").innerHTML = this.desc;
 			let incompatibilities = "";
 			this.negates.forEach((e) => incompatibilities += document.querySelector(".pref:nth-child(" + e + ")").innerHTML + "<br>");
 			if (incompatibilities == "") {
@@ -104,6 +98,7 @@ async function load() {
 		}
 		document.querySelector("#pref-list").appendChild(prefRow);
 	}
+	refreshWarnings();
 	document.querySelector("#export").addEventListener("click", function () {
 		document.querySelectorAll(".pref").forEach(function (e) {
 			if (e.classList.contains("true")) {

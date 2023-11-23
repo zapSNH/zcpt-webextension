@@ -1,5 +1,5 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "zap's cool photon theme",
   "version": "0.9.0",
   "author": "zapsnh",
@@ -18,10 +18,9 @@
     "page": "background.html"
   },
 
-  "browser_action": {
+  "action": {
     "default_icon": "icon16.svg",
-    "default_popup": "option/option.html",
-    "browser_style": true
+    "default_popup": "option/option.html"
   },
 
   "experiment_apis": {

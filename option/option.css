@@ -28,7 +28,7 @@
 	}
 }
 body {
-	background: var(--background-1);
+	background: var(--background-2);
 	color: var(--color-1);
 	margin: 0;
 	font-family: 'Fira Sans', 'Segoe UI', 'Lato', sans-serif;
@@ -42,7 +42,6 @@ body {
 #sidebar {
 	display: flex;
 	flex-direction: column;
-	background: var(--background-2);
 	border: 1px solid var(--border-1);
 	border-radius: 4px;
 	padding: 12px;
@@ -266,7 +265,7 @@ button.true #check {
 body {
     overflow: scroll;
     overflow-x: hidden;
-	max-width: 500px;
+	width: 500px;
 }
 /* reshponivv! */
 @media (max-width: 900px) {
@@ -275,7 +274,7 @@ body {
 		padding: 0;
 	}
 	#sidebar {
-		margin-bottom: 8px;
+		margin-bottom: 0px;
 		margin-right: 0px;
 		width: 100%;
 		height: 550px;
