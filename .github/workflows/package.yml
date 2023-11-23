@@ -13,7 +13,7 @@ jobs:
     - name: zip files
       run: |
         rm -rf ./.git ./.gitignore ./.github
-        zip zapsCoolPhotonTheme.zip *
+        zip zapsCoolPhotonTheme.xpi *
         
     - name: release
       uses: softprops/action-gh-release@v1
