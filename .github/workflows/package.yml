@@ -17,25 +17,10 @@ jobs:
           repository: zapsnh/zapsCoolPhotonTheme
           ref: webextension
           path: chrome
-
-    - name: check if there are any changed files
-      id: changed-files
-      uses: tj-actions/changed-files@v40
-      with:
-        files: chrome/**
-        files_ignore: chrome/.git
-    
     - name: add gh bot creds
       run: |
         git config user.name 'github-actions[bot]'
         git config user.email 'github-actions[bot]@users.noreply.github.com'
-
-    - name: push zcpt
-      if: steps.changed-files.outputs.any_changed == 'true'
-      run : |
-        git add .
-        git commit -m "sync zcpt"
-        git push origin HEAD:main
 
     - name: bump version
       run: |
