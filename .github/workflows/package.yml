@@ -25,11 +25,14 @@ jobs:
         files: chrome/**
         files_ignore: chrome/.git
     
+    - name: add gh bot creds
+      run: |
+        git config user.name 'github-actions[bot]'
+        git config user.email 'github-actions[bot]@users.noreply.github.com'
+
     - name: push zcpt
       if: steps.changed-files.outputs.any_changed == 'true'
       run : |
-        git config user.name 'github-actions[bot]'
-        git config user.email 'github-actions[bot]@users.noreply.github.com'
         git add .
         git commit -m "sync zcpt"
         git push origin HEAD:main
