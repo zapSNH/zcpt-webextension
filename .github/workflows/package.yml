@@ -14,7 +14,6 @@ jobs:
     - name: sync zcpt
       uses: actions/checkout@v3
       with:
-          fetch-depth: 0
           repository: zapsnh/zapsCoolPhotonTheme
           ref: webextension
           path: chrome
