@@ -2,6 +2,7 @@ function startup() {
   loadSheet('chrome/userChrome.css', 'USER_SHEET');
   loadSheet('chrome/userContent.css', 'USER_SHEET');
 }
+
 function loadSheet(name, type) {
   if (browser.runtime.getURL(name)) {
     browser.stylesheet.load(browser.runtime.getURL(name), type);
@@ -9,14 +10,15 @@ function loadSheet(name, type) {
     return;
   }
 }
+
 export function setOptions(option, name) {
   browser.aboutconfig.setPref(option, name);
 }
 export function getOption(option) {
   return browser.aboutconfig.getPref(option);
 }
-browser.runtime.onInstalled.addListener((details) => {
 
+browser.runtime.onInstalled.addListener((details) => {
   if (details.reason == "install") {
     fetch("defaultPrefs.json")
     .then((response) => {
@@ -34,4 +36,6 @@ browser.runtime.onInstalled.addListener((details) => {
     });
   }
 });
+browser.runtime.onStartup.addListener(startup);
+
 startup();

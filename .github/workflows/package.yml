@@ -19,7 +19,15 @@ jobs:
           ref: webextension
           path: chrome
 
+    - name: check if there are any changed files
+      id: changed-files
+      uses: tj-actions/changed-files@v40
+      with:
+        files: chrome/**
+        files_ignore: chrome/.git
+    
     - name: push zcpt
+      if: steps.changed-files.outputs.any_changed == 'true'
       run : |
         git config user.name 'github-actions[bot]'
         git config user.email 'github-actions[bot]@users.noreply.github.com'
@@ -39,7 +47,7 @@ jobs:
 
     - name: zip files
       run: |
-        rm -rf ./README.md ./.git ./.gitignore ./.github ./updates.json
+        rm -rf ./README.md ./.git ./.gitignore ./.github ./updates.json ./chrome/.git
         zip -r -FS zapsCoolPhotonTheme.xpi *
         
     - name: release
