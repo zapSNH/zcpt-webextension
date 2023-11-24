@@ -2,9 +2,30 @@ on:
   push:
     tags:
       - "v*"
+
 jobs:
+  bump-ver:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+          fetch-depth: 0
+  
+    - name: bump version
+      run: |
+        python3 .github/workflows/bump_ver.py bump ${{github.ref_name}}    
+
+    - name: commit changes
+      run: |
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git add .
+        git commit -m "bump version: ${{github.ref_name}}"
+        git push
+
   package:
     runs-on: ubuntu-latest
+    needs: bump-ver
     steps:
     - uses: actions/checkout@v3
       with:

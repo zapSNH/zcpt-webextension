@@ -22,7 +22,7 @@
         },
         {
           "version": "0.1.4",
-          "update_link": "https://github.com/zapSNH/zcpt-webextension/releases/download/v0.1./zapsCoolPhotonTheme.xpi",
+          "update_link": "https://github.com/zapSNH/zcpt-webextension/releases/download/v0.1.4/zapsCoolPhotonTheme.xpi",
           "applications": {
             "gecko": {
                 "strict_min_version": "121.0a1"
