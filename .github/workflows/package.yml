@@ -7,6 +7,10 @@ jobs:
   package:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v3
+      with:
+          fetch-depth: 0
+
     - name: sync zcpt
       uses: actions/checkout@v3
       with:
@@ -14,7 +18,7 @@ jobs:
           repository: zapsnh/zapsCoolPhotonTheme
           ref: webextension
           path: chrome
-          
+
     - name: push zcpt
       run : |
         git add .
