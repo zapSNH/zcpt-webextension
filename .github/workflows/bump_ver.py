@@ -7,7 +7,7 @@ def bump(new_ver_v):
 	updates_template = ''',
         {
           "version": "''' + new_ver + '''",
-          "update_link": "https://github.com/zapSNH/zcpt-webextension/releases/download/''' + new_ver + '''/zapsCoolPhotonTheme.xpi",
+          "update_link": "https://github.com/zapSNH/zcpt-webextension/releases/download/v''' + new_ver + '''/zapsCoolPhotonTheme.xpi",
           "applications": {
             "gecko": {
                 "strict_min_version": "121.0a1"
