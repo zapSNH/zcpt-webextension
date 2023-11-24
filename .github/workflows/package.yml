@@ -10,7 +10,6 @@ jobs:
     - uses: actions/checkout@v2
       with:
           fetch-depth: 0
-          ref: ${{ github.head_ref }}
   
     - name: bump version
       run: |
@@ -22,7 +21,7 @@ jobs:
         git config user.email github-actions@github.com
         git add .
         git commit -m "bump version: ${{ github.ref_name }}"
-        git push
+        git push origin HEAD:main
 
   package:
     runs-on: ubuntu-latest
