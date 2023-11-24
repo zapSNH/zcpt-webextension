@@ -7,20 +7,21 @@ jobs:
   bump-ver:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v2
       with:
+          fetch-depth: 0
           ref: ${{ github.ref_name }}
   
     - name: bump version
       run: |
-        python3 .github/workflows/bump_ver.py bump ${{github.ref_name}}    
+        python3 .github/workflows/bump_ver.py bump ${{ github.ref_name }}    
 
     - name: commit changes
       run: |
         git config user.name github-actions
         git config user.email github-actions@github.com
         git add .
-        git commit -m "bump version: ${{github.ref_name}}"
+        git commit -m "bump version: ${{ github.ref_name }}"
         git push
 
   package:
