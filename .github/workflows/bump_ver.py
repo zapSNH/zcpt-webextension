@@ -18,8 +18,10 @@ def bump(new_ver_v):
     }
   }
 }'''
+	versioncss_template = "content: \"zapsCoolPhotonTheme v" + new_ver + " (webextension)\";"
 	replace(manifest_template, "manifest.json", "\"version\": \".*\"")
 	replace(updates_template, "updates.json", "\n.*]\n.*}\n.*}\n.*}")
+	replace(versioncss_template, "custom/resources/version.css", "content: \"zapsCoolPhotonTheme v.* \(webextension\)\";")
 
 
 def replace(new_ver, file, regex):

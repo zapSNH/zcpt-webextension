@@ -1,5 +1,6 @@
 /* Zap's Cool Photon Site! */
 :root {
+	--background: #fff;
 	--background-1: #f6f6f8;
 	--background-2: #fefefe;
 	--background-3: #e4e4e4;
@@ -16,6 +17,7 @@
 }
 @media (prefers-color-scheme: dark) {
 	:root {
+		--background: #202023;
 		--background-1: #0c0c0d;
 		--background-2: #323234;
 		--background-3: #4a4a4f;
@@ -28,7 +30,7 @@
 	}
 }
 body {
-	background: var(--background-2);
+	background: var(--background);
 	color: var(--color-1);
 	margin: 0;
 	font-family: 'Fira Sans', 'Segoe UI', 'Lato', sans-serif;
@@ -118,6 +120,8 @@ body {
 	display: flex;
 	flex-direction: column;
 	overflow-y: scroll;
+	scrollbar-width: thin;
+	scrollbar-color: var(--border-1) var(--background-4);
 }
 #topbar {
     display: flex;
@@ -279,6 +283,9 @@ body {
 		height: 550px;
 		border-radius: 0px 0px 4px 4px;
 		border: none;
+		padding-inline: 0;
+		padding-top: 12px;
+		padding-bottom: 10px;
 	}
 	#description {
 		height: 200px;

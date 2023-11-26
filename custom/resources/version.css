@@ -1,0 +1,23 @@
+/* inspired by https://github.com/rafaelmardojai/firefox-gnome-theme/blob/5e796d330d3765798d32b361638b048fda1a1450/theme/gnome-theme.css */
+@-moz-document url-prefix("chrome://"), url-prefix("resource://") {
+#customization-palette-container::before {
+	background: url(../icon16.svg) no-repeat;
+	background-size: 32px;
+	background-position: 4px 0;
+	-moz-context-properties: fill;
+	fill: currentColor;
+	content: "zapsCoolPhotonTheme v0.0.0 (webextension)";
+	position: absolute;
+	height: 48px;
+	overflow: visible;
+	padding-top: 6px;
+	padding-inline-start: 48px;
+	bottom: 48px;
+	inset-inline-start: 16px;
+	font-weight: 600;
+	font-size: 16px;
+	font-family: 'Zilla Slab', sans-serif;
+	filter: grayscale(1);
+	opacity: 0.33;
+}
+}

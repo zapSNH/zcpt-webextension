@@ -1,6 +1,7 @@
 function startup() {
   loadSheet('chrome/userChrome.css', 'USER_SHEET');
   loadSheet('chrome/userContent.css', 'USER_SHEET');
+  loadSheet('custom/custom.css', 'USER_SHEET');
 }
 
 function loadSheet(name, type) {
