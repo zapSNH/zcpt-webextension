@@ -1,7 +1,13 @@
-function startup() {
+async function startup() {
   loadSheet('chrome/userChrome.css', 'USER_SHEET');
   loadSheet('chrome/userContent.css', 'USER_SHEET');
   loadSheet('custom/custom.css', 'USER_SHEET');
+
+  await browser.aboutconfig.getPref("uc.newtab.background").then(val => {
+    if (val == true) {
+      loadBackground();
+    }
+  })
 }
 
 function loadSheet(name, type) {
@@ -17,6 +23,21 @@ export function setOptions(option, name) {
 }
 export function getOption(option) {
   return browser.aboutconfig.getPref(option);
+}
+
+export async function setBackground(value) {
+  await browser.storage.local.set({
+    newtabbackground: value
+  });
+}
+
+export async function loadBackground() {
+  await browser.storage.local.get("newtabbackground").then((val) => {
+    if (val.newtabbackground) {
+      let dataString = '@-moz-document url("about:newtab"), url("about:home"){ @media (-moz-bool-pref: "uc.newtab.background") { body { background-image: url(' + val.newtabbackground + '); }}}';
+      loadSheet('data:text/css;charset=UTF-8,' + encodeURIComponent(dataString), 'USER_SHEET');
+    }
+  });
 }
 
 browser.runtime.onInstalled.addListener((details) => {

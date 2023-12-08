@@ -11,8 +11,15 @@
 	<link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet"> 
 </head>
 <body>
+	<div id="title">
+		<img id="fav" src="./images/icon-light.svg">
+		<div>
+			<a href="https://github.com/zapSNH/zapsCoolPhotonTheme">zapSNH/zapsCoolPhotonTheme</a>
+			<div id="title-text">Options</div>
+		</div>
+		<button id="settings" title="Other Settings" class=""></button>
+	</div>
 	<div id="sidebar">
-		<div id="title"><img id="fav" src="./images/favicon.svg"><div><a href="https://github.com/zapSNH/zapsCoolPhotonTheme">zapSNH/zapsCoolPhotonTheme</a>Options</div></div>
 		<div id="pref-list">
 		</div>
 		<div id="description">
@@ -35,6 +42,17 @@
 		<div id="button-box">
 			<a id="clear">Clear</a>
 			<a id="export">Apply</a>
+		</div>
+	</div>
+	<div id="settings-menu">
+		<div class="header">New Tab Background</div>
+		<div id="bkgimg">
+			<label id="imagepicker-button">
+				<input id="imagepicker" type="file">
+				Browse
+			</label>
+			<a id="preview-container" href="" target="_blank"><img id="preview" src="./images/background.png" alt="Default Image" class="loaded"></a>
+			<div id="img-name">background.png</div>
 		</div>
 	</div>
 	<script type="module" src="option.js"></script>

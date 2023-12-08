@@ -2,8 +2,8 @@
 // please, you will be scarred for life
 // please make sure an emergency line is with you while ya look at this ok?
 // p.s. this is NOT EDIBLE spaghetto code
-// TODO: fix the pref logic
-import { setOptions, getOption } from "../background.js";
+
+import { setOptions, getOption, setBackground, loadBackground } from "../background.js";
 let imgPath = "./images/light/";
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
 	imgPath = "./images/dark/";
@@ -14,15 +14,25 @@ document.querySelector("#clear").addEventListener("click", function () {
 	document.querySelectorAll(".warning").forEach((e) => e.classList.remove("warning"));
 });
 
+document.querySelector("#settings").addEventListener("click", function (e) {
+	if (e.target.classList.contains("open")) {
+		e.target.classList.remove("open")
+		document.body.classList.remove("open");
+		document.querySelector("#title-text").innerHTML = "Options";
+	} else {
+		e.target.classList.add("open");
+		document.body.classList.add("open");
+		document.querySelector("#title-text").innerHTML = "Settings";
+	}
+});
+
 function toggle() {
 	let index = this.index; // potentially useful leftover
 	let requires = this.requires;
 	let provides = this.provides;
 	let negates = this.negates;
 	let replaces = this.replaces; // potentially useful leftover
-	console.log(negates);
 
-	//broken idk why
 	if (!this.classList.contains("true")) {
 
 		this.classList.add("true");
@@ -43,6 +53,7 @@ function toggle() {
 
 	} else {
 		this.classList.remove("true");
+
 		if (provides.length) {
 			for (let i = 1; i <= provides.length; i++) {
 				document.querySelector(".pref:nth-child(" + provides[i-1] + ")").classList.remove("true");
@@ -110,5 +121,61 @@ async function load() {
 			}
 		});
 	});
+	await browser.storage.local.get("newtabbackground").then((val) => {
+		if (val.newtabbackground) {
+			document.querySelector("#preview").src = val.newtabbackground;
+			document.querySelector("#preview-container").href = val.newtabbackground;
+		} else {
+			document.querySelector("#preview").src = "./images/background.png";
+			document.querySelector("#preview-container").href = "./images/background.png";
+		}
+		document.querySelector("#preview").classList.add("loaded");
+		document.querySelector("#preview").title = "Click to open in a new tab";
+		loadBackground();
+	});
+	await browser.storage.local.get("newtabbackgroundname").then((val) => {
+		if (val.newtabbackgroundname) {
+			document.querySelector("#img-name").innerHTML = val.newtabbackgroundname;
+		} else {
+			document.querySelector("#img-name").innerHTML = "background.png";
+		}
+	});
 }
+
+document.querySelector("#imagepicker").addEventListener("change", function () {
+	const reader = new FileReader();
+
+	if (document.querySelector("#imagepicker").files[0]) {
+		reader.readAsDataURL(document.querySelector("#imagepicker").files[0]);
+	}
+
+	reader.addEventListener("load", async () => {
+		// WHY IS THIS ASYNCHRONOUSDIUSID
+		await browser.storage.local.set({
+			newtabbackground: reader.result
+		}).then( async () =>
+			await browser.storage.local.get("newtabbackground").then((val) => {
+				document.querySelector("#preview").src = val.newtabbackground;
+				document.querySelector("#preview-container").href = val.newtabbackground;
+			})
+		);
+
+		await browser.storage.local.set({
+			newtabbackgroundname: document.querySelector("#imagepicker").files[0].name
+		}).then( async () =>
+			await browser.storage.local.get("newtabbackgroundname").then((val) => {
+				document.querySelector("#img-name").innerHTML = val.newtabbackgroundname;
+			})
+		);
+
+		setBackground(reader.result);
+
+		if (!document.querySelector("#preview").classList.contains("loaded")) {
+			document.querySelector("#preview").classList.add("loaded");
+		}
+		document.querySelector("#preview").title = "Click to open in a new tab";
+		loadBackground();
+	});
+});
+
 load();

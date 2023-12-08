@@ -25,6 +25,10 @@
   "options_ui": {
     "page": "option/option.html"
   },
+  
+  "permissions": [
+    "storage"
+  ],
 
   "experiment_apis": {
     "stylesheet": {
