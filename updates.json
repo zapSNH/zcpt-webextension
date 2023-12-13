@@ -118,6 +118,15 @@
                 "strict_min_version": "121.0a1"
             }
           }
+        },
+        {
+          "version": "0.11.3",
+          "update_link": "https://github.com/zapSNH/zcpt-webextension/releases/download/v0.11.3/zapsCoolPhotonTheme.xpi",
+          "applications": {
+            "gecko": {
+                "strict_min_version": "121.0a1"
+            }
+          }
         }
       ]
     }
