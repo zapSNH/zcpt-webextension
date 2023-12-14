@@ -170,6 +170,10 @@ body {
     display: inline;
 }
 
+code {
+	font-family: "Fira Code", monospace;
+}
+
 #desc-box {
 	margin: 8px;
 	flex: 1;
@@ -222,21 +226,6 @@ body {
 }
 #export:hover:not(:active) {
 	background: #57abff;
-}
-#includeInstallation button {
-	border-radius: 2px;
-	border: none;
-	box-shadow: var(--box-shadow-2);
-	background: var(--background-2);
-	color: var(--color-1);
-	padding: 8px;
-	font-size: 16px;
-	transition: 0.1s;
-	text-decoration: none;
-	text-align: center;
-	font-family: 'Fira Sans', 'Segoe UI', 'Lato', sans-serif;
-	display: flex;
-	font-weight: 600;
 }
 
 button #check {
@@ -294,11 +283,9 @@ body {
 
 	&:hover {
 		box-shadow: var(--box-shadow-2);
-		background-color: var(--background-3);
 	}
 	&:hover:active {
 		box-shadow: var(--box-shadow-3);
-		background-color: var(--background-2);
 		translate: 0 2px;
 	}
 }
@@ -311,10 +298,9 @@ body {
 #settings.open {
 	background-image: url(./images/back-12.svg);
 	background-size: 16px 16px;
-	background-color: var(--background-2) no-repeat;
 	z-index: 100;
 }
-#settings-menu {
+.settings-section {
 	background: var(--background-4);
 	border: 1px solid var(--border-1);
 	border-radius: 2px;
@@ -324,15 +310,14 @@ body {
 	overflow-y: scroll;
 	scrollbar-width: thin;
 	scrollbar-color: var(--border-1) var(--background-4);
-	display: none;
-	flex-direction: column;
+	width: 100%;
 }
 .header {
 	font-size: 20px;
 	font-weight: 600;
 	margin-bottom: 6px;
 }
-#bkgimg {
+#bkgimg, #refresh {
 	display: flex;
 	flex-direction: column;
 }
@@ -351,6 +336,13 @@ body {
 		cursor: pointer;
 	}
 }
+#settings-menu {
+	display: none;
+	flex-direction: column;
+	width: calc(100vw - 22px);
+	height: fit-content;
+	gap: 8px;
+}
 body.open {
 	#settings-menu {
 		display: flex;
@@ -363,7 +355,7 @@ body.open {
 		margin-block: -1px;
 	}
 }
-#imagepicker-button {
+#imagepicker-button, #reload-button {
 	font-family: 'Fira Sans', 'Segoe UI', 'Lato', sans-serif;
 	user-select: none;
 	border-radius: 2px;
@@ -380,6 +372,8 @@ body.open {
 	-moz-context-properties: fill;
 	padding-inline-start: 32px;
 	background-position: 8px 8px;
+	border: none;
+	margin-top: 6px;
 
 	&:hover {
 		background-color: var(--background-3);
@@ -389,7 +383,9 @@ body.open {
 		translate: 0 2px;
 	}
 }
-
+#reload-button {
+	background-image: url(./images/reload.svg);
+}
 #preview:not(.loaded) + #clear-img {
 	display: none;
 }
@@ -401,6 +397,14 @@ body.open {
 }
 #preview-container {
 	width: fit-content;
+}
+#newtab-notice {
+	padding: 4px;
+	background: var(--background-5);
+	color: #fff;
+	font-weight: 600;
+	border-radius: 2px;
+	box-shadow: var(--box-shadow-2);
 }
 /* reshponivv! */
 @media (max-width: 900px) {

@@ -26,6 +26,9 @@ document.querySelector("#settings").addEventListener("click", function (e) {
 	}
 });
 
+document.querySelector("#reload").addEventListener("click", function (e) {
+	browser.runtime.reload();
+});
 function toggle() {
 	let index = this.index; // potentially useful leftover
 	let requires = this.requires;
@@ -111,14 +114,28 @@ async function load() {
 		});
 		document.querySelector("#pref-list").appendChild(prefRow);
 	}
+	await getOption("uc.newtab.background").then(val => {
+		if (val == true) {
+			document.querySelector("#newtab-notice").style = "display: none";
+		} else {
+			document.querySelector("#newtab-notice").style = "";
+		}
+	});
 	refreshWarnings();
 	document.querySelector("#export").addEventListener("click", function () {
-		document.querySelectorAll(".pref").forEach(function (e) {
+		document.querySelectorAll(".pref").forEach(async function (e) {
 			if (e.classList.contains("true")) {
 				setOptions(e.innerHTML, true);
 			} else {
 				setOptions(e.innerHTML, false);
 			}
+			await getOption("uc.newtab.background").then(val => {
+				if (val == true) {
+					document.querySelector("#newtab-notice").style = "display: none";
+				} else {
+					document.querySelector("#newtab-notice").style = "";
+				}
+			});
 		});
 	});
 	await browser.storage.local.get("newtabbackground").then((val) => {

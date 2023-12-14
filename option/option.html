@@ -45,14 +45,24 @@
 		</div>
 	</div>
 	<div id="settings-menu">
-		<div class="header">New Tab Background</div>
-		<div id="bkgimg">
-			<label id="imagepicker-button">
-				<input id="imagepicker" type="file">
-				Browse
-			</label>
-			<a id="preview-container" href="" target="_blank"><img id="preview" src="./images/background.png" alt="Default Image" class="loaded"></a>
-			<div id="img-name">background.png</div>
+		<div class="settings-section">
+			<div class="header">Reload Extension</div>
+			<div id="reload">
+				<div>Reloads the extension to potentially fix some issues. This does not clear your data.</div>
+				<button id="reload-button">Reload</button>
+			</div>
+		</div>
+		<div class="settings-section">
+			<div class="header">New Tab Background</div>
+			<div id="bkgimg">
+				<div id="newtab-notice"><code>uc.newtab.background</code> isn't enabled. Background won't be shown.</div>
+				<label id="imagepicker-button">
+					<input id="imagepicker" type="file">
+					Browse
+				</label>
+				<a id="preview-container" href="" target="_blank"><img id="preview" src="./images/background.png" alt="Default Image" class="loaded"></a>
+				<div id="img-name">background.png</div>
+			</div>
 		</div>
 	</div>
 	<script type="module" src="option.js"></script>
