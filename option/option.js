@@ -4,11 +4,14 @@
 // p.s. this is NOT EDIBLE spaghetto code
 
 import { setOptions, getOption, setBackground, loadBackground } from "../background.js";
+
+// two letter (or hyphenated) language list
+const langList = ["en", "tl"];
 let imgPath = "./images/light/";
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
 	imgPath = "./images/dark/";
 }
-const locale = browser.i18n.getUILanguage();
+let locale = browser.i18n.getUILanguage();
 
 document.querySelector("#clear").addEventListener("click", function () {
 	document.querySelectorAll(".true:not(button)").forEach((e) => e.classList.remove("true"));
@@ -79,7 +82,12 @@ function refreshWarnings() {
 }
 
 async function load() {
-	const response = await fetch("./locale/" + locale + "/prefs.json");
+	let response;
+	if (langList.includes(locale)) {
+		response = await fetch("./locale/" + locale + "/prefs.json");
+	} else {
+		response = await fetch("./locale/en/prefs.json");
+	}
 	const data = await response.json();
 
 	for (let e of data.prefs) {
