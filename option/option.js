@@ -8,6 +8,7 @@ let imgPath = "./images/light/";
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
 	imgPath = "./images/dark/";
 }
+const locale = browser.i18n.getUILanguage();
 
 document.querySelector("#clear").addEventListener("click", function () {
 	document.querySelectorAll(".true:not(button)").forEach((e) => e.classList.remove("true"));
@@ -18,11 +19,11 @@ document.querySelector("#settings").addEventListener("click", function (e) {
 	if (e.target.classList.contains("open")) {
 		e.target.classList.remove("open")
 		document.body.classList.remove("open");
-		document.querySelector("#title-text").innerHTML = "Options";
+		document.querySelector("#title-text").innerHTML = i18n.getMessage("extensionOptions");
 	} else {
 		e.target.classList.add("open");
 		document.body.classList.add("open");
-		document.querySelector("#title-text").innerHTML = "Settings";
+		document.querySelector("#title-text").innerHTML = i18n.getMessage("extensionSettings");
 	}
 });
 
@@ -78,7 +79,7 @@ function refreshWarnings() {
 }
 
 async function load() {
-	const response = await fetch("prefs.json");
+	const response = await fetch("./locale/" + locale + "/prefs.json");
 	const data = await response.json();
 
 	for (let e of data.prefs) {
@@ -190,8 +191,10 @@ document.querySelector("#imagepicker").addEventListener("change", function () {
 		if (!document.querySelector("#preview").classList.contains("loaded")) {
 			document.querySelector("#preview").classList.add("loaded");
 		}
-		document.querySelector("#preview").title = "Click to open in a new tab";
+		
 		loadBackground();
+		
+		browser.runtime.reload();
 	});
 });
 

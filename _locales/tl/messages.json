@@ -1,0 +1,90 @@
+{
+	"extensionName": {
+		"message": "zap's cool photon theme",
+		"description": "Name of the extension."
+	},
+	"extensionShortName": {
+		"message": "ZCPT",
+		"description": "A shortened name of the extension."
+	},
+	"extensionDescription": {
+		"message": "isang photon tema para sa Firefox. base sa paxmod.",
+		"description": "Description of the extension."
+	},
+	"extensionOptions": {
+		"message": "Options",
+		"description": "Title of the options page."
+	},
+	"extensionSettings": {
+		"message": "Settings",
+		"description": "Title of the Settings page."
+	},
+	"desc-name": {
+		"message": "Mag-hover sa isang item upang makita ang deskripsyon nito",
+		"description": "Incompatible with text with colon."
+	},
+	"incompat-text": {
+		"message": "Ipinagbabawal na options:",
+		"description": "Incompatible with text with colon."
+	},
+	"clear": {
+		"message": "Burahin ang mga options",
+		"description": "Clear options."
+	},
+	"export": {
+		"message": "Apply",
+		"description": "Apply options to the interface. The ID is a leftover from the website."
+	},
+	"reload-extension-header": {
+		"message": "i-Reload ang Extension",
+		"description": "Header for the reload extension section."
+	},
+	"reload-text": {
+		"message": "i-Reload ang extension para maayos ang mga problema. Hindi ito mag-clear ng mga data.",
+		"description": "Reloads the extension to potenially fix issues and does not remove data."
+	},
+	"new-tab-background-header": {
+		"message": "Background sa New Tab",
+		"description": "Header for the new tab background section."
+	},
+	"newtab-notice": {
+		"message": "Hindi naka-enable uc.newtab.background at hindi makita ang background.",
+		"description": "Notice to tell the user that they need to enable uc.newtab.background to show the background."
+	},
+	"reload-button": {
+		"message": "i-Reload",
+		"description": "Reload extension button."
+	},
+	"imagepicker-button": {
+		"message": "Mag-browse",
+		"description": "Image picker button."
+	},
+	"preview-container": {
+		"message": "i-Click para mabuksan sa bagong tab.",
+		"description": "Image picker button."
+	},
+	"apierror-title-text": {
+		"message": "Hindi ma-load ang extension",
+		"description": "Heading of the API error page."
+	},
+	"apierror-page-title": {
+		"message": "Hindi ma-load ang extension",
+		"description": "Title of the API error page. This is the title of the tab that opens."
+	},
+	"apierrorShortDesc": {
+		"message": "Hindi maka-load ang Zap's Cool Photon Theme extension ng mga naka-bundle na API Experiments.<br><br>Verify na:",
+		"description": "Description of the problem."
+	},
+	"apierror-line-1": {
+		"message": "Gumagamit ka ng <a href=\"https://www.mozilla.org/en-US/firefox/channel/desktop/#developer\">Firefox Developer Editon</a> o <a href=\"https://www.mozilla.org/en-US/firefox/channel/desktop/#nightly\">Firefox Nightly</a>.",
+		"description": "First line of the API error list which states that the user must use the Firefox Developer Editon or the Firefox Nightly browsers."
+	},
+	"apierror-line-2": {
+		"message": "Ang extensions.experiments.enabled ay true sa about:config.",
+		"description": "First line of the API error list which states that extensions.experiments.enabled must be enabled in about:config."
+	},
+	"apierror-fileissue": {
+		"message": "Walang gumagana? Gumawa ng isyu sa <a href=\"https://github.com/zapSNH/zcpt-webextension/issues/new\">GitHub</a>.",
+		"description": "File an issue on GitHub if nothing works."
+	}
+}

@@ -1,4 +1,7 @@
 async function startup() {
+  if (!('aboutconfig' in browser && 'stylesheet' in browser)) {
+    browser.tabs.create({url: browser.runtime.getURL('apierror.html')});
+  }
   loadSheet('chrome/userChrome.css', 'USER_SHEET');
   loadSheet('chrome/userContent.css', 'USER_SHEET');
   loadSheet('custom/custom.css', 'USER_SHEET');

@@ -1,0 +1,90 @@
+{
+	"extensionName": {
+		"message": "zap's cool photon theme",
+		"description": "Name of the extension."
+	},
+	"extensionShortName": {
+		"message": "ZCPT",
+		"description": "A shortened name of the extension."
+	},
+	"extensionDescription": {
+		"message": "a cool photon theme. webextension version based off of paxmod.",
+		"description": "Description of the extension."
+	},
+	"extensionOptions": {
+		"message": "Options",
+		"description": "Title of the options page."
+	},
+	"extensionSettings": {
+		"message": "Settings",
+		"description": "Title of the Settings page."
+	},
+	"desc-name": {
+		"message": "Hover over an item to see its description",
+		"description": "Incompatible with text with colon."
+	},
+	"incompat-text": {
+		"message": "Incompatible With:",
+		"description": "Incompatible with text with colon."
+	},
+	"clear": {
+		"message": "Clear",
+		"description": "Clear options."
+	},
+	"export": {
+		"message": "Apply",
+		"description": "Apply options to the interface. The ID is a leftover from the website."
+	},
+	"reload-extension-header": {
+		"message": "Reload Extension",
+		"description": "Header for the reload extension section."
+	},
+	"reload-text": {
+		"message": "Reloads the extension to potentially fix some issues. This does not clear your data.",
+		"description": "Reloads the extension to potenially fix issues and does not remove data."
+	},
+	"new-tab-background-header": {
+		"message": "New Tab Background",
+		"description": "Header for the new tab background section."
+	},
+	"newtab-notice": {
+		"message": "uc.newtab.background isn't enabled. Background won't be shown.",
+		"description": "Notice to tell the user that they need to enable uc.newtab.background to show the background."
+	},
+	"reload-button": {
+		"message": "Reload",
+		"description": "Reload extension button."
+	},
+	"imagepicker-button": {
+		"message": "Browse",
+		"description": "Image picker button."
+	},
+	"preview-container": {
+		"message": "Click to open in a new tab.",
+		"description": "Image picker button."
+	},
+	"apierror-title-text": {
+		"message": "Unable to Load Extension",
+		"description": "Heading of the API error page."
+	},
+	"apierror-page-title": {
+		"message": "Problem loading extension",
+		"description": "Title of the API error page. This is the title of the tab that opens."
+	},
+	"apierrorShortDesc": {
+		"message": "Zap's Cool Photon Theme was unable to load since it was unable to access the bundled API Experiments.<br><br>Please verify that:",
+		"description": "Description of the problem."
+	},
+	"apierror-line-1": {
+		"message": "You're using <a href=\"https://www.mozilla.org/en-US/firefox/channel/desktop/#developer\">Firefox Developer Editon</a> or <a href=\"https://www.mozilla.org/en-US/firefox/channel/desktop/#nightly\">Firefox Nightly</a>.",
+		"description": "First line of the API error list which states that the user must use the Firefox Developer Editon or the Firefox Nightly browsers."
+	},
+	"apierror-line-2": {
+		"message": "extensions.experiments.enabled is set to true in about:config.",
+		"description": "First line of the API error list which states that extensions.experiments.enabled must be enabled in about:config."
+	},
+	"apierror-fileissue": {
+		"message": "Nothing works? File an issue on <a href=\"https://github.com/zapSNH/zcpt-webextension/issues/new\">GitHub</a>.",
+		"description": "File an issue on GitHub if nothing works."
+	}
+}

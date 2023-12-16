@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tl">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,11 +24,11 @@
 		</div>
 		<div id="description">
             <div id="topbar">
-                <div id="desc-name">
+                <div id="desc-name" class="i18n-target">
                     Hover over an item to see its description
                 </div>
                 <div id="incompat-box" class="empty">
-                    Incompatible with:
+					<span id="incompat-text" class="i18n-target">Incompatible With:</span>
                     <div>N/A</div>
                 </div>
             </div>
@@ -40,31 +40,34 @@
 			</div>
 		</div>
 		<div id="button-box">
-			<a id="clear">Clear</a>
-			<a id="export">Apply</a>
+			<a id="clear" class="i18n-target">Clear</a>
+			<a id="export" class="i18n-target">Apply</a>
 		</div>
 	</div>
 	<div id="settings-menu">
 		<div class="settings-section">
-			<div class="header">Reload Extension</div>
+			<div id="reload-extension-header" class="header i18n-target">Reload Extension</div>
 			<div id="reload">
-				<div>Reloads the extension to potentially fix some issues. This does not clear your data.</div>
-				<button id="reload-button">Reload</button>
+				<div id="reload-text" class="i18n-target">Reloads the extension to potentially fix some issues. This does not clear your data.</div>
+				<button id="reload-button" class="i18n-target">Reload</button>
 			</div>
 		</div>
 		<div class="settings-section">
-			<div class="header">New Tab Background</div>
+			<div id="new-tab-background-header" class="header i18n-target">New Tab Background</div>
 			<div id="bkgimg">
-				<div id="newtab-notice"><code>uc.newtab.background</code> isn't enabled. Background won't be shown.</div>
-				<label id="imagepicker-button">
-					<input id="imagepicker" type="file">
+				<div id="newtab-notice" class="i18n-target">uc.newtab.background isn't enabled. Background won't be shown.</div>
+				<label for="imagepicker" id="imagepicker-button" class="i18n-target">
 					Browse
 				</label>
-				<a id="preview-container" href="" target="_blank"><img id="preview" src="./images/background.png" alt="Default Image" class="loaded"></a>
+				<input id="imagepicker" type="file">
+				<a id="preview-container" href="" target="_blank" class="i18n-target-title">
+					<img id="preview" src="./images/background.png" class="loaded">
+				</a>
 				<div id="img-name">background.png</div>
 			</div>
 		</div>
 	</div>
 	<script type="module" src="option.js"></script>
+	<script src="../i18n.js"></script>
 </body>
 </html>

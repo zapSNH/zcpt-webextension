@@ -1,0 +1,19 @@
+{
+	"prefs": [
+		["uc.bottom-tabs",						[1, 0, [2], [], []],			"Tabs sa ilalim"],
+		["uc.bottom-tabs.bookmark-on-top",		[2, 1, [], [], [1]],			"Tabs sa ilalim at bookmarks bar sa taas"],
+		["uc.sidebery",							[3, 0, [], [], []],             "Tabs na patayo gamit ng Sidebery"],
+		["uc.titlebar-accent.darktext",			[4, 0, [], [5], []],			"Madilim na titlebar text kung gamitin ang system theme"],
+		["uc.titlebar-accent.lighttext",		[5, 0, [], [4], []],			"Light titlebar text kung gamitin ang system theme"],
+		["uc.theme.tab-color-same-as-navbar",	[6, 0, [], [7], []],			"Tab color ay ang navbar color"],
+		["uc.theme.navbar-color-same-as-tab",	[7, 0, [], [6], []],			"Navbar color ay ang tab color"],
+		["uc.reduced-megabar",					[8, 0, [], [9], []],			"Maliit na megabar"],
+		["uc.no-megabar",						[9, 0, [], [8], []],			"Walang megabar"],
+		["uc.contextmenu.win-10",				[10, 0, [12, 13], [11], []],	"Windows 10 styled menu"],
+		["uc.contextmenu.win-11",				[11, 0, [12, 13], [10], []],	"Windows 11 styled menu"],
+		["uc.contextmenu.dark",	 				[12, 0, [], [13], []],			"Madilim na context menu w/ Windows 10/11 styled context menu"],
+		["uc.contextmenu.light",				[13, 0, [], [12], []],			"Light context menu w/ Windows 10/11 styled context menu"],
+		["uc.newtab.background",				[14, 0, [], [], []],			"Background sa new tab"],
+		["uc.full-width-tabs",					[15, 0, [], [], []],			"Buong lapad na tabs"]	
+	]
+}
