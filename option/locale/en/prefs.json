@@ -2,7 +2,7 @@
 	"prefs": [
 		["uc.bottom-tabs",						[1, 0, [2], [], []],			"Bottom tabs"],
 		["uc.bottom-tabs.bookmark-on-top",		[2, 1, [], [], [1]],			"Bottom tabs with bookmarks bar on top"],
-		["uc.sidebery",							[3, 0, [], [], []],             "Vertical tabs with Sidebery"],
+		["uc.sidebery",							[3, 0, [], [], []],	"Vertical tabs with Sidebery"],
 		["uc.titlebar-accent.darktext",			[4, 0, [], [5], []],			"Dark titlebar text with titlebar accent color"],
 		["uc.titlebar-accent.lighttext",		[5, 0, [], [4], []],			"Light titlebar text with titlebar accent color"],
 		["uc.theme.tab-color-same-as-navbar",	[6, 0, [], [7], []],			"Tab color takes the navbar color"],
@@ -14,6 +14,7 @@
 		["uc.contextmenu.dark",	 				[12, 0, [], [13], []],			"Dark context menu w/ Windows 10/11 styled context menu"],
 		["uc.contextmenu.light",				[13, 0, [], [12], []],			"Light context menu w/ Windows 10/11 styled context menu"],
 		["uc.newtab.background",				[14, 0, [], [], []],			"New tab background"],
-		["uc.full-width-tabs",					[15, 0, [], [], []],			"Full width tabs"]	
+		["uc.full-width-tabs",					[15, 0, [], [], []],			"Full width tabs"],
+		["uc.style-forms",						[16, 0, [], [], []],			"Themes HTML Forms. May break some stuff."]
 	]
 }

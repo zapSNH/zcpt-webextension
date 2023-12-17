@@ -34,6 +34,22 @@
             "type": "string"
           }
         ]
+      },
+      {
+        "name": "isLoaded",
+        "type": "function",
+        "description": "Returns whether sheet is loaded",
+        "async": true,
+        "parameters": [
+          {
+            "name": "uri",
+            "type": "string"
+          },
+          {
+            "name": "type",
+            "type": "string"
+          }
+        ]
       }
     ]
   }

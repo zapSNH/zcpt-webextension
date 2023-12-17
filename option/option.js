@@ -3,7 +3,7 @@
 // please make sure an emergency line is with you while ya look at this ok?
 // p.s. this is NOT EDIBLE spaghetto code
 
-import { setOptions, getOption, setBackground, loadBackground } from "../background.js";
+import { setOptions, getOption, setBackground } from "../background.js";
 
 // two letter (or hyphenated) language list
 const langList = ["en", "tl"];
@@ -30,9 +30,10 @@ document.querySelector("#settings").addEventListener("click", function (e) {
 	}
 });
 
-document.querySelector("#reload").addEventListener("click", function (e) {
+document.querySelector("#reload").addEventListener("click", function () {
 	browser.runtime.reload();
 });
+
 function toggle() {
 	let index = this.index; // potentially useful leftover
 	let requires = this.requires;
@@ -123,6 +124,7 @@ async function load() {
 		});
 		document.querySelector("#pref-list").appendChild(prefRow);
 	}
+
 	await getOption("uc.newtab.background").then(val => {
 		if (val == true) {
 			document.querySelector("#newtab-notice").style = "display: none";
@@ -130,7 +132,9 @@ async function load() {
 			document.querySelector("#newtab-notice").style = "";
 		}
 	});
+
 	refreshWarnings();
+
 	document.querySelector("#export").addEventListener("click", function () {
 		document.querySelectorAll(".pref").forEach(async function (e) {
 			if (e.classList.contains("true")) {
@@ -147,27 +151,26 @@ async function load() {
 			});
 		});
 	});
+
 	await browser.storage.local.get("newtabbackground").then((val) => {
 		if (val.newtabbackground) {
 			document.querySelector("#preview").src = val.newtabbackground;
 			document.querySelector("#preview-container").href = val.newtabbackground;
-		} else {
-			document.querySelector("#preview").src = "./images/background.png";
-			document.querySelector("#preview-container").href = "./images/background.png";
+			document.querySelector("#preview").classList.add("loaded");
 		}
-		document.querySelector("#preview").classList.add("loaded");
-		document.querySelector("#preview").title = "Click to open in a new tab";
-		loadBackground();
 	});
+
 	await browser.storage.local.get("newtabbackgroundname").then((val) => {
 		if (val.newtabbackgroundname) {
 			document.querySelector("#img-name").innerHTML = val.newtabbackgroundname;
 		} else {
-			document.querySelector("#img-name").innerHTML = "background.png";
+			document.querySelector("#img-name").innerHTML = i18n.getMessage("no-image-text");
 		}
 	});
 }
 
+
+// Image Picker
 document.querySelector("#imagepicker").addEventListener("change", function () {
 	const reader = new FileReader();
 
@@ -176,7 +179,6 @@ document.querySelector("#imagepicker").addEventListener("change", function () {
 	}
 
 	reader.addEventListener("load", async () => {
-		// WHY IS THIS ASYNCHRONOUSDIUSID
 		await browser.storage.local.set({
 			newtabbackground: reader.result
 		}).then( async () =>
@@ -194,15 +196,11 @@ document.querySelector("#imagepicker").addEventListener("change", function () {
 			})
 		);
 
-		setBackground(reader.result);
-
 		if (!document.querySelector("#preview").classList.contains("loaded")) {
 			document.querySelector("#preview").classList.add("loaded");
 		}
-		
-		loadBackground();
-		
-		browser.runtime.reload();
+
+		await setBackground(reader.result).then(browser.runtime.reload());
 	});
 });
 

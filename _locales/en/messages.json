@@ -63,6 +63,10 @@
 		"message": "Click to open in a new tab.",
 		"description": "Image picker button."
 	},
+	"no-image-text": {
+		"message": "No Image",
+		"description": "No image text"
+	},
 	"apierror-title-text": {
 		"message": "Unable to Load Extension",
 		"description": "Heading of the API error page."

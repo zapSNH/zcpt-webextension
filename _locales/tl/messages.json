@@ -63,6 +63,10 @@
 		"message": "i-Click para mabuksan sa bagong tab.",
 		"description": "Image picker button."
 	},
+	"no-image-text": {
+		"message": "Walang Imahe",
+		"description": "No image text"
+	},
 	"apierror-title-text": {
 		"message": "Hindi ma-load ang extension",
 		"description": "Heading of the API error page."

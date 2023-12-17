@@ -40,6 +40,10 @@ this.stylesheet = class extends ExtensionAPI {
             let index = loadedSheets.findIndex(s => s.uri == uri && s.type == type);
             loadedSheets.splice(index, 1);
           }
+        },
+        async isLoaded(uri, type) {
+          let uriObj = ios.newURI(uri, null, null);
+          return sss.sheetRegistered(uriObj, sss[type]);
         }
       }
     };
