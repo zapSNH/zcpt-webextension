@@ -19,5 +19,6 @@
 	font-family: 'Zilla Slab', sans-serif;
 	filter: grayscale(1);
 	opacity: 0.33;
+	pointer-events: none;
 }
 }
