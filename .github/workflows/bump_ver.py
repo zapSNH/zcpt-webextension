@@ -10,7 +10,7 @@ def bump(new_ver_v):
           "update_link": "https://github.com/zapSNH/zcpt-webextension/releases/download/v''' + new_ver + '''/zapsCoolPhotonTheme.xpi",
           "applications": {
             "gecko": {
-                "strict_min_version": "121.0a1"
+                "strict_min_version": "115.0"
             }
           }
         }
