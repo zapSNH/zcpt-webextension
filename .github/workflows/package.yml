@@ -12,7 +12,7 @@ jobs:
             branch: "HEAD:main"
             sync-branch: "webextension"
           - name: "zapsCoolPhotonTheme-esr"
-            branch: "esr"
+            branch: "HEAD:esr"
             sync-branch: "webextension-esr"
 
     runs-on: ubuntu-latest
