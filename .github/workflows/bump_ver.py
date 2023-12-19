@@ -3,7 +3,7 @@ import sys
 
 def bump(new_ver_v):
 	new_ver = new_ver_v.replace("v", "")
-	manifest_template = "\"version\": \"" + new_ver + "\".1"
+	manifest_template = "\"version\": \"" + new_ver + ".1\""
 	updates_template = '''{
   "addons": {
     "coolPhotonTheme@zapsnh": {
