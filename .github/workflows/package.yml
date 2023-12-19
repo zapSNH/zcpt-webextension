@@ -34,8 +34,14 @@ jobs:
         git config user.email 'github-actions[bot]@users.noreply.github.com'
 
     - name: bump version
+      if: matrix.name == 'zapsCoolPhotonTheme'
       run: |
-        python3 .github/workflows/bump_ver.py bump ${{ github.ref_name }}    
+        python3 .github/workflows/bump_ver.py bump ${{ github.ref_name }}
+
+    - name: bump version - ESR
+      if: matrix.name == 'zapsCoolPhotonTheme-esr'
+      run: |
+        python3 .github/workflows/bump_ver.py bump ${{ github.ref_name }}.1
 
     - name: commit and push changes
       run: |
