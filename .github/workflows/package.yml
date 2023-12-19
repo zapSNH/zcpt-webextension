@@ -5,6 +5,16 @@ on:
 
 jobs:
   package:
+    strategy:
+      matrix:
+        include:
+          - name: "zapsCoolPhotonTheme"
+            branch: "main"
+            sync-branch: "webextension"
+          - name: "zapsCoolPhotonTheme-esr"
+            branch: "esr"
+            sync-branch: "webextension-esr"
+
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -15,7 +25,7 @@ jobs:
       uses: actions/checkout@v3
       with:
           repository: zapsnh/zapsCoolPhotonTheme
-          ref: webextension
+          ref: ${{ matrix.sync-branch }}
           path: chrome
 
     - name: add gh bot creds
@@ -31,39 +41,12 @@ jobs:
       run: |
         git add .
         git commit -m "bump version: ${{ github.ref_name }}"
-        git push origin HEAD:main
+        git push origin HEAD:${{ matrix.branch }}
 
     - name: zip files
       run: |
         rm -rf ./README.md ./.git ./.gitignore ./.github ./updates.json ./chrome/.git
         zip -r -FS zapsCoolPhotonTheme.xpi *
-    
-    - uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
-
-    - name: add gh bot creds
-      run: |
-        git config user.name 'github-actions[bot]'
-        git config user.email 'github-actions[bot]@users.noreply.github.com'
-    
-    - name: sync zcpt - ESR
-      uses: actions/checkout@v3
-      with:
-          repository: zapsnh/zapsCoolPhotonTheme
-          ref: webextension-esr
-          path: chrome
-
-    - name: commit and push changes - ESR
-      run: |
-        git add .
-        git commit -m "bump version: ${{ github.ref_name }}"
-        git push origin HEAD:esr
-
-    - name: zip files - ESR
-      run: |
-        rm -rf ./README.md ./.git ./.gitignore ./.github ./updates.json ./chrome/.git
-        zip -r -FS zapsCoolPhotonTheme-esr.xpi *
         
     - name: release
       uses: softprops/action-gh-release@v1
@@ -71,5 +54,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
       with:
         files: |
-            zapsCoolPhotonTheme.xpi
-            zapsCoolPhotonTheme-esr.xpi
+          ${{ matrix.name }}.xpi
