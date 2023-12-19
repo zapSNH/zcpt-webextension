@@ -17,6 +17,7 @@ jobs:
           repository: zapsnh/zapsCoolPhotonTheme
           ref: webextension
           path: chrome
+
     - name: add gh bot creds
       run: |
         git config user.name 'github-actions[bot]'
@@ -36,6 +37,24 @@ jobs:
       run: |
         rm -rf ./README.md ./.git ./.gitignore ./.github ./updates.json ./chrome/.git
         zip -r -FS zapsCoolPhotonTheme.xpi *
+
+    - name: sync zcpt - ESR
+      uses: actions/checkout@v3
+      with:
+          repository: zapsnh/zapsCoolPhotonTheme
+          ref: webextension-esr
+          path: chrome
+
+    - name: commit and push changes - ESR
+      run: |
+        git add .
+        git commit -m "bump version: ${{ github.ref_name }}"
+        git push origin esr
+
+    - name: zip files - ESR
+      run: |
+        rm -rf ./README.md ./.git ./.gitignore ./.github ./updates.json ./chrome/.git
+        zip -r -FS zapsCoolPhotonTheme-esr.xpi *
         
     - name: release
       uses: softprops/action-gh-release@v1
@@ -44,3 +63,4 @@ jobs:
       with:
         files: |
             zapsCoolPhotonTheme.xpi
+            zapsCoolPhotonTheme-esr.xpi
