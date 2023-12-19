@@ -41,7 +41,7 @@ jobs:
     - uses: actions/checkout@v3
       with:
         fetch-depth: 0
-        
+
     - name: add gh bot creds
       run: |
         git config user.name 'github-actions[bot]'
@@ -58,7 +58,7 @@ jobs:
       run: |
         git add .
         git commit -m "bump version: ${{ github.ref_name }}"
-        git push origin esr
+        git push origin HEAD:esr
 
     - name: zip files - ESR
       run: |
