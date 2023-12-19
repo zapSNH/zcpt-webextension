@@ -13,7 +13,8 @@ def bump(new_ver_v):
           "update_link": "https://github.com/zapSNH/zcpt-webextension/releases/download/v''' + new_ver + '''/zapsCoolPhotonTheme-esr.xpi",
           "applications": {
             "gecko": {
-                "strict_min_version": "115.0"
+                "strict_min_version": "115.0",
+                "strict_max_version": "115.*"
             }
           }
         },
@@ -35,6 +36,12 @@ def bump(new_ver_v):
 	replace(manifest_template, "manifest.json", "\"version\": \".*\"")
 	replaceAll(updates_template, "updates.json")
 	replace(versioncss_template, "custom/resources/version.css", "content: \"zapsCoolPhotonTheme v.* \(webextension\)\";")
+	
+def bumpESR(new_ver_v):
+	bump(new_ver_v)
+	new_ver = new_ver_v.replace("v", "")
+	manifest_template = "\"version\": \"" + new_ver + "\""
+	replace(manifest_template, "manifest.json", "\"version\": \".*\"")
 
 
 def replace(new_ver, file, regex):

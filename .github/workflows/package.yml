@@ -41,7 +41,7 @@ jobs:
     - name: bump version - ESR
       if: matrix.name == 'zapsCoolPhotonTheme-esr'
       run: |
-        python3 .github/workflows/bump_ver.py bump ${{ github.ref_name }}.1
+        python3 .github/workflows/bump_ver.py bumpESR ${{ github.ref_name }}
 
     - name: commit and push changes
       run: |
