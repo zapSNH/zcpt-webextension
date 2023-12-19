@@ -19,7 +19,7 @@ def bump(new_ver_v):
         },
         {
           "version": "''' + new_ver + '''.1",
-          "update_link": "https://github.com/zapSNH/zcpt-webextension/releases/download/v0''' + new_ver + '''.1/zapsCoolPhotonTheme.xpi",
+          "update_link": "https://github.com/zapSNH/zcpt-webextension/releases/download/v''' + new_ver + '''.1/zapsCoolPhotonTheme.xpi",
           "applications": {
             "gecko": {
                 "strict_min_version": "116.0"
@@ -50,7 +50,7 @@ def replace(new_ver, file, regex):
 	
 def replaceAll(new_ver, file):
 	new_content = new_ver
-	
+
 	f = open(file, "w")
 	f.write(new_content)
 	f.close()

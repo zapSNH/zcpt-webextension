@@ -9,7 +9,7 @@ jobs:
       matrix:
         include:
           - name: "zapsCoolPhotonTheme"
-            branch: "main"
+            branch: "HEAD:main"
             sync-branch: "webextension"
           - name: "zapsCoolPhotonTheme-esr"
             branch: "esr"
@@ -41,7 +41,7 @@ jobs:
       run: |
         git add .
         git commit -m "bump version: ${{ github.ref_name }}"
-        git push origin HEAD:${{ matrix.branch }}
+        git push origin ${{ matrix.branch }}
 
     - name: zip files
       run: |
