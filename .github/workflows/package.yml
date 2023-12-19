@@ -41,7 +41,7 @@ jobs:
       run: |
         git add .
         git commit -m "bump version: ${{ github.ref_name }}"
-        git push origin ${{ matrix.branch }}
+        git push origin ${{ matrix.branch }} --force
 
     - name: zip files
       run: |
