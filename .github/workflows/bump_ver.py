@@ -10,7 +10,7 @@ def bump(new_ver_v):
       "updates": [
         {
           "version": "''' + new_ver + '''",
-          "update_link": "https://github.com/zapSNH/zcpt-webextension/releases/download/v''' + new_ver + '''/zapsCoolPhotonTheme.xpi",
+          "update_link": "https://github.com/zapSNH/zcpt-webextension/releases/download/v''' + new_ver + '''/zapsCoolPhotonTheme-esr.xpi",
           "applications": {
             "gecko": {
                 "strict_min_version": "115.0"
@@ -19,7 +19,7 @@ def bump(new_ver_v):
         },
         {
           "version": "''' + new_ver + '''.1",
-          "update_link": "https://github.com/zapSNH/zcpt-webextension/releases/download/v''' + new_ver + '''.1/zapsCoolPhotonTheme.xpi",
+          "update_link": "https://github.com/zapSNH/zcpt-webextension/releases/download/v''' + new_ver + '''/zapsCoolPhotonTheme.xpi",
           "applications": {
             "gecko": {
                 "strict_min_version": "116.0"
