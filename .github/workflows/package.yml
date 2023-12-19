@@ -46,7 +46,7 @@ jobs:
     - name: zip files
       run: |
         rm -rf ./README.md ./.git ./.gitignore ./.github ./updates.json ./chrome/.git
-        zip -r -FS zapsCoolPhotonTheme.xpi *
+        zip -r -FS ${{ matrix.name }}.xpi *
         
     - name: release
       uses: softprops/action-gh-release@v1
