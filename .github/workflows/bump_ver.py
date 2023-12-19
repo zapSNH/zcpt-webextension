@@ -3,7 +3,7 @@ import sys
 
 def bump(new_ver_v):
 	new_ver = new_ver_v.replace("v", "")
-	manifest_template = "\"version\": \"" + new_ver + "\""
+	manifest_template = "\"version\": \"" + new_ver + "\".1"
 	updates_template = '''{
   "addons": {
     "coolPhotonTheme@zapsnh": {
@@ -33,7 +33,7 @@ def bump(new_ver_v):
 }
 '''
 	versioncss_template = "content: \"zapsCoolPhotonTheme v" + new_ver + " (webextension)\";"
-	replace(manifest_template, "manifest.json", "\"version\": \".*\".1")
+	replace(manifest_template, "manifest.json", "\"version\": \".*\"")
 	replaceAll(updates_template, "updates.json")
 	replace(versioncss_template, "custom/resources/version.css", "content: \"zapsCoolPhotonTheme v.* \(webextension\)\";")
 	
