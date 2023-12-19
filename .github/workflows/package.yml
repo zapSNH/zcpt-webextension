@@ -37,7 +37,11 @@ jobs:
       run: |
         rm -rf ./README.md ./.git ./.gitignore ./.github ./updates.json ./chrome/.git
         zip -r -FS zapsCoolPhotonTheme.xpi *
-
+    
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    
     - name: sync zcpt - ESR
       uses: actions/checkout@v3
       with:
