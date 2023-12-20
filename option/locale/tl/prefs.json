@@ -3,8 +3,6 @@
 		["uc.bottom-tabs",						[1, 0, [2], [], []],			"Tabs sa ilalim"],
 		["uc.bottom-tabs.bookmark-on-top",		[2, 1, [], [], [1]],			"Tabs sa ilalim at bookmarks bar sa taas"],
 		["uc.sidebery",							[3, 0, [], [], []],             "Tabs na patayo gamit ng Sidebery"],
-		["uc.titlebar-accent.darktext",			[4, 0, [], [5], []],			"Madilim na titlebar text kung gamitin ang system theme"],
-		["uc.titlebar-accent.lighttext",		[5, 0, [], [4], []],			"Light titlebar text kung gamitin ang system theme"],
 		["uc.theme.tab-color-same-as-navbar",	[6, 0, [], [7], []],			"Tab color ay ang navbar color"],
 		["uc.theme.navbar-color-same-as-tab",	[7, 0, [], [6], []],			"Navbar color ay ang tab color"],
 		["uc.reduced-megabar",					[8, 0, [], [9], []],			"Maliit na megabar"],
