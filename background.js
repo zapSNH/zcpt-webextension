@@ -48,22 +48,24 @@ async function loadBackground() {
   });
 }
 
-browser.runtime.onInstalled.addListener((details) => {
-  if (details.reason == "install") {
-    fetch("defaultPrefs.json")
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      for (let pref of data.defaultPrefs) {
-        let prefName = pref.match(/(?<=user_pref\(\").*(?=\")/g);
-        let prefVal = pref.match(/(?<=\", ).*?(?=\))/g);
-        browser.aboutconfig.setPref(prefName[0], (prefVal[0] == "true") ? true : false);
-      }
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+browser.runtime.onInstalled.addListener(async ({reason}) => {
+  switch (reason) {
+    case "install":
+      fetch("defaultPrefs.json")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        for (let pref of data.defaultPrefs) {
+          let prefName = pref.match(/(?<=user_pref\(\").*(?=\")/g);
+          let prefVal = pref.match(/(?<=\", ).*?(?=\))/g);
+          browser.aboutconfig.setPref(prefName[0], (prefVal[0] == "true") ? true : false);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+      break;
   }
 });
 
