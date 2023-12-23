@@ -7,6 +7,7 @@ import { setOptions, getOption, setBackground } from "../background.js";
 
 // two letter (or hyphenated) language list
 const langList = ["en", "tl"];
+const esr_version = "115";
 let imgPath = "./images/light/";
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
 	imgPath = "./images/dark/";
@@ -135,7 +136,7 @@ async function load() {
 
 	refreshWarnings();
 
-	document.querySelector("#export").addEventListener("click", function () {
+	document.querySelector("#export").addEventListener("click", async function () {
 		document.querySelectorAll(".pref").forEach(async function (e) {
 			if (e.classList.contains("true")) {
 				setOptions(e.innerHTML, true);
@@ -145,10 +146,17 @@ async function load() {
 			await getOption("uc.newtab.background").then(val => {
 				if (val == true) {
 					document.querySelector("#newtab-notice").style = "display: none";
+					browser.runtime.reload()
 				} else {
 					document.querySelector("#newtab-notice").style = "";
 				}
 			});
+		})
+		
+		await browser.runtime.getBrowserInfo().then((info) => {
+			if (info.version.includes(esr_version)) {
+				browser.runtime.reload();
+			}
 		});
 	});
 
