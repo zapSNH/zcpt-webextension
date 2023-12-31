@@ -51,7 +51,7 @@ jobs:
 
     - name: zip files
       run: |
-        rm -rf ./README.md ./.git ./.gitignore ./.github ./updates.json ./chrome/.git
+        rm -rf ./README.md ./.git ./.gitignore ./.github ./updates.json ./chrome/.git ./chrome/.github
         zip -r -FS ${{ matrix.name }}.xpi *
         
     - name: release
