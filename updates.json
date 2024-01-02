@@ -3,8 +3,8 @@
     "coolPhotonTheme@zapsnh": {
       "updates": [
         {
-          "version": "0.19.4",
-          "update_link": "https://github.com/zapSNH/zcpt-webextension/releases/download/v0.19.4/zapsCoolPhotonTheme-esr.xpi",
+          "version": "0.19.5",
+          "update_link": "https://github.com/zapSNH/zcpt-webextension/releases/download/v0.19.5/zapsCoolPhotonTheme-esr.xpi",
           "applications": {
             "gecko": {
                 "strict_min_version": "115.0",
@@ -13,8 +13,8 @@
           }
         },
         {
-          "version": "0.19.4.1",
-          "update_link": "https://github.com/zapSNH/zcpt-webextension/releases/download/v0.19.4/zapsCoolPhotonTheme.xpi",
+          "version": "0.19.5.1",
+          "update_link": "https://github.com/zapSNH/zcpt-webextension/releases/download/v0.19.5/zapsCoolPhotonTheme.xpi",
           "applications": {
             "gecko": {
                 "strict_min_version": "116.0"
