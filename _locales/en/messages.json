@@ -80,7 +80,7 @@
 		"description": "Description of the problem."
 	},
 	"apierror-line-1": {
-		"message": "You're using <a href=\"https://www.mozilla.org/en-US/firefox/channel/desktop/#developer\">Firefox Developer Editon</a> or <a href=\"https://www.mozilla.org/en-US/firefox/channel/desktop/#nightly\">Firefox Nightly</a>.",
+		"message": "You're using <a href=\"https://www.mozilla.org/en-US/firefox/channel/desktop/#developer\">Firefox Developer Editon</a>, <a href=\"https://www.mozilla.org/en-US/firefox/channel/desktop/#nightly\">Firefox Nightly</a>, or <a href=\"https://www.mozilla.org/en-US/firefox/all/#product-desktop-esr\">Firefox ESR</a>.",
 		"description": "First line of the API error list which states that the user must use the Firefox Developer Editon or the Firefox Nightly browsers."
 	},
 	"apierror-line-2": {
