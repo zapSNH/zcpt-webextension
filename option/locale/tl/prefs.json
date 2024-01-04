@@ -7,12 +7,13 @@
 		["uc.theme.navbar-color-same-as-tab",	[5, 0, [], [4], []],			"Navbar color ay ang tab color"],
 		["uc.reduced-megabar",					[6, 0, [], [7], []],			"Maliit na megabar"],
 		["uc.no-megabar",						[7, 0, [], [6], []],			"Walang megabar"],
-		["uc.contextmenu.win-10",				[8, 0, [10, 11], [9], []],	"Windows 10 styled menu"],
-		["uc.contextmenu.win-11",				[9, 0, [10, 11], [8], []],	"Windows 11 styled menu"],
+		["uc.contextmenu.win-10",				[8, 0, [10, 11], [9], []],		"Windows 10 styled menu"],
+		["uc.contextmenu.win-11",				[9, 0, [10, 11], [8], []],		"Windows 11 styled menu"],
 		["uc.contextmenu.dark",	 				[10, 0, [], [11], []],			"Madilim na context menu w/ Windows 10/11 styled context menu"],
 		["uc.contextmenu.light",				[11, 0, [], [10], []],			"Light context menu w/ Windows 10/11 styled context menu"],
 		["uc.newtab.background",				[12, 0, [], [], []],			"Background sa new tab"],
 		["uc.full-width-tabs",					[13, 0, [], [], []],			"Buong lapad na tabs"],
-		["uc.style-forms",						[14, 0, [], [], []],			"i-Theme ang mga HTML Form. Maaaring masira ang mga forms sa website."]
+		["uc.style-forms",						[14, 0, [], [], []],			"i-Theme ang mga HTML Form. Maaaring masira ang mga forms sa website."],
+		["uc.revert-all-tabs-behavior",			[15, 0, [], [], []],			"Hindi ipakita ang \"all tabs\" na button kung hindi nag-overflow ang tabs gaya sa pre-Photon/early-Proton"]
 	]
 }

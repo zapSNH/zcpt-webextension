@@ -13,6 +13,7 @@
 		["uc.contextmenu.light",				[11, 0, [], [10], []],			"Light context menu w/ Windows 10/11 styled context menu"],
 		["uc.newtab.background",				[12, 0, [], [], []],			"New tab background"],
 		["uc.full-width-tabs",					[13, 0, [], [], []],			"Full width tabs"],
-		["uc.style-forms",						[14, 0, [], [], []],			"Themes HTML Forms. May break some stuff."]
+		["uc.style-forms",						[14, 0, [], [], []],			"Themes HTML Forms. May break some stuff."],
+		["uc.revert-all-tabs-behavior",			[15, 0, [], [], []],			"Only show the all tabs button when the tab bar is overflowing just like pre-Photon/early-Proton"]
 	]
 }
