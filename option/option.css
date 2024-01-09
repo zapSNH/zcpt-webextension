@@ -355,7 +355,7 @@ body.open {
 		margin-block: -1px;
 	}
 }
-#imagepicker-button, #reload-button {
+#imagepicker-button, #reload-button, #apply-css-button {
 	font-family: 'Fira Sans', 'Segoe UI', 'Lato', sans-serif;
 	user-select: none;
 	border-radius: 2px;
@@ -386,6 +386,10 @@ body.open {
 #reload-button {
 	background-image: url(./images/reload.svg);
 }
+#apply-css-button {
+	background-image: url(./images/check-alt.svg);
+	margin-block: 4px;
+}
 #preview:not(.loaded) + #clear-img {
 	display: none;
 }
@@ -405,6 +409,23 @@ body.open {
 	font-weight: 600;
 	border-radius: 2px;
 	box-shadow: var(--box-shadow-2);
+}
+textarea {
+	resize: none;
+}
+#css-textarea {
+	background: var(--background);
+	border: 1px solid var(--border-1);
+	color: var(--color-1);
+	width: calc(100% - 8px);
+	height: 250px;
+	font-family: 'Fira Code', monospace;
+	outline: none;
+	tab-size: 4;
+}
+#custom-css-note {
+	opacity: 0.5;
+	font-size: small;
 }
 /* reshponivv! */
 @media (max-width: 900px) {

@@ -16,6 +16,12 @@ async function startup() {
   }).catch((error) => {
     console.log(error);
   })
+
+  await browser.storage.local.get("customcss").then((val) => {
+    if (val.customcss) {
+      loadSheet('data:text/css;charset=UTF-8,' + encodeURIComponent(val.customcss), 'AGENT_SHEET');
+    }
+  });
 }
 
 async function loadSheet(name, type) {

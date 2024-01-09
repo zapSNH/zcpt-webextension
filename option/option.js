@@ -1,7 +1,5 @@
 // do not look inside, you have been warned
-// please, you will be scarred for life
-// please make sure an emergency line is with you while ya look at this ok?
-// p.s. this is NOT EDIBLE spaghetto code
+// p.s. there are no else ifs in this code. like none.
 
 import { setOptions, getOption, setBackground } from "../background.js";
 
@@ -35,12 +33,59 @@ document.querySelector("#reload").addEventListener("click", function () {
 	browser.runtime.reload();
 });
 
+// TODO: add save button to prevent people like me from accidentally borking their firefoxes
+document.querySelector("#apply-css-button").addEventListener("click", async function () {
+	await browser.storage.local.set({
+		customcss: document.querySelector("#css-textarea").value
+	});
+	browser.runtime.reload();
+});
+
+document.querySelector("#css-textarea").addEventListener("keydown", function (e) {
+	let elem = e.target;
+
+	switch (e.keyCode) {
+		// auto tab
+		// https://www.eddymens.com/blog/how-to-allow-the-use-of-tabs-in-a-textarea
+		case 9:
+			elem.setRangeText(
+				'\t',
+				elem.selectionStart,
+				elem.selectionStart,
+				'end'
+			);
+			e.preventDefault();
+			break;
+		case 222:
+			elem.setRangeText(
+				e.key,
+				elem.selectionStart,
+				elem.selectionEnd
+			);
+			break;
+		case 219:
+		case 57:
+			let closingChar = "";
+			if (e.key === "9") break;
+			if (e.key === "{") closingChar = "}";
+			if (e.key === "[") closingChar = "]";
+			if (e.key === "(") closingChar = ")";
+			elem.setRangeText(
+				closingChar,
+				elem.selectionStart,
+				elem.selectionEnd
+			);
+			break;
+		default:
+	}
+});
+
 function toggle() {
-	let index = this.index; // potentially useful leftover
+	// let index = this.index; potentially useful leftover
 	let requires = this.requires;
 	let provides = this.provides;
 	let negates = this.negates;
-	let replaces = this.replaces; // potentially useful leftover
+	// let replaces = this.replaces; potentially useful leftover
 
 	if (!this.classList.contains("true")) {
 
@@ -175,6 +220,12 @@ async function load() {
 			document.querySelector("#img-name").innerHTML = i18n.getMessage("no-image-text");
 		}
 	});
+
+	await browser.storage.local.get("customcss").then((val) => {
+		if (val.customcss) {
+			document.querySelector("#css-textarea").value = val.customcss;
+		}
+	  });
 }
 
 
