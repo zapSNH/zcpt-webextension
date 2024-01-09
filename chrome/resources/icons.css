@@ -566,7 +566,7 @@
 #appMenu-find-button2 {
   margin-bottom: 8px !important;
 }
-@media (-moz-bool-pref: "browser.translations.enable") {
+@supports -moz-bool-pref("browser.translations.enable") {
   #appMenu-translate-button {
   	margin-bottom: 8px !important;
   }
@@ -1221,6 +1221,8 @@ menuitem[data-l10n-id="sidebar-menu-close"] .menu-text {
 /* notifications */
 .container.infobar .close {
 	background-image: url(./icons/close-icon2.svg) !important;
+	-moz-context-properties: stroke !important;
+	stroke: currentColor !important;
 }
 .container.infobar .icon::after {
 	background-image: url(./icons/info-color.svg) !important;
