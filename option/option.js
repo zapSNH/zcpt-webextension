@@ -33,10 +33,16 @@ document.querySelector("#reload").addEventListener("click", function () {
 	browser.runtime.reload();
 });
 
-// TODO: add save button to prevent people like me from accidentally borking their firefoxes
 document.querySelector("#apply-css-button").addEventListener("click", async function () {
 	await browser.storage.local.set({
 		customcss: document.querySelector("#css-textarea").value
+	});
+	browser.runtime.reload();
+});
+
+document.querySelector("#test-css-button").addEventListener("click", async function () {
+	await browser.storage.local.set({
+		customcsstemp: document.querySelector("#css-textarea").value
 	});
 	browser.runtime.reload();
 });
@@ -56,14 +62,14 @@ document.querySelector("#css-textarea").addEventListener("keydown", function (e)
 			);
 			e.preventDefault();
 			break;
-		case 222:
+		case 222: // auto-close quotes
 			elem.setRangeText(
 				e.key,
 				elem.selectionStart,
 				elem.selectionEnd
 			);
 			break;
-		case 219:
+		case 219: // auto-close brackets
 		case 57:
 			let closingChar = "";
 			if (e.key === "9") break;
@@ -76,6 +82,10 @@ document.querySelector("#css-textarea").addEventListener("keydown", function (e)
 				elem.selectionEnd
 			);
 			break;
+		case 83: // prevents ctrl+s from saving the entire page
+			if (e.ctrlKey) {
+				e.preventDefault();
+			}
 		default:
 	}
 });

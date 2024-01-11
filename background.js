@@ -22,6 +22,13 @@ async function startup() {
       loadSheet('data:text/css;charset=UTF-8,' + encodeURIComponent(val.customcss), 'AGENT_SHEET');
     }
   });
+
+  await browser.storage.local.get("customcsstemp").then((val) => {
+    if (val.customcsstemp) {
+      loadSheet('data:text/css;charset=UTF-8,' + encodeURIComponent(val.customcsstemp), 'AGENT_SHEET');
+      browser.storage.local.remove("customcsstemp");
+    }
+  });
 }
 
 async function loadSheet(name, type) {

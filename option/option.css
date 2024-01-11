@@ -355,7 +355,7 @@ body.open {
 		margin-block: -1px;
 	}
 }
-#imagepicker-button, #reload-button, #apply-css-button {
+#imagepicker-button, #reload-button, #apply-css-button, #test-css-button {
 	font-family: 'Fira Sans', 'Segoe UI', 'Lato', sans-serif;
 	user-select: none;
 	border-radius: 2px;
@@ -388,6 +388,10 @@ body.open {
 }
 #apply-css-button {
 	background-image: url(./images/check-alt.svg);
+	margin-block: 4px;
+}
+#test-css-button {
+	background-image: url(./images/ion.svg);
 	margin-block: 4px;
 }
 #preview:not(.loaded) + #clear-img {
