@@ -90,5 +90,21 @@
 	"apierror-fileissue": {
 		"message": "Nothing works? File an issue on <a href=\"https://github.com/zapSNH/zcpt-webextension/issues/new\">GitHub</a>.",
 		"description": "File an issue on GitHub if nothing works."
+	},
+	"custom-css-header": {
+		"message": "Custom CSS",
+		"description": "Custom CSS Header."
+	},
+	"custom-css-note": {
+		"message": "Your CSS will load as an author sheet and will be injected into everything. It is recommended to encapsulate your CSS with @-moz-document url-prefix(\"chrome://\"), url-prefix(\"resource://\") { } to only load it into the browser chrome.",
+		"description": "Notes for users about the custom CSS."
+	},
+	"apply-css-button": {
+		"message": "Apply CSS",
+		"description": "Button for applying the custom CSS."
+	},
+	"test-css-button": {
+		"message": "Test CSS",
+		"description": "Button for testing the custom CSS."
 	}
 }

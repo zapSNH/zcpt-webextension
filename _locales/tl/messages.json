@@ -90,5 +90,21 @@
 	"apierror-fileissue": {
 		"message": "Walang gumagana? Gumawa ng isyu sa <a href=\"https://github.com/zapSNH/zcpt-webextension/issues/new\">GitHub</a>.",
 		"description": "File an issue on GitHub if nothing works."
+	},
+	"custom-css-header": {
+		"message": "Custom na CSS",
+		"description": "Custom CSS Header."
+	},
+	"custom-css-note": {
+		"message": "Ang iyong CSS ay magload bilang isang \"AUTHOR_SHEET\" at makakaapekto sa lahat. Inirerekomendana na ilagay ang iyong CSS sa loob ng \"@-moz-document url-prefix(\"chrome://\"), url-prefix(\"resource://\") { }\" para ma load lang ito sa browser chrome.",
+		"description": "Notes for users about the custom CSS."
+	},
+	"apply-css-button": {
+		"message": "i-Apply ang iyong CSS",
+		"description": "Button for applying the custom CSS."
+	},
+	"test-css-button": {
+		"message": "Subukan ang iyong CSS",
+		"description": "Button for testing the custom CSS."
 	}
 }
