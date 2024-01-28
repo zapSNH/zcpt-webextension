@@ -106,5 +106,9 @@
 	"test-css-button": {
 		"message": "Subukan ang iyong CSS",
 		"description": "Button for testing the custom CSS."
+	},
+	"css-unsaved": {
+		"message": "Hindi naka-save and iyong CSS",
+		"description": "Unsaved CSS label."
 	}
 }

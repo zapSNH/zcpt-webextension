@@ -84,4 +84,19 @@ browser.runtime.onInstalled.addListener(async ({reason}) => {
 
 browser.runtime.onStartup.addListener(startup);
 
+// yikes
+browser.runtime.onStartup.addListener(async () => {
+  await browser.storage.local.get("customcsstext").then(async (val) => {
+		if (val.customcsstext) {
+      await browser.storage.local.get("customcss").then(async (val) => {
+        if (val.customcss) {
+          await browser.storage.local.set({
+            customcsstext: val.customcss
+          });
+        }
+      })
+		}
+	});
+});
+
 startup();

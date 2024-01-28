@@ -406,13 +406,16 @@ body.open {
 #preview-container {
 	width: fit-content;
 }
-#newtab-notice {
+#newtab-notice, #css-unsaved {
 	padding: 4px;
 	background: var(--background-5);
 	color: #fff;
 	font-weight: 600;
 	border-radius: 2px;
 	box-shadow: var(--box-shadow-2);
+}
+#css-unsaved:not(.unsaved) {
+	display: none;
 }
 textarea {
 	resize: none;

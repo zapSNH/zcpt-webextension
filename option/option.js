@@ -35,19 +35,21 @@ document.querySelector("#reload").addEventListener("click", function () {
 
 document.querySelector("#apply-css-button").addEventListener("click", async function () {
 	await browser.storage.local.set({
-		customcss: document.querySelector("#css-textarea").value
+		customcss: document.querySelector("#css-textarea").value,
+		customcsstext: document.querySelector("#css-textarea").value
 	});
 	browser.runtime.reload();
 });
 
 document.querySelector("#test-css-button").addEventListener("click", async function () {
 	await browser.storage.local.set({
-		customcsstemp: document.querySelector("#css-textarea").value
+		customcsstemp: document.querySelector("#css-textarea").value,
+		customcsstext: document.querySelector("#css-textarea").value
 	});
 	browser.runtime.reload();
 });
 
-document.querySelector("#css-textarea").addEventListener("keydown", function (e) {
+document.querySelector("#css-textarea").addEventListener("keydown", async function (e) {
 	let elem = e.target;
 
 	switch (e.keyCode) {
@@ -88,6 +90,14 @@ document.querySelector("#css-textarea").addEventListener("keydown", function (e)
 			}
 		default:
 	}
+
+	await browser.storage.local.get("customcsstext").then((val) => {
+		if (document.querySelector("#css-textarea").value != val.customcsstext) {
+			document.querySelector("#css-unsaved").classList.add("unsaved");
+		} else {
+			document.querySelector("#css-unsaved").classList.remove("unsaved");
+		}
+	});
 });
 
 function toggle() {
@@ -231,11 +241,11 @@ async function load() {
 		}
 	});
 
-	await browser.storage.local.get("customcss").then((val) => {
-		if (val.customcss) {
-			document.querySelector("#css-textarea").value = val.customcss;
+	await browser.storage.local.get("customcsstext").then((val) => {
+		if (val.customcsstext) {
+			document.querySelector("#css-textarea").value = val.customcsstext;
 		}
-	  });
+	});
 }
 
 

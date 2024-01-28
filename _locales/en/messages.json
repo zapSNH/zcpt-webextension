@@ -106,5 +106,9 @@
 	"test-css-button": {
 		"message": "Test CSS",
 		"description": "Button for testing the custom CSS."
+	},
+	"css-unsaved": {
+		"message": "Unsaved CSS",
+		"description": "Unsaved CSS label."
 	}
 }
