@@ -1,4 +1,4 @@
-A webextension version of [zapsCoolPhotonTheme](https://github.com/zapsnh/zapsCoolPhotonTheme). Based on Paxmod.
+A webextension version of [zapsCoolPhotonTheme](https://github.com/zapsnh/zapsCoolPhotonTheme). Loosely based on Paxmod.
 
 Requirements:
 - Firefox Developer Edition, Nightly, or ESR.
