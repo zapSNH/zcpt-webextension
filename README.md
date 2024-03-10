@@ -16,3 +16,7 @@ ex.
 This version acts like the rolling release, (almost) every commit that gets pushed to the [main repo](https://github.com/zapsnh/zapsCoolPhotonTheme) is also another new version of the extension.
 
 If you're worried that your Firefox will flash every time the extension updates multiple times a day (which it won't since firefox only checks for updates once a day), then you can disable auto updating in the addon settings.
+
+### Misc.
+The Fira Code, Fira Sans, and Zilla Slab fonts are all under the license linked below:
+https://github.com/zapSNH/zcpt-webextension/blob/main/option/fonts/OFL.txt

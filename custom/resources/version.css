@@ -1,4 +1,10 @@
 /* inspired by https://github.com/rafaelmardojai/firefox-gnome-theme/blob/5e796d330d3765798d32b361638b048fda1a1450/theme/gnome-theme.css */
+@font-face {
+	font-family: 'Zilla Slab';
+	font-display: swap;
+	font-weight: 600;
+	src: url(./fonts/ZillaSlab-SemiBold.ttf);
+}
 @-moz-document url-prefix("chrome://"), url-prefix("resource://") {
 #customization-palette-container::before {
 	background: url(../icon16.svg) no-repeat;
@@ -14,7 +20,6 @@
 	padding-inline-start: 48px;
 	bottom: 48px;
 	inset-inline-start: 16px;
-	font-weight: 600;
 	font-size: 16px;
 	font-family: 'Zilla Slab', sans-serif;
 	filter: grayscale(1);
