@@ -17,12 +17,12 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
           fetch-depth: 0
 
     - name: sync zcpt
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
           repository: zapsnh/zapsCoolPhotonTheme
           ref: ${{ matrix.sync-branch }}
@@ -55,7 +55,7 @@ jobs:
         zip -r -FS ${{ matrix.name }}.xpi *
         
     - name: release
-      uses: softprops/action-gh-release@v1
+      uses: softprops/action-gh-release@v2
       env:
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
       with:
