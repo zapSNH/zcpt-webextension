@@ -1,7 +1,7 @@
 /* Content Pages */
 
 /* firefox control(?) styling */
-@media (-moz-bool-pref: "uc.style-forms") {
+@supports -moz-bool-pref("uc.style-forms") {
 	select {
 		background-color: light-dark(#f9f9fa, #2a2a2e);
 		background-image: url(./icons/arrow-dropdown-16.svg);
@@ -377,7 +377,7 @@
 	}
 	.top-site-outer .context-menu-button {
 		transition-delay: 333ms !important;
-		translate: 6px 2px;
+		translate: -4px 2px;
 	}
 	.top-site-outer:not(:hover, .active) .context-menu-button {
 		width: 8px !important;
@@ -451,7 +451,7 @@
 			background-color: #38383d !important;
 		}
 	}
-	@media (-moz-bool-pref: "uc.newtab.background") {
+	@supports -moz-bool-pref("uc.newtab.background") {
 		body {
 			background: fixed;
 			background-image: url(./background.png);	
