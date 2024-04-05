@@ -40,3 +40,9 @@
 	font-display: swap;
 	src: url(./fonts/FiraCode-VariableFont_wght.ttf);
 }
+@font-face {
+	font-family: 'Zilla Slab';
+	font-display: swap;
+	font-weight: 600;
+	src: url(./fonts/ZillaSlab-SemiBold.ttf);
+}

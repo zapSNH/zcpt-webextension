@@ -110,5 +110,9 @@
 	"css-unsaved": {
 		"message": "Unsaved CSS",
 		"description": "Unsaved CSS label."
+	},
+	"author": {
+		"message": "by zapSNH",
+		"description": "self-explanatory. You can also append your name if you're localizing this."
 	}
 }

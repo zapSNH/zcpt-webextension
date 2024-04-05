@@ -3,6 +3,8 @@
 
 import { setOptions, getOption, setBackground } from "../background.js";
 
+// versioning
+document.querySelector("#version").textContent = "v" + browser.runtime.getManifest().version;
 // two letter (or hyphenated) language list
 const langList = ["en", "tl"];
 const esr_version = "115";
