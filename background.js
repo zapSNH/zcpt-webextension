@@ -99,4 +99,23 @@ browser.runtime.onStartup.addListener(async () => {
 	});
 });
 
+// prevents updating theme while ff is running
+// https://github.com/mbnuqw/sidebery/blob/7f79dc90f5dab708f86c372313b5707e3908b6f0/src/bg/background.ts#L119
+browser.runtime.onUpdateAvailable.addListener(details => {
+  // shouldn't prevent downgrading theme
+  if (versionToInt(details.version) < versionToInt(browser.runtime.getManifest().version)) {
+    browser.runtime.reload();
+  }
+})
+
+// https://github.com/mbnuqw/sidebery/blob/7f79dc90f5dab708f86c372313b5707e3908b6f0/src/services/info.actions.ts#L88
+function versionToInt(v) {
+  const version = v.split(".");
+  const major = version[0];
+  const minor = version[1];
+  const patch = version[2];
+  const nightly =  version[3] ? version[3] : "0";
+  const toInt = (major * 1_000_000_000) + (minor *   1_000_000) + (patch * 10) + (nightly * 0.1);
+  return toInt;
+}
 startup();
