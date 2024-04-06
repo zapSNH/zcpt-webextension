@@ -61,6 +61,17 @@ async function loadBackground() {
   });
 }
 
+// https://github.com/mbnuqw/sidebery/blob/7f79dc90f5dab708f86c372313b5707e3908b6f0/src/services/info.actions.ts#L88
+function versionToInt(v) {
+  const version = v.split(".");
+  const major = version[0];
+  const minor = version[1];
+  const patch = version[2];
+  const nightly =  version[3] ? version[3] : "0";
+  const toInt = (major * 1_000_000_000) + (minor *   1_000_000) + (patch * 10) + (nightly * 0.1);
+  return toInt;
+}
+
 browser.runtime.onInstalled.addListener(async ({reason}) => {
   switch (reason) {
     case "install":
@@ -107,15 +118,4 @@ browser.runtime.onUpdateAvailable.addListener(details => {
     browser.runtime.reload();
   }
 })
-
-// https://github.com/mbnuqw/sidebery/blob/7f79dc90f5dab708f86c372313b5707e3908b6f0/src/services/info.actions.ts#L88
-function versionToInt(v) {
-  const version = v.split(".");
-  const major = version[0];
-  const minor = version[1];
-  const patch = version[2];
-  const nightly =  version[3] ? version[3] : "0";
-  const toInt = (major * 1_000_000_000) + (minor *   1_000_000) + (patch * 10) + (nightly * 0.1);
-  return toInt;
-}
 startup();
