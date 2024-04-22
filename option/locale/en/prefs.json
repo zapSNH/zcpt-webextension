@@ -14,6 +14,7 @@
 		["uc.newtab.background",				[12, 0, [], [], []],			"New tab background"],
 		["uc.full-width-tabs",					[13, 0, [], [], []],			"Full width tabs"],
 		["uc.style-forms",						[14, 0, [], [], []],			"Themes HTML Forms. May break some stuff."],
-		["uc.revert-all-tabs-behavior",			[15, 0, [], [], []],			"Only show the all tabs button when the tab bar is overflowing just like pre-Photon/early-Proton"]
+		["uc.revert-all-tabs-behavior",			[15, 0, [], [], []],			"Only show the all tabs button when the tab bar is overflowing just like pre-Photon/early-Proton"],
+		["uc.always-show-close-button",			[16, 0, [], [], []],			"Always show the tab close button even when the tabs are small."]
 	]
 }

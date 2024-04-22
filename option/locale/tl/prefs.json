@@ -14,6 +14,7 @@
 		["uc.newtab.background",				[12, 0, [], [], []],			"Background sa new tab"],
 		["uc.full-width-tabs",					[13, 0, [], [], []],			"Buong lapad na tabs"],
 		["uc.style-forms",						[14, 0, [], [], []],			"i-Theme ang mga HTML Form. Maaaring masira ang mga forms sa website."],
-		["uc.revert-all-tabs-behavior",			[15, 0, [], [], []],			"Hindi ipakita ang \"all tabs\" na button kung hindi nag-overflow ang tabs gaya sa pre-Photon/early-Proton"]
+		["uc.revert-all-tabs-behavior",			[15, 0, [], [], []],			"Hindi ipakita ang \"all tabs\" na button kung hindi nag-overflow ang tabs gaya sa pre-Photon/early-Proton"],
+		["uc.always-show-close-button",			[16, 0, [], [], []],			"Palaging ipakita ang button para i-close ang tab kahit maliit na ang mga tab."]
 	]
 }
