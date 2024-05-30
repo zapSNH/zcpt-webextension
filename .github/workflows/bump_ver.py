@@ -2,7 +2,8 @@ import re
 import sys
 
 def bump(new_ver_v):
-	current_esr = "115"
+	current_esr = open("ESR_VERSION", 'r').read()
+	print(current_esr)
 	new_ver = new_ver_v.replace("v", "")
 	manifest_template = "\"version\": \"" + new_ver + ".1\""
 	updates_template = '''{
