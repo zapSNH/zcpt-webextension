@@ -2,6 +2,7 @@ import re
 import sys
 
 def bump(new_ver_v):
+	current_esr = "115"
 	new_ver = new_ver_v.replace("v", "")
 	manifest_template = "\"version\": \"" + new_ver + ".1\""
 	updates_template = '''{
@@ -13,8 +14,8 @@ def bump(new_ver_v):
           "update_link": "https://github.com/zapSNH/zcpt-webextension/releases/download/v''' + new_ver + '''/zapsCoolPhotonTheme-esr.xpi",
           "applications": {
             "gecko": {
-                "strict_min_version": "115.0",
-                "strict_max_version": "115.*"
+                "strict_min_version": "''' + current_esr + '''.0",
+                "strict_max_version": "''' + current_esr + '''.*"
             }
           }
         },
@@ -23,7 +24,7 @@ def bump(new_ver_v):
           "update_link": "https://github.com/zapSNH/zcpt-webextension/releases/download/v''' + new_ver + '''/zapsCoolPhotonTheme.xpi",
           "applications": {
             "gecko": {
-                "strict_min_version": "116.0"
+                "strict_min_version": "''' + str(int(current_esr)+1) + '''.0"
             }
           }
         }
