@@ -1,7 +1,7 @@
 /* Content Pages */
 
 /* firefox control(?) styling */
-@media (-moz-bool-pref: "uc.style-forms") {
+@supports -moz-bool-pref("uc.style-forms") {
 	select {
 		background-color: light-dark(#f9f9fa, #2a2a2e);
 		background-image: url(./icons/arrow-dropdown-16.svg);
@@ -78,8 +78,6 @@
 		--box-background: var(--in-content-box-background);
 		--box-border-color: var(--in-content-box-border-color);
 		--message-bar-icon-close-url: url("./icons/close-icon2.svg");
-		--border-radius-medium: var(--photon-primary-border-radius) !important;
-		--newtab-weather-background-color: color-mix(in srgb, var(--in-content-page-background) 50%, transparent) !important;
 	}
 	@media (prefers-color-scheme: dark) {	
 		* {
@@ -206,8 +204,8 @@
 		&[checked], &:checked {
 			background-color: var(--blue-60) !important;
 			&:not(input[type="radio"], .radio-check) {
-				@media not (-moz-bool-pref: "uc.floorp") {
-				    background-image: url("./icons/check.svg") !important;
+				@supports not -moz-bool-pref("uc.floorp") {
+					background-image: url("./icons/check.svg") !important;
 				}
 			}
 			-moz-context-properties: fill !important;
@@ -227,7 +225,7 @@
 			}
 		}
 	}
-	@media (-moz-bool-pref: "uc.floorp") {
+	@supports -moz-bool-pref("uc.floorp") {
 		.checkbox-check, .checkbox-row input, input[type="checkbox"]:not(.reveal-password-checkbox) {
 			border-radius: 999px !important;
 			padding-inline-end: 38px !important;
@@ -284,22 +282,22 @@
 	img[src="chrome://global/skin/icons/help.svg"] {
 		content: url("./icons/help.svg") !important;
 	}
-	@media (-moz-bool-pref: "uc.floorp") {
+	@supports -moz-bool-pref("uc.floorp") {
 		img[src="chrome://devtools/skin/images/aboutdebugging-firefox-logo.svg"] {
 			content: url(./icons/forks/floorp/floorp-grayscale.svg) !important;
 		}
 	}
-	@media (-moz-bool-pref: "uc.waterfox") {
+	@supports -moz-bool-pref("uc.waterfox") {
 		img[src="chrome://devtools/skin/images/aboutdebugging-firefox-logo.svg"] {
 			content: url(./icons/forks/waterfox/waterfox-grayscale.svg) !important;
 		}
 	}
-	@media (-moz-bool-pref: "uc.librewolf") {
+	@supports -moz-bool-pref("uc.librewolf") {
 		img[src="chrome://devtools/skin/images/aboutdebugging-firefox-logo.svg"] {
 			content: url(./icons/forks/librewolf/librewolf-grayscale.svg) !important;
 		}
 	}
-	@media (-moz-bool-pref: "uc.tor") {
+	@supports -moz-bool-pref("uc.tor") {
 		img[src="chrome://devtools/skin/images/aboutdebugging-firefox-logo.svg"] {
 			content: url(./icons/forks/tor/tor-grayscale.svg) !important;
 		}
@@ -424,7 +422,7 @@
 	}
 	.top-site-outer .context-menu-button {
 		transition-delay: 333ms !important;
-		translate: 6px 2px;
+		translate: -4px 2px;
 	}
 	.top-site-outer:not(:hover, .active) .context-menu-button {
 		width: 8px !important;
@@ -460,85 +458,6 @@
 	}
 	.top-site-outer .top-site-inner > a {
 		padding: 0 !important;
-	}
-	.weatherButtonContextMenu {
-		background-image: url("./icons/more.svg") !important;
-	}
-	.weatherIcon {
-		-moz-context-properties: fill !important;
-		fill: currentColor !important;
-	}
-	.weatherIcon.iconId1 {
-		content: url("./icons/weather/sunny.svg") !important;
-	}
-	.weatherIcon.iconId2 {
-		content: url("./icons/weather/mostly-sunny.svg") !important;
-	}
-	.weatherIcon:is(.iconId3, .iconId4, .iconId6) {
-		content: url("./icons/weather/partly-sunny.svg") !important;
-	}
-	.weatherIcon.iconId5 {
-		content: url("./icons/weather/hazy-sunshine.svg") !important;
-	}
-	.weatherIcon:is(.iconId7, .iconId8) {
-		content: url("./icons/weather/cloudy.svg") !important;
-	}
-	.weatherIcon.iconId11 {
-		content: url("./icons/weather/fog.svg") !important;
-	}
-	.weatherIcon.iconId12 {
-		content: url("./icons/weather/showers.svg") !important;
-	}
-	.weatherIcon:is(.iconId13, .iconId14) {
-		content: url("./icons/weather/mostly-cloudy-with-showers.svg") !important;
-	}
-	.weatherIcon.iconId15 {
-		content: url("./icons/weather/thunderstorms.svg") !important;
-	}
-	.weatherIcon:is(.iconId16, .iconId17) {
-		content: url("./icons/weather/mostly-cloudy-with-thunderstorms.svg") !important;
-	}
-	.weatherIcon.iconId18 {
-		content: url("./icons/weather/rain.svg") !important;
-	}
-	.weatherIcon:is(.iconId19, .iconId20, .iconId25) {
-		content: url("./icons/weather/flurries.svg") !important;
-	}
-	.weatherIcon.iconId21 {
-		content: url("./icons/weather/partly-sunny-with-flurries.svg") !important;
-	}
-	.weatherIcon:is(.iconId22, .iconId23) {
-		content: url("./icons/weather/snow.svg") !important;
-	}
-	.weatherIcon:is(.iconId24, .iconId31) {
-		content: url("./icons/weather/ice.svg") !important;
-	}
-	.weatherIcon:is(.iconId26, .iconId29) {
-		content: url("./icons/weather/freezing-rain.svg") !important;
-	}
-	.weatherIcon.iconId30 {
-		content: url("./icons/weather/hot.svg") !important;
-	}
-	.weatherIcon.iconId32 {
-		content: url("./icons/weather/windy.svg") !important;
-	}
-	.weatherIcon.iconId33 {
-		content: url("./icons/weather/night-clear.svg") !important;
-	}
-	.weatherIcon:is(.iconId34, .iconId35, .iconId36, .iconId38) {
-		content: url("./icons/weather/night-mostly-clear.svg") !important;
-	}
-	.weatherIcon.iconId37 {
-		content: url("./icons/weather/night-hazy-moonlight.svg") !important;
-	}
-	.weatherIcon:is(.iconId39, .iconId40) {
-		content: url("./icons/weather/night-partly-cloudy-with-showers.svg") !important;
-	}
-	.weatherIcon:is(.iconId41, .iconId42) {
-		content: url("./icons/weather/night-partly-cloudy-with-thunderstorms.svg") !important;
-	}
-	.weatherIcon:is(.iconId43, .iconId44) {
-		content: url("./icons/weather/night-mostly-cloudy-with-flurries.svg") !important;
 	}
 	:root:is(:not([lwt-newtab], [lwt-newtab-brighttext]), [style="--newtab-background-color: rgb(249, 249, 251);"][style*="--newtab-text-primary-color: rgba(21, 20, 26, 1);"][style*="--in-content-zap-gradient: linear-gradient(90deg, #9059FF 0%, #FF4AA2 52.08%, #FFBD4F 100%);"]) {
 		* {
@@ -585,7 +504,7 @@
 			background-color: #38383d !important;
 		}
 	}
-	@media (-moz-bool-pref: "uc.newtab.background") {
+	@supports -moz-bool-pref("uc.newtab.background") {
 		body {
 			background: fixed;
 			background-image: url(./background.png);	
@@ -638,7 +557,7 @@
 		border-radius: var(--photon-secondary-border-radius) !important;
 	}
 	checkbox[checked] .checkbox-check {
-		@media not (-moz-bool-pref: "uc.floorp") {
+		@supports not -moz-bool-pref("uc.floorp") {
 			background-image: url(./icons/check.svg) !important;
 		}
 		-moz-context-properties: fill, fill-opacity !important;
@@ -769,19 +688,19 @@
 	.content-blocking-checkbox .checkbox-icon {
 		display: block !important;
 	}
-    #contentBlockingTrackingProtectionCheckbox > .checkbox-label-box {
-        list-style-image: url("./icons/tracker-image.svg") !important;
-    }
+	#contentBlockingTrackingProtectionCheckbox > .checkbox-label-box {
+		list-style-image: url("./icons/tracker-image.svg") !important;
+	}
 	#contentBlockingTrackingProtectionCheckbox[checked] > .checkbox-label-box {
-        list-style-image: url("./icons/tracker-image-disabled.svg") !important;
+		list-style-image: url("./icons/tracker-image-disabled.svg") !important;
 	}
 
 	#contentBlockingBlockCookiesCheckbox > .checkbox-label-box {
-        list-style-image: url("./icons/3rdpartycookies.svg") !important;
+		list-style-image: url("./icons/3rdpartycookies.svg") !important;
 	}
 
 	#contentBlockingBlockCookiesCheckbox[checked] > .checkbox-label-box {
-        list-style-image: url("./icons/3rdpartycookies-disabled.svg") !important;
+		list-style-image: url("./icons/3rdpartycookies-disabled.svg") !important;
 	}
 
 	#contentBlockingCryptominersCheckbox > .checkbox-label-box {
@@ -789,22 +708,22 @@
 	}
 
 	#contentBlockingCryptominersCheckbox[checked] > .checkbox-label-box {
-        list-style-image: url("./icons/cryptominers-disabled.svg") !important;
+		list-style-image: url("./icons/cryptominers-disabled.svg") !important;
 	}
 
 	:is(#contentBlockingFingerprintersCheckbox, #contentBlockingFingerprintingProtectionCheckbox) > .checkbox-label-box {
-        list-style-image: url("./icons/fingerprinters.svg") !important;
+		list-style-image: url("./icons/fingerprinters.svg") !important;
 	}
 	
 	:is(#contentBlockingFingerprintersCheckbox, #contentBlockingFingerprintingProtectionCheckbox)[checked] > .checkbox-label-box {
-        list-style-image: url("./icons/fingerprinters-disabled.svg") !important;
+		list-style-image: url("./icons/fingerprinters-disabled.svg") !important;
 	}
 	
 	.info-icon {
-        list-style-image: url("./icons/info.svg") !important;
+		list-style-image: url("./icons/info.svg") !important;
 	}
 	.reload-tabs-button {
-        list-style-image: url("./icons/reload.svg") !important;
+		list-style-image: url("./icons/reload.svg") !important;
 	}
 	.web-appearance-choice img {
 		content: url(./icons/web-appearance-light.svg) !important;
@@ -844,26 +763,23 @@
 	#homeContentsGroup .checkbox-icon {
 		opacity: 0;
 	}
-	#homeContentsGroup vbox .checkbox-label-box::before {
+	#homeContentsGroup checkbox .checkbox-label-box::before {
 		-moz-context-properties: fill, stroke;
 		fill: currentColor;
 		stroke: currentColor;
 		margin-top: 4px;
 		margin-inline-end: -16px !important;
 	}
-	#homeContentsGroup vbox[data-subcategory="search"] .checkbox-label-box::before {
+	#homeContentsGroup checkbox[src="chrome://global/skin/icons/search-glass.svg"] .checkbox-label-box::before {
 		content: url("./icons/find-in-page.svg") !important;
 	}
-	#homeContentsGroup vbox[data-subcategory="topsites"] > checkbox .checkbox-label-box::before {
+	#homeContentsGroup checkbox[src="chrome://browser/skin/topsites.svg"] .checkbox-label-box::before {
 		content: url("./icons/glyph-topsites.svg") !important;
 	}
-	#homeContentsGroup vbox[data-subcategory="weather"] .checkbox-label-box::before {
-		content: url("./icons/weather.svg") !important;
-	}
-	#homeContentsGroup vbox[data-subcategory="topstories"] .checkbox-label-box::before {
+	#homeContentsGroup checkbox[src="chrome://global/skin/icons/pocket.svg"] .checkbox-label-box::before {
 		content: url("./icons/pocket.svg") !important;
 	}
-	#homeContentsGroup vbox[data-subcategory="highlights"] > checkbox .checkbox-label-box::before {
+	#homeContentsGroup checkbox[src="chrome://global/skin/icons/highlights.svg"] .checkbox-label-box::before {
 		content: url("./icons/glyph-highlights-16.svg") !important;
 		width: 16px;
 	}
@@ -911,6 +827,12 @@
 	}
 }
 @-moz-document url("about:addons") {
+	@media (prefers-color-scheme: dark) {
+		* {
+			--message-bar-background-color: var(--yellow-80) !important;
+			--message-bar-text-color: var(--text-color) !important;
+		}
+	}
 	img[src="chrome://global/skin/icons/settings.svg"] {
 		content: url(./icons/settings.svg) !important;
 	}
@@ -1099,18 +1021,18 @@
 	}
 	/*
 	.search-icon {
-        background-image: url(./icons/find-in-page.svg) !important;
+		background-image: url(./icons/find-in-page.svg) !important;
 		fill: #939393 !important;
 		scale: -1 1;
 	}
 	.chevron-icon {
-        background-image: url(./icons/arrow-dropdown-16.svg) !important;
+		background-image: url(./icons/arrow-dropdown-16.svg) !important;
 	}
 	.card-container[open] .chevron-icon {
 		scale: 1 -1;
 	}
 	#fxview-tab-row-secondary-button {
-        background-image: url(./icons/close-icon2.svg) !important;
+		background-image: url(./icons/close-icon2.svg) !important;
 		&[aria-haspopup] {
 			background-image: url(./icons/more.svg) !important;
 		}
@@ -1425,101 +1347,101 @@
   #errorPageContainer,
   .neterror > .container,
   .description-wrapper {
-    min-height: 300px;
-    background-position: left center;
-    background-repeat: no-repeat;
-    background-size: 38%;
-    background-image: var(--uc-error-llustration);
+	min-height: 300px;
+	background-position: left center;
+	background-repeat: no-repeat;
+	background-size: 38%;
+	background-image: var(--uc-error-llustration);
   }
   #errorPageContainer {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
   }
   .description-wrapper {
-    padding-inline-start: 38%;
+	padding-inline-start: 38%;
   }
   /* Container */
   .container {
-    min-width: var(--in-content-container-min-width); /* 13em */
-    max-width: var(--in-content-container-max-width); /* 52em */
+	min-width: var(--in-content-container-min-width); /* 13em */
+	max-width: var(--in-content-container-max-width); /* 52em */
   }
   /* Text Position */
   #text-container {
-    margin: auto;
-    padding-inline-start: 38%;
+	margin: auto;
+	padding-inline-start: 38%;
   }
 }
 @-moz-document url-prefix("about:neterror?e=connectionFailure"), url-prefix("about:neterror?e=netInterrupt"), url-prefix("about:neterror?e=netReset"), url-prefix("about:neterror?e=netTimeout"), url-prefix("about:neterror?e=netOffline"), url-prefix("about:restartrequired"), url("chrome://browser/content/aboutRestartRequired.xhtml")
 {
   :root {
-    --uc-error-llustration: url(./icons/error-connection-failure.svg);
+	--uc-error-llustration: url(./icons/error-connection-failure.svg);
   }
 }
 @-moz-document url-prefix("about:neterror?e=dnsNotFound") {
   :root {
-    --uc-error-llustration: url(./icons/error-server-not-found.svg);
+	--uc-error-llustration: url(./icons/error-server-not-found.svg);
   }
 }
 @-moz-document url-prefix("about:neterror?e=blockedByPolicy"), url-prefix("about:neterror?e=deniedPortAccess"), url-prefix("about:neterror?e=malformedURI"), url-prefix("about:neterror?e=unknownProtocolFound") {
   :root {
-    --uc-error-llustration: url(./icons/error-malformed-url.svg);
+	--uc-error-llustration: url(./icons/error-malformed-url.svg);
   }
 }
 @-moz-document url-prefix("about:neterror?e=clockSkewError"), url-prefix("about:neterror?e=nssFailure") {
   :root {
-    --uc-error-llustration: url(./icons/blue-berror.svg);
+	--uc-error-llustration: url(./icons/blue-berror.svg);
   }
   #errorPageContainer,
   .neterror > .container {
-    background-size: 18.5em;
+	background-size: 18.5em;
   }
 }
 @-moz-document url("about:sessionrestore"), url("chrome://browser/content/aboutSessionRestore.xhtml")
 {
   :root {
-    --uc-error-llustration: url(./icons/error-session-restore.svg);
+	--uc-error-llustration: url(./icons/error-session-restore.svg);
   }
 }
 @-moz-document url-prefix("about:neterror?e=fileNotFound") {
   @media (min-width: 970px) {
-    .title {
-      background-image: url("chrome://global/skin/icons/info.svg") !important;
-    }
+	.title {
+	  background-image: url("chrome://global/skin/icons/info.svg") !important;
+	}
   }
   #text-container {
-    padding-inline-start: 0;
+	padding-inline-start: 0;
   }
 }
 @-moz-document url-prefix("about:tabcrashed") {
   @media (min-width: 970px) {
-    .title {
-      background-image: url("chrome://browser/skin/tab-crashed.svg") !important;
-    }
+	.title {
+	  background-image: url("chrome://browser/skin/tab-crashed.svg") !important;
+	}
   }
 }
 @-moz-document url("about:robots"), url("chrome://browser/content/aboutRobots.xhtml")
 {
   @media (min-width: 970px) {
-    .title {
-      background-image: url("chrome://browser/content/aboutRobots-icon.png") !important;
-    }
+	.title {
+	  background-image: url("chrome://browser/content/aboutRobots-icon.png") !important;
+	}
   }
 }
 @-moz-document url("about:welcomeBack"), url("chrome://browser/content/aboutWelcomeBack.xhtml")
 {
   @media (min-width: 970px) {
-    .title {
-      background-image: url(./icons/welcome-back.svg) !important;
-    }
+	.title {
+	  background-image: url(./icons/welcome-back.svg) !important;
+	}
   }
 }
 @-moz-document url-prefix("about:preferences") {
   #no-results-message::after {
-    content: url(./icons/no-search-results.svg);
-    width: 380px;
-    height: 293px;
-    margin-top: 64px;
-    margin-inline: auto;
+	content: url(./icons/no-search-results.svg);
+	width: 380px;
+	height: 293px;
+	margin-top: 64px;
+	margin-inline: auto;
   }
 }
 /* End */

@@ -5,16 +5,16 @@
 :root {
 	--icons-css: 1px;
 	--grayscale-logo: url(./icons/aboutdebugging-firefox-logo.svg) !important;
-	@media (-moz-bool-pref: "uc.floorp") {
+	@supports -moz-bool-pref("uc.floorp") {
 		--grayscale-logo: url(./icons/forks/floorp/floorp-grayscale.svg) !important;
 	}
-	@media (-moz-bool-pref: "uc.waterfox") {
+	@supports -moz-bool-pref("uc.waterfox") {
 		--grayscale-logo: url(./icons/forks/waterfox/waterfox-grayscale.svg) !important;
 	}
-	@media (-moz-bool-pref: "uc.librewolf") {
+	@supports -moz-bool-pref("uc.librewolf") {
 		--grayscale-logo: url(./icons/forks/librewolf/librewolf-grayscale.svg) !important;
 	}
-	@media (-moz-bool-pref: "uc.tor") {
+	@supports -moz-bool-pref("uc.tor") {
 		--grayscale-logo: url(./icons/forks/tor/tor-grayscale.svg) !important;
 	}
 }
@@ -46,7 +46,7 @@
 	list-style-image: url(./icons/connection-secure.svg) !important
 }
 /* Pretend it still exists */
-@media not (-moz-bool-pref: "security.secure_connection_icon_color_gray") {
+@supports not -moz-bool-pref("security.secure_connection_icon_color_gray") {
 	#identity-box.verifiedDomain[pageproxystate="valid"] #identity-icon {
 		-moz-context-properties: fill !important;
 		fill: #12bc00 !important;
@@ -63,7 +63,7 @@
 }
 /* Changes the search icon to Photon's */
 #identity-box.localResource > #identity-icon-box > #identity-icon,
-#urlbar:not(.searchButton) > .urlbar-input-container > #identity-box[pageproxystate="invalid"] #identity-icon {
+#urlbar:not(.searchButton) > #urlbar-input-container > #identity-box[pageproxystate="invalid"] #identity-icon {
 	list-style-image: url(./icons/find-in-page.svg) !important
 }
 #identity-box.localResource[pageproxystate="valid"] > #identity-icon-box > #identity-icon:has(+ #identity-icon-label:not([value="Nightly"])), 
@@ -592,7 +592,7 @@
 #appMenu-find-button2 {
   margin-bottom: 8px !important;
 }
-@media (-moz-bool-pref: "browser.translations.enable") {
+@supports -moz-bool-pref("browser.translations.enable") {
   #appMenu-translate-button {
   	margin-bottom: 8px !important;
   }
@@ -696,6 +696,7 @@
 	width: 16px !important;
 }
 /* Profiles Button (FF 127+) */ 
+/* Yes, I know this isnt @supports for FF 115 but this is literally just for FF127+ */
 @media (-moz-bool-pref: "browser.profiles.enabled") {
 	#appMenu-profiles-button:after {
 		margin-inline-end: -3px !important;
@@ -812,9 +813,8 @@
 	-moz-context-properties: fill !important;
 	fill: var(--urlbar-box-text-color) !important;
 }
-#urlbar-go-button, :root .search-go-button, .urlbar-go-button {
+#urlbar-go-button, :root .search-go-button {
 	list-style-image: url(./icons/forward.svg) !important;
-	min-width: 28px !important;
 }
 #urlbar-anon-search-settings image, #searchbar-anon-search-settings image {
 	list-style-image: url(./icons/settings.svg) !important;
@@ -845,9 +845,6 @@
 }
 .urlbarView-favicon[src="chrome://global/skin/icons/clipboard.svg"] {
 	content: url(./icons/edit-paste.svg) !important;
-}
-.urlbarView-favicon[src="chrome://global/skin/icons/trending.svg"] {
-	content: url(./icons/trending.svg) !important;
 }
 #translations-button-locale {
 	margin: 0px !important;
@@ -1194,10 +1191,6 @@ menuitem[data-l10n-id="sidebar-menu-close"] .menu-text {
 #allTabsMenu-searchTabs .toolbarbutton-icon {
 	margin-inline-end: var(--appmenu-icon-inline-end) !important;
 	list-style-image: url(./icons/find-in-page.svg) !important;
-}
-#allTabsMenu-closeDuplicateTabs .toolbarbutton-icon {
-	margin-inline-end: var(--appmenu-icon-inline-end) !important;
-	list-style-image: url(./icons/close.svg) !important;
 }
 #allTabsMenu-containerTabsButton .toolbarbutton-icon {
 	margin-inline-end: var(--appmenu-icon-inline-end) !important;
