@@ -13,6 +13,7 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
 	imgPath = "./images/dark/";
 }
 let locale = browser.i18n.getUILanguage();
+let optionValues;
 
 document.querySelector("#clear").addEventListener("click", function () {
 	document.querySelectorAll(".true:not(button)").forEach((e) => e.classList.remove("true"));
@@ -101,6 +102,23 @@ document.querySelector("#css-textarea").addEventListener("keydown", async functi
 		}
 	});
 });
+document.querySelector('#browser-fork-dropdown').addEventListener("change", async function() {
+	let value = document.querySelector('#browser-fork-dropdown').value;
+	
+	optionValues.forEach(async (e) => {
+		if (e != "firefox" && e != value) {
+			setOptions("uc." + e, false);
+		}
+	});
+	if (value != "firefox") {
+		setOptions("uc." + value, true);
+	}
+	await browser.runtime.getBrowserInfo().then((info) => {
+		if (info.version.includes(esr_version)) {
+			browser.runtime.reload();
+		}
+	});
+});
 
 function toggle() {
 	// let index = this.index; potentially useful leftover
@@ -150,6 +168,7 @@ function refreshWarnings() {
 	}
 }
 
+// load on start
 async function load() {
 	let response;
 	if (langList.includes(locale)) {
@@ -159,6 +178,7 @@ async function load() {
 	}
 	const data = await response.json();
 
+	// create rows for prefs
 	for (let e of data.prefs) {
 		let prefRow = document.createElement("div");
 		prefRow.classList.add("pref");
@@ -171,6 +191,7 @@ async function load() {
 		prefRow.desc = e[2];
 		prefRow.title = e[2];
 		prefRow.addEventListener("click", toggle);
+		// display info on hover
 		prefRow.addEventListener("mouseover", function () {
 			document.querySelector("#img-box").innerHTML = "<img src=\"" + imgPath + this.innerHTML + ".png" + "\">";
 			document.querySelector("#desc-name").innerHTML = this.innerHTML;
@@ -193,6 +214,7 @@ async function load() {
 		document.querySelector("#pref-list").appendChild(prefRow);
 	}
 
+	// new tab background notice
 	await getOption("uc.newtab.background").then(val => {
 		if (val == true) {
 			document.querySelector("#newtab-notice").style = "display: none";
@@ -203,6 +225,7 @@ async function load() {
 
 	refreshWarnings();
 
+	// apply button
 	document.querySelector("#export").addEventListener("click", async function () {
 		document.querySelectorAll(".pref").forEach(async function (e) {
 			if (e.classList.contains("true")) {
@@ -227,6 +250,7 @@ async function load() {
 		});
 	});
 
+	// new tab background image 
 	await browser.storage.local.get("newtabbackground").then((val) => {
 		if (val.newtabbackground) {
 			document.querySelector("#preview").src = val.newtabbackground;
@@ -235,6 +259,7 @@ async function load() {
 		}
 	});
 
+	// new tab background image name 
 	await browser.storage.local.get("newtabbackgroundname").then((val) => {
 		if (val.newtabbackgroundname) {
 			document.querySelector("#img-name").innerHTML = val.newtabbackgroundname;
@@ -243,11 +268,30 @@ async function load() {
 		}
 	});
 
+	// custom css
 	await browser.storage.local.get("customcsstext").then((val) => {
 		if (val.customcsstext) {
 			document.querySelector("#css-textarea").value = val.customcsstext;
 		}
 	});
+
+	// browser forks dropdown
+	// https://stackoverflow.com/questions/18113495/how-can-i-get-a-list-of-all-values-in-select-box
+	let selectElement = document.querySelector('#browser-fork-dropdown');
+	optionValues = [...selectElement.options].map(o => o.value);
+	
+	optionValues.forEach(async (e) => {
+		if (e != "firefox") {
+			await getOption("uc." + e).then((val) => {
+				if (val == undefined) {
+					setOptions("uc." + e, false);
+				} else if (val == true) {
+					selectElement.value = e;
+				}
+			});
+		}
+	});
+
 }
 
 

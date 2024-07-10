@@ -112,7 +112,35 @@
 		"description": "Unsaved CSS label."
 	},
 	"author": {
-		"message": "by zapSNH",
+		"message": "ni zapSNH",
 		"description": "self-explanatory. You can also append your name if you're localizing this."
+	},
+	"browser-fork-header": {
+		"message": "Browser Forks",
+		"description": "Header for the browser fork settings section."
+	},
+	"browser-fork-text": {
+		"message": "Itakda ito sa browser na iyong ginagamit para sa mga pag-aayos at pagsasaayos para sa iyong browser (kung hindi ka gumagamit ng Firefox).",
+		"description": "Text for the browser fork settings section"
+	},
+	"fork-firefox": {
+		"message": "Firefox",
+		"description": "Firefox label in the browser fork dropdown."
+	},
+	"fork-floorp": {
+		"message": "Floorp",
+		"description": "Floorp label in the browser fork dropdown."
+	},
+	"fork-librewolf": {
+		"message": "LibreWolf",
+		"description": "LibreWolf label in the browser fork dropdown."
+	},
+	"fork-tor": {
+		"message": "Tor Browser",
+		"description": "Tor Browser label in the browser fork dropdown."
+	},
+	"fork-waterfox": {
+		"message": "Waterfox",
+		"description": "Waterfox label in the browser fork dropdown."
 	}
 }

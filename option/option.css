@@ -360,7 +360,7 @@ body.open {
 		margin-block: -1px;
 	}
 }
-#imagepicker-button, #reload-button, #apply-css-button, #test-css-button {
+#imagepicker-button, #reload-button, #apply-css-button, #test-css-button, #browser-fork-dropdown {
 	font-family: 'Fira Sans', 'Segoe UI', 'Lato', sans-serif;
 	user-select: none;
 	border-radius: 2px;
@@ -386,6 +386,26 @@ body.open {
 	&:hover:active {
 		background-color: var(--background-2);
 		translate: 0 2px;
+	}
+}
+#browser-fork-dropdown {
+	background-image: url(./images/firefox.svg);
+	padding-inline: 24px 8px;
+	background-size: 18px 18px;
+	&:has(> option[value="firefox"]:checked) {
+		background-image: url(./images/forks/firefox.svg);
+	}
+	&:has(> option[value="floorp"]:checked) {
+		background-image: url(./images/forks/floorp.svg);
+	}
+	&:has(> option[value="librewolf"]:checked) {
+		background-image: url(./images/forks/librewolf.svg);
+	}
+	&:has(> option[value="tor"]:checked) {
+		background-image: url(./images/forks/tor.svg);
+	}
+	&:has(> option[value="waterfox"]:checked) {
+		background-image: url(./images/forks/waterfox.svg);
 	}
 }
 #reload-button {

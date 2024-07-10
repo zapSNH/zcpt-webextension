@@ -4,6 +4,11 @@
 		"user_pref(\"svg.context-properties.content.enabled\", true);",
 		"user_pref(\"layout.css.has-selector.enabled\", true);",
 		"user_pref(\"layout.css.nesting.enabled\", true);",
-		"user_pref(\"browser.newtabpage.activity-stream.logowordmark.alwaysVisible\", false);"
+		"user_pref(\"browser.newtabpage.activity-stream.logowordmark.alwaysVisible\", false);",
+
+		"user_pref(\"uc.waterfox\", false);",
+		"user_pref(\"uc.floorp\", false);",
+		"user_pref(\"uc.librewolf\", false);",
+		"user_pref(\"uc.tor\", false);"
 	]
 }
