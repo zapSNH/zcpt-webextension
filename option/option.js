@@ -1,23 +1,51 @@
-// do not look inside, you have been warned
-// p.s. there are no else ifs in this code. like none.
-
-import { setOptions, getOption, setBackground } from "../background.js";
+import { setOption, getOption, setBackground } from "../background.js";
 
 // versioning
 document.querySelector("#version").textContent = "v" + browser.runtime.getManifest().version;
+
 // two letter (or hyphenated) language list
-const langList = ["en", "tl"];
-const esr_version = "115";
+const LANG_LIST = ["en", "tl"];
+const ESR_VERSION = "115";
+
 let imgPath = "./images/light/";
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
 	imgPath = "./images/dark/";
+	document.querySelector(".favicon").href = "./images/icon-dark.svg";
 }
+
 let locale = browser.i18n.getUILanguage();
 let optionValues;
 
+// buttons
+document.querySelector("#export").addEventListener("click", async function () {
+	document.querySelectorAll(".pref").forEach(async function (e) {
+		if (e.classList.contains("true")) {
+			setOption(e.innerHTML, true);
+		} else {
+			setOption(e.innerHTML, false);
+		}
+		await getOption("uc.newtab.background").then(val => {
+			if (val == true) {
+				document.querySelector("#newtab-notice").style = "display: none";
+				browser.runtime.reload()
+			} else {
+				document.querySelector("#newtab-notice").style = "";
+			}
+		});
+	})
+	
+	await browser.runtime.getBrowserInfo().then((info) => {
+		if (info.version.includes(ESR_VERSION)) {
+			browser.runtime.reload();
+		}
+	});
+});
+
 document.querySelector("#clear").addEventListener("click", function () {
-	document.querySelectorAll(".true:not(button)").forEach((e) => e.classList.remove("true"));
-	document.querySelectorAll(".warning").forEach((e) => e.classList.remove("warning"));
+	if (confirm(i18n.getMessage("clear-prefs"))) {
+		document.querySelectorAll(".true:not(button)").forEach((e) => e.classList.remove("true"));
+		document.querySelectorAll(".warning").forEach((e) => e.classList.remove("warning"));
+	}
 });
 
 document.querySelector("#settings").addEventListener("click", function (e) {
@@ -94,6 +122,7 @@ document.querySelector("#css-textarea").addEventListener("keydown", async functi
 		default:
 	}
 
+	// unsaved notice
 	await browser.storage.local.get("customcsstext").then((val) => {
 		if (document.querySelector("#css-textarea").value != val.customcsstext) {
 			document.querySelector("#css-unsaved").classList.add("unsaved");
@@ -102,37 +131,35 @@ document.querySelector("#css-textarea").addEventListener("keydown", async functi
 		}
 	});
 });
-document.querySelector('#browser-fork-dropdown').addEventListener("change", async function() {
+
+document.querySelector('#browser-fork-dropdown').addEventListener("change", async function () {
 	let value = document.querySelector('#browser-fork-dropdown').value;
 	
 	optionValues.forEach(async (e) => {
 		if (e != "firefox" && e != value) {
-			setOptions("uc." + e, false);
+			setOption("uc." + e, false);
 		}
 	});
 	if (value != "firefox") {
-		setOptions("uc." + value, true);
+		setOption("uc." + value, true);
 	}
 	await browser.runtime.getBrowserInfo().then((info) => {
-		if (info.version.includes(esr_version)) {
+		if (info.version.includes(ESR_VERSION)) {
 			browser.runtime.reload();
 		}
 	});
 });
 
+// toggle pref
 function toggle() {
-	// let index = this.index; potentially useful leftover
-	let requires = this.requires;
-	let provides = this.provides;
-	let negates = this.negates;
-	// let replaces = this.replaces; potentially useful leftover
+	let requires = this.requires; // what this pref requires (activates required prefs on toggle) (the required prefs should also mark this pref as its provider)
+	let provides = this.provides; // what this pref provides (when this pref gets toggled off, also disable its providees)
+	let negates = this.negates;   // what this pref negates  (disables incompatible prefs on toggle)
 
 	if (!this.classList.contains("true")) {
-
 		this.classList.add("true");
 
 		if (this.classList.contains("warning")) this.classList.remove("warning");
-
 
 		if (requires != 0) {
 			document.querySelector(".pref:nth-child(" + requires + ")").classList.add("true");
@@ -157,6 +184,7 @@ function toggle() {
 	refreshWarnings();
 }
 
+// dims prefs that are incompatible with the current preferences
 function refreshWarnings() {
 	for (let e of document.querySelectorAll(".pref")) {
 		let hasWarning = false;
@@ -171,7 +199,7 @@ function refreshWarnings() {
 // load on start
 async function load() {
 	let response;
-	if (langList.includes(locale)) {
+	if (LANG_LIST.includes(locale)) {
 		response = await fetch("./locale/" + locale + "/prefs.json");
 	} else {
 		response = await fetch("./locale/en/prefs.json");
@@ -182,15 +210,20 @@ async function load() {
 	for (let e of data.prefs) {
 		let prefRow = document.createElement("div");
 		prefRow.classList.add("pref");
+
 		prefRow.innerHTML = e[0];
-		prefRow.index = e[1][0];
+
+		prefRow.index = e[1][0]; // unused
 		prefRow.requires = e[1][1];
 		prefRow.provides = e[1][2];
 		prefRow.negates = e[1][3];
-		prefRow.replaces = e[1][4];
+		prefRow.replaces = e[1][4]; // unused
+
 		prefRow.desc = e[2];
 		prefRow.title = e[2];
+
 		prefRow.addEventListener("click", toggle);
+
 		// display info on hover
 		prefRow.addEventListener("mouseover", function () {
 			document.querySelector("#img-box").innerHTML = "<img src=\"" + imgPath + this.innerHTML + ".png" + "\">";
@@ -214,6 +247,25 @@ async function load() {
 		document.querySelector("#pref-list").appendChild(prefRow);
 	}
 
+	refreshWarnings();
+
+	// browser forks dropdown
+	// https://stackoverflow.com/questions/18113495/how-can-i-get-a-list-of-all-values-in-select-box
+	let selectElement = document.querySelector('#browser-fork-dropdown');
+	optionValues = [...selectElement.options].map(o => o.value);
+	
+	optionValues.forEach(async (e) => {
+		if (e != "firefox") {
+			await getOption("uc." + e).then((val) => {
+				if (val == undefined) {
+					setOption("uc." + e, false);
+				} else if (val == true) {
+					selectElement.value = e;
+				}
+			});
+		}
+	});
+
 	// new tab background notice
 	await getOption("uc.newtab.background").then(val => {
 		if (val == true) {
@@ -221,33 +273,6 @@ async function load() {
 		} else {
 			document.querySelector("#newtab-notice").style = "";
 		}
-	});
-
-	refreshWarnings();
-
-	// apply button
-	document.querySelector("#export").addEventListener("click", async function () {
-		document.querySelectorAll(".pref").forEach(async function (e) {
-			if (e.classList.contains("true")) {
-				setOptions(e.innerHTML, true);
-			} else {
-				setOptions(e.innerHTML, false);
-			}
-			await getOption("uc.newtab.background").then(val => {
-				if (val == true) {
-					document.querySelector("#newtab-notice").style = "display: none";
-					browser.runtime.reload()
-				} else {
-					document.querySelector("#newtab-notice").style = "";
-				}
-			});
-		})
-		
-		await browser.runtime.getBrowserInfo().then((info) => {
-			if (info.version.includes(esr_version)) {
-				browser.runtime.reload();
-			}
-		});
 	});
 
 	// new tab background image 
@@ -274,24 +299,6 @@ async function load() {
 			document.querySelector("#css-textarea").value = val.customcsstext;
 		}
 	});
-
-	// browser forks dropdown
-	// https://stackoverflow.com/questions/18113495/how-can-i-get-a-list-of-all-values-in-select-box
-	let selectElement = document.querySelector('#browser-fork-dropdown');
-	optionValues = [...selectElement.options].map(o => o.value);
-	
-	optionValues.forEach(async (e) => {
-		if (e != "firefox") {
-			await getOption("uc." + e).then((val) => {
-				if (val == undefined) {
-					setOptions("uc." + e, false);
-				} else if (val == true) {
-					selectElement.value = e;
-				}
-			});
-		}
-	});
-
 }
 
 

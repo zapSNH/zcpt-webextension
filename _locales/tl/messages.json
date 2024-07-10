@@ -142,5 +142,9 @@
 	"fork-waterfox": {
 		"message": "Waterfox",
 		"description": "Waterfox label in the browser fork dropdown."
+	},
+	"clear-prefs": {
+		"message": "i-Reset ang mga preferences?",
+		"description": "Clear preferences clear confirmation dialog."
 	}
 }
