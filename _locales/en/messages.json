@@ -120,7 +120,7 @@
 		"description": "Header for the browser fork settings section."
 	},
 	"browser-fork-text": {
-		"message": "Set this to the browser your currently using for fixes and adjustments for your browser (if you're not using Firefox).",
+		"message": "Set this to the browser you're currently using for fixes and adjustments for your browser (if you're not using Firefox).",
 		"description": "Text for the browser fork settings section"
 	},
 	"fork-firefox": {
