@@ -15,6 +15,10 @@
 		["uc.full-width-tabs",					[13, 0, [], [], []],			"Buong lapad na tabs"],
 		["uc.style-forms",						[14, 0, [], [], []],			"i-Theme ang mga HTML Form. Maaaring masira ang mga forms sa website."],
 		["uc.revert-all-tabs-behavior",			[15, 0, [], [], []],			"Hindi ipakita ang \"all tabs\" na button kung hindi nag-overflow ang tabs gaya sa pre-Photon/early-Proton"],
-		["uc.always-show-close-button",			[16, 0, [], [], []],			"Palaging ipakita ang button para i-close ang tab kahit maliit na ang mga tab."]
+		["uc.always-show-close-button",			[16, 0, [], [], []],			"Palaging ipakita ang button para i-close ang tab kahit maliit na ang mga tab."],
+		["uc.logo.quantum",						[17, 0, [18, 19, 20], [], []],	"Gamitin ang pre-Firefox 70 quantum logo sa halip na ang bagong logo."],
+		["uc.logo.quantum.beta",				[18, 17, [], [19, 20], [17]],	"Gamitin ang Firefox quantum beta logo everywhere."],
+		["uc.logo.quantum.dev",					[19, 17, [], [18, 20], [17]],	"Gamitin ang Firefox quantum developer edition logo everywhere."],
+		["uc.logo.quantum.nightly",				[20, 17, [], [18, 19], [17]],	"Gamitin ang Firefox quantum nightly logo everywhere."]
 	]
 }
