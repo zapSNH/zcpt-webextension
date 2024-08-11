@@ -111,9 +111,9 @@
 		"message": "Hindi naka-save and iyong CSS",
 		"description": "Unsaved CSS label."
 	},
-	"author": {
-		"message": "ni zapSNH",
-		"description": "self-explanatory. You can also append your name if you're localizing this."
+	"webextension-note": {
+		"message": "(web-extension)",
+		"description": "Note for web-extension version."
 	},
 	"browser-fork-header": {
 		"message": "Browser Forks",
