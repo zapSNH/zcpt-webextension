@@ -150,6 +150,12 @@ document.querySelector('#browser-fork-dropdown').addEventListener("change", asyn
 	});
 });
 
+// https://stackoverflow.com/a/43321596
+document.addEventListener('mousedown', function(event) {
+	if (event.detail > 1) {
+		event.preventDefault();
+	}
+}, false);
 // toggle pref
 function toggle() {
 	let requires = this.requires; // what this pref requires (activates required prefs on toggle) (the required prefs should also mark this pref as its provider)
