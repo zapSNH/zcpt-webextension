@@ -19,21 +19,25 @@ async function startup() {
 
 	await browser.storage.local.get("customcss").then((val) => {
 		if (val.customcss) {
-			loadSheet('data:text/css;charset=UTF-8,' + encodeURIComponent(val.customcss), 'AGENT_SHEET');
+			loadSheet('data:text/css;charset=UTF-8,' + encodeURIComponent(val.customcss), 'AGENT_SHEET', true);
 		}
 	});
 
 	await browser.storage.local.get("customcsstemp").then((val) => {
 		if (val.customcsstemp) {
-			loadSheet('data:text/css;charset=UTF-8,' + encodeURIComponent(val.customcsstemp), 'AGENT_SHEET');
+			loadSheet('data:text/css;charset=UTF-8,' + encodeURIComponent(val.customcsstemp), 'AGENT_SHEET', true);
 			browser.storage.local.remove("customcsstemp");
 		}
 	});
 }
 
-async function loadSheet(name, type) {
+async function loadSheet(name, type, dataURL = false) {
 	if (browser.runtime.getURL(name)) {
-		browser.stylesheet.load(browser.runtime.getURL(name), type);
+		if (dataURL) {
+			browser.stylesheet.load(name, type);
+		} else {
+			browser.stylesheet.load(browser.runtime.getURL(name), type);
+		}
 	} else {
 		return;
 	}
@@ -56,7 +60,7 @@ async function loadBackground() {
 	await browser.storage.local.get("newtabbackground").then((val) => {
 		if (val.newtabbackground) {
 			let dataString = '@-moz-document url("about:newtab"), url("about:home"){ @media (-moz-bool-pref: "uc.newtab.background") { body { background-image: url(' + val.newtabbackground + ') !important;}}}';
-			loadSheet('data:text/css;charset=UTF-8,' + encodeURIComponent(dataString), 'USER_SHEET');
+			loadSheet('data:text/css;charset=UTF-8,' + encodeURIComponent(dataString), 'USER_SHEET', true);
 		}
 	});
 }
