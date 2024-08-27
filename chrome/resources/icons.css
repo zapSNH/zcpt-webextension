@@ -182,6 +182,9 @@
 .persistent-storage-icon.blocked-permission-icon {
 	list-style-image: url(./icons/persistent-storage-blocked.svg) !important;
 }
+#webauthn-notification-icon, .popup-notification-icon[popupid^="webauthn-prompt-"] {
+	list-style-image: url(./icons/fingerprinters.svg) !important;
+}
 #notification-popup-box .persistent-storage-icon {
 	width: 30px !important;
 }
@@ -458,6 +461,9 @@
 }
 #translations-button-icon {
 	list-style-image: url(./icons/translations.svg) !important;
+}
+#translations-button-circle-arrows {
+	list-style-image: url(./icons/sync.svg) !important;
 }
 #copy-button {
 	list-style-image: url(./icons/edit-copy.svg) !important;
