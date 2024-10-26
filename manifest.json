@@ -3,7 +3,7 @@
   "name": "__MSG_extensionName__",
   "short_name": "__MSG_extensionShortName__",
   "homepage_url": "https://github.com/zapSNH/zapsCoolPhotonTheme",
-  "version": "0.24.37.1",
+  "version": "0.24.38.1",
   "author": "zapsnh",
   "default_locale": "en",
   "description": "__MSG_extensionDescription__",
