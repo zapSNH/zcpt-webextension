@@ -19,6 +19,7 @@
 		["uc.logo.quantum",						[17, 0, [18, 19, 20], [], []],	"Use the pre-Firefox 70 quantum logo everywhere instead of the current one."],
 		["uc.logo.quantum.beta",				[18, 17, [], [19, 20], [17]],	"Use the Firefox quantum beta logo everywhere."],
 		["uc.logo.quantum.dev",					[19, 17, [], [18, 20], [17]],	"Use the Firefox quantum developer edition logo everywhere."],
-		["uc.logo.quantum.nightly",				[20, 17, [], [18, 19], [17]],	"Use the Firefox quantum nightly logo everywhere."]
+		["uc.logo.quantum.nightly",				[20, 17, [], [18, 19], [17]],	"Use the Firefox quantum nightly logo everywhere."],
+		["uc.toolbar.transparency",				[21, 0, [], [], []],			"Makes the toolbar transparent to allow transparency effects such as Mica or Acrylic (effects can be configured by using programs such as MicaForEveryone)."]
 	]
 }
