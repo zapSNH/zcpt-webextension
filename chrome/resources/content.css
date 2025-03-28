@@ -1,7 +1,7 @@
 /* Content Pages */
 
 /* firefox control(?) styling */
-@media -moz-pref("uc.style-forms") {
+@media (-moz-bool-pref: "uc.style-forms") {
 	select {
 		background-color: light-dark(#f9f9fa, #2a2a2e);
 		background-image: url(./icons/arrow-dropdown-12.svg);
@@ -110,6 +110,12 @@
 		--link-color: var(--blue-60) !important;
 		--link-color-hover: var(--blue-70) !important;
 		--link-color-active: var(--blue-80) !important;
+		--shadow-10: 0 1px 4px var(--grey-90-a10) !important;
+		--shadow-30: 0 4px 16px var(--grey-90-a10) !important;
+		--card-shadow: var(--shadow-10) !important;
+		--box-shadow-card: var(--shadow-10) !important;
+		--card-outline-color: light-dark(var(--grey-30), var(--grey-60)) !important;
+		--box-shadow-card-hover: var(--card-shadow), 0 0 0 5px var(--card-outline-color) !important;
 	}
 	@media (prefers-color-scheme: dark) {
 		* {
@@ -293,6 +299,7 @@
 			&[disabled] {
 				background-color: var(--blue-60) !important;
 				opacity: 0.5
+			
 			}
 		}
 	}
@@ -303,7 +310,7 @@
 		width: 20px !important;
 		height: 20px !important;
 		&[selected], &:checked {
-		border: 1px solid color-mix(in srgb, currentColor 0%, transparent) !important;
+			border: 1px solid color-mix(in srgb, currentColor 0%, transparent) !important;
 			background-color: var(--blue-60) !important;
 			background-image: url("./icons/radio.svg") !important;
 			-moz-context-properties: fill !important;
@@ -312,7 +319,9 @@
 			background-size: 20px !important;
 		}
 	}
-	.header-name, h1, .heading-xlarge {
+	.header-name,
+	h1,
+	.heading-xlarge {
 		font-weight: 300 !important;
 	}
 	input[type="radio"] {
@@ -397,6 +406,9 @@
 			content: url("./icons/warning-16.svg") !important;
 		}
 	}
+	.card {
+		border: none !important;
+	}
 	/* context menus */
 	panel-list {
 		border-radius: 0 !important;
@@ -405,27 +417,27 @@
 			--border-color-interactive: color-mix(in srgb, var(--in-content-page-color) 20%, transparent) !important;
 		}
 	}
-	@media -moz-pref("uc.floorp") {
+	@media (-moz-bool-pref: "uc.floorp") {
 		img[src="chrome://devtools/skin/images/aboutdebugging-firefox-logo.svg"] {
 			content: url(./icons/forks/floorp/floorp-grayscale.svg) !important;
 		}
 	}
-	@media -moz-pref("uc.waterfox") {
+	@media (-moz-bool-pref: "uc.waterfox") {
 		img[src="chrome://devtools/skin/images/aboutdebugging-firefox-logo.svg"] {
 			content: url(./icons/forks/waterfox/waterfox-grayscale.svg) !important;
 		}
 	}
-	@media -moz-pref("uc.librewolf") {
+	@media (-moz-bool-pref: "uc.librewolf") {
 		img[src="chrome://devtools/skin/images/aboutdebugging-firefox-logo.svg"] {
 			content: url(./icons/forks/librewolf/librewolf-grayscale.svg) !important;
 		}
 	}
-	@media -moz-pref("uc.tor") {
+	@media (-moz-bool-pref: "uc.tor") {
 		img[src="chrome://devtools/skin/images/aboutdebugging-firefox-logo.svg"] {
 			content: url(./icons/forks/tor/tor-grayscale.svg) !important;
 		}
 	}
-	@media -moz-pref("uc.logo.quantum") {
+	@media (-moz-bool-pref: "uc.logo.quantum") {
 		img[src="chrome://devtools/skin/images/aboutdebugging-firefox-logo.svg"] {
 			content: url(./icons/quantum/aboutdebugging-firefox-logo.svg) !important;
 		}
@@ -801,7 +813,7 @@
 			background-color: #38383d !important;
 		}
 	}
-	@media -moz-pref("uc.newtab.background") {
+	@media (-moz-bool-pref: "uc.newtab.background") {
 		body {
 			--newtab-contextual-text-primary-color: currentColor !important;
 			--newtab-button-text: currentColor !important;
@@ -820,16 +832,10 @@
 			padding-block: 2px !important;
 		}
 		.top-site-outer {
-			padding-inline: 4px !important
-		
-		
-		
+			padding-inline: 4px !important;
 		}
 		.section-top-bar {
-			margin-inline: -8px
-		
-		
-		
+			margin-inline: -8px;
 		}
 		.top-site-outer .context-menu-button {
 			translate: 0px 8px;
@@ -838,21 +844,21 @@
 	/* Legacy Logos */
 	.search-wrapper .logo-and-wordmark .logo {
 		--quantum-logo: url(./icons/quantum/firefox-logo.svg);
-		@media -moz-pref("uc.logo.quantum-beta") {
+		@media (-moz-bool-pref: "uc.logo.quantum-beta") {
 			--quantum-logo: url(./icons/quantum/firefox-logo-beta.svg) !important;
 		}
-		@media -moz-pref("uc.logo.quantum-dev") {
+		@media (-moz-bool-pref: "uc.logo.quantum-dev") {
 			--quantum-logo: url(./icons/quantum/firefox-logo-developer-edition.svg) !important;
 		}
-		@media -moz-pref("uc.logo.quantum-nightly") {
+		@media (-moz-bool-pref: "uc.logo.quantum-nightly") {
 			--quantum-logo: url(./icons/quantum/firefox-logo-nightly.svg) !important;
 		}
-		@media -moz-pref("uc.logo.quantum") {
+		@media (-moz-bool-pref: "uc.logo.quantum") {
 			background-image: var(--quantum-logo) !important;
 		}
 	}
 	.search-wrapper .logo-and-wordmark .wordmark {
-		@media -moz-pref("uc.logo.quantum") {
+		@media (-moz-bool-pref: "uc.logo.quantum") {
 			background-image: url(./icons/quantum/firefox-wordmark.svg) !important;
 		}
 	}
@@ -1092,13 +1098,15 @@
 	}
 	#homeContentsGroup .checkbox-icon {
 		opacity: 0;
+		display: none !important;
 	}
 	#homeContentsGroup vbox .checkbox-label-box::before {
 		-moz-context-properties: fill, stroke;
 		fill: currentColor;
 		stroke: currentColor;
 		margin-top: 4px;
-		margin-inline-end: -16px !important;
+		margin-inline-start: 2px !important;
+		margin-inline-end: 8px !important;
 	}
 	#homeContentsGroup vbox[data-subcategory="search"] .checkbox-label-box::before {
 		content: url("./icons/find-in-page.svg") !important;
@@ -1175,9 +1183,11 @@
 	
 	
 	
+	
 	}
 	addon-card .more-options-button {
 		background-image: url(./icons/more.svg) !important
+	
 	
 	
 	
@@ -1192,6 +1202,7 @@
 	.category {
 		&[name="discover"] {
 			background-image: url("./icons/glyph-highlights-16.svg") !important
+		
 		
 		
 		
@@ -1338,6 +1349,7 @@
 		@media (prefers-color-scheme: dark) {
 			&[aria-selected="true"] {
 				filter: brightness(2.5) saturate(0.75) hue-rotate(50deg)
+			
 			
 			
 			
