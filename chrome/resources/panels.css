@@ -180,7 +180,7 @@ menu) {
 	padding: 0 8px !important;
 	margin: 0 !important;
 }
-@media not -moz-pref("browser.profiles.enabled") {
+@media not (-moz-bool-pref: "browser.profiles.enabled") {
 	#appMenu-fxa-separator {
 		margin-top: 4px !important;
 	}
@@ -502,7 +502,7 @@ menu.bookmark-item {
 	#toolbar-context-menu,
 	#placesContext,
 	#mainPopupSet :not(#searchmode-switcher-popup),
-	.textbox-contextmenu) menuitem .menu-text {
+	.textbox-contextmenu) menuitem:not(.menuitem-with-favicon) .menu-text {
 		padding-left: 24px !important;
 	}
 	#context-sendpagetodevice,
