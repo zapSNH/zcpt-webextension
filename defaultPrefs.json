@@ -3,6 +3,7 @@
 		"user_pref(\"toolkit.legacyUserProfileCustomizations.stylesheets\", true);",
 		"user_pref(\"svg.context-properties.content.enabled\", true);",
 		"user_pref(\"browser.newtabpage.activity-stream.logowordmark.alwaysVisible\", false);",
+		"user_pref(\"widget.windows.mica.popups\", 0);",
 
 		"user_pref(\"uc.waterfox\", false);",
 		"user_pref(\"uc.floorp\", false);",
