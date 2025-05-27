@@ -227,16 +227,16 @@
 		--quantum-wordmark: url(./icons/quantum/about-wordmark.svg);
 		--wordmark-size: 300px 38px;
 		--wordmark-position: 0px 16px;
-		@media -moz-pref("uc.logo.quantum-beta") {
+		@media (-moz-bool-pref: "uc.logo.quantum-beta") {
 			--quantum-logo: url(./icons/quantum/firefox-logo-beta.svg);
 		}
-		@media -moz-pref("uc.logo.quantum-dev") {
+		@media (-moz-bool-pref: "uc.logo.quantum-dev") {
 			--quantum-logo: url(./icons/quantum/firefox-logo-developer-edition.svg);
 			--quantum-wordmark: url(./icons/quantum/about-wordmark-de.svg);
 			--wordmark-size: 153.29px 72px;
 			--wordmark-position: 0px 0px;
 		}
-		@media -moz-pref("uc.logo.quantum-nightly") {
+		@media (-moz-bool-pref: "uc.logo.quantum-nightly") {
 			--quantum-logo: url(./icons/quantum/firefox-logo-nightly.svg);
 			--quantum-wordmark: url(./icons/quantum/about-wordmark-nightly.svg);
 			--wordmark-size: 270px 48px;
@@ -256,7 +256,8 @@
 			content: url("./icons/loading.svg") !important;
 		}
 	}
-	@media -moz-pref("uc.logo.quantum") {
+	
+	@media (-moz-bool-pref: "uc.logo.quantum") {
 		#rightBox {
 			background-image: var(--quantum-wordmark) !important;
 			background-size: var(--wordmark-size) !important;
@@ -384,8 +385,6 @@
 			--toolbar-bgcolor: #f9f9fa !important;
 			--input-bgcolor: #ccc !important;
 			--input-border-color: #aaa 
-	  
-		
 		}
 	}
 	@media (prefers-color-scheme: dark) {
@@ -500,22 +499,43 @@
 	#cancel-button {
 		width: 100%;
 	}
-	input[type="checkbox"] {
+	input[type="radio"] {
+		border-radius: 999px;
+	}
+	input:is([type="checkbox"], [type="radio"]) {
+		appearance: none;
 		width: 20px !important;
 		height: 20px !important;
-	}
-	input[type="checkbox"]:checked {
-		background: var(--photon-accent-dark) url(./icons/check.svg) no-repeat !important;
-		background-size: 16px !important;
-		background-position: 1px 1px !important;
-		-moz-context-properties: fill !important;
-		fill: white !important;
+		background: var(--button-bgcolor) !important;
+		border: 1px solid var(--toolbar-field-border-color);
 		&:hover {
-			background-color: color-mix(in srgb, var(--photon-accent-dark) 80%, white) !important;
+			background-color: var(--button-hover-bgcolor) !important;
 		}
 		&:active {
-			background-color: color-mix(in srgb, var(--photon-accent-dark) 60%, white) !important;
+			background-color: var(--button-active-bgcolor) !important;
 		}
+		&:checked {
+			border-color: transparent !important;
+			background-color: var(--photon-accent-dark) !important;
+			background-repeat: no-repeat;
+			background-position: center !important;
+			-moz-context-properties: fill !important;
+			fill: white !important;
+			&:hover {
+				background-color: color-mix(in srgb, var(--photon-accent-dark) 80%, black) !important;
+			}
+			&:active {
+				background-color: color-mix(in srgb, var(--photon-accent-dark) 60%, black) !important;
+			}
+		}
+	}
+	input[type="checkbox"]:checked {
+		background-image: url(./icons/check.svg) !important;
+		background-size: 16px !important;
+	}
+	input[type="radio"]:checked {
+		background-image: url(./icons/radio.svg) !important;
+		background-size: 20px !important;
 	}
 	#printer-picker {
 		background-image: url("./icons/arrow-dropdown-16.svg"),
@@ -632,8 +652,6 @@
 		background-color: #323234 !important;
 	}
 }
-
-@-moz-document url-prefix("chrome://"), url-prefix("resource://") {
 /* Autoscroller */
 .autoscroller {
 	padding: 15px !important;
@@ -650,7 +668,7 @@
 	box-shadow: 0 0 4px rgba(0,0,0,.2);
 }
 /* Transparent Toolbar */
-@media -moz-pref("uc.toolbar.transparency") {
+@media (-moz-bool-pref: "uc.toolbar.transparency") {
 	#browser {
 		--toolbox-bgcolor: transparent !important;
 		--toolbox-bgcolor-inactive: transparent !important;
@@ -678,10 +696,9 @@
 	}*/
 }
 /* Old style context menus */
-@media -moz-pref("uc.contextmenu.win-10") {
-	@media -moz-pref("uc.contextmenu.dark") {
-		menupopup:not([customoptionstyling="true"]),
-		tooltip {
+@media (-moz-bool-pref: "uc.contextmenu.win-10") {
+	@media (-moz-bool-pref: "uc.contextmenu.dark") {
+		menupopup:not([customoptionstyling="true"]), tooltip {
 			--arrowpanel-background: #2b2b2b !important;
 			--button-hover-bgcolor: #5f5f5f !important;
 			--panel-color: #fff !important;
@@ -696,9 +713,8 @@
 			color: #fff !important;
 		}
 	}
-	@media -moz-pref("uc.contextmenu.light") {
-		menupopup:not([customoptionstyling="true"]),
-		tooltip {
+	@media (-moz-bool-pref: "uc.contextmenu.light") {
+		menupopup:not([customoptionstyling="true"]), tooltip {
 			--arrowpanel-background: #fff !important;
 			--button-hover-bgcolor: #e3e2e3 !important;
 			--panel-color: #000 !important;
@@ -736,15 +752,11 @@
 		margin-inline: 2px !important;
 	}
 }
+
 /* kinda looks like the gnome context menu too */
-@media -moz-pref("uc.contextmenu.win-11") {
-	menupopup:not([customoptionstyling="true"]),
-	tooltip {
-		--arrowpanel-background: transparent !important;
-	}
-	@media -moz-pref("uc.contextmenu.dark") {
-		menupopup:not([customoptionstyling="true"]),
-		tooltip {
+@media (-moz-bool-pref: "uc.contextmenu.win-11") {
+	@media (-moz-bool-pref: "uc.contextmenu.dark") {
+		menupopup:not([customoptionstyling="true"]), tooltip {
 			--arrowpanel-background: #2c2c2c !important;
 			--button-hover-bgcolor: #5f5f5f !important;
 			--panel-color: #fff !important;
@@ -759,9 +771,8 @@
 			color: #fff !important;
 		}
 	}
-	@media -moz-pref("uc.contextmenu.light") {
-		menupopup:not([customoptionstyling="true"]),
-		tooltip {
+	@media (-moz-bool-pref: "uc.contextmenu.light") {
+		menupopup:not([customoptionstyling="true"]), tooltip {
 			--arrowpanel-background: #fff !important;
 			--button-hover-bgcolor: #e3e2e3 !important;
 			--button-hover-color: #000 !important;
@@ -809,9 +820,18 @@
 	#context-navigation menuitem * {
 		border-radius: 2px !important;
 	}
+	[placespopup] :is(menuitem:not(.menuitem-with-favicon)) {
+		margin-inline: 4px !important;
+		border-radius: 4px !important;
+		padding-block: 2px !important;
+	}
+	:root .menuitem-with-favicon {
+		margin-inline: 4px !important;
+	}
 }
+
 /* Sidebery */
-@media -moz-pref("uc.sidebery") {
+@media (-moz-bool-pref: "uc.sidebery") {
 	:root[titlepreface="[VT] "] {
 		--sidebar-width: 35px;
 		#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] #sidebar-header {
@@ -1017,7 +1037,7 @@
 		&[customizing="true"] #customization-container {
 			margin-inline-start: 35px;
 		}
-		@media -moz-pref("uc.bottom-tabs") {
+		@media (-moz-bool-pref: "uc.bottom-tabs") {
 			#nav-bar {
 				margin-top: 1px;
 				margin-inline-start: 0;
@@ -1100,6 +1120,4 @@
 			}
 		}
 	}
-}
-}
 }
