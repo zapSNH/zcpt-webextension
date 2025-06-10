@@ -191,7 +191,7 @@ menu) {
 	padding: 0 8px !important;
 	margin: 0 !important;
 }
-@media not -moz-pref("browser.profiles.enabled") {
+@media not (-moz-bool-pref: "browser.profiles.enabled") {
 	#appMenu-fxa-separator {
 		margin-top: 4px !important;
 	}
