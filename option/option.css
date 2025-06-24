@@ -7,6 +7,7 @@
 	--background-3: #e4e4e4;
 	--background-4: #eaeaea;
 	--background-5: #0a84ff66;
+	--background-6: #90c1f2;
 
 	--color-1: #0a0a0a;
 
@@ -24,12 +25,13 @@
 		--background-3: #4a4a4f;
 		--background-4: #444446;
 		--background-5: #0a84ffaa;
+		--background-6: #1e6fc1;
 	
 		--color-1: #fefefe;
 	
 		--border-1: #5a5a5c;
 	}
-	#fav, #zcpt-logo {
+	#fav {
 		content: url(./images/icon-dark.svg) !important;
 	}
 }
@@ -76,7 +78,7 @@ body {
 	width: 100%;
 	margin-top: 4px;
 }
-#fav, #zcpt-logo {
+#fav {
 	width: 24px;
 	height: 24px;
 	align-self: center;
@@ -84,8 +86,8 @@ body {
 	filter: drop-shadow(0 2px 6px #0003);
 }
 #zcpt-logo {
-	width: 48px;
-	height: 48px;
+	align-self: center;
+	filter: drop-shadow(0 2px 6px #0003);
 }
 #title {
 	font-size: 20px;
@@ -315,7 +317,6 @@ body {
 	overflow-y: scroll;
 	scrollbar-width: thin;
 	scrollbar-color: var(--border-1) var(--background-4);
-	width: 100%;
 }
 .header {
 	font-size: 20px;
@@ -347,6 +348,7 @@ body {
 	width: calc(100vw - 22px);
 	height: fit-content;
 	gap: 8px;
+	width: 100%;
 }
 body.open {
 	#settings-menu {
@@ -431,7 +433,7 @@ body.open {
 #preview-container {
 	width: fit-content;
 }
-#newtab-notice, #css-unsaved {
+#newtab-notice, #css-unsaved, #unsaved-options {
 	padding: 4px;
 	background: var(--background-5);
 	color: var(--color-1);
@@ -439,7 +441,14 @@ body.open {
 	border-radius: 2px;
 	box-shadow: var(--box-shadow-2);
 }
-#css-unsaved:not(.unsaved) {
+#unsaved-options {
+	text-align: center;
+	margin-top: 8px;
+	position: sticky;
+	bottom: 4px;
+	background: var(--background-6);
+}
+:is(#css-unsaved, #unsaved-options):not(.unsaved) {
 	display: none;
 }
 textarea {
@@ -483,6 +492,39 @@ textarea {
 	text-align: center;
 	opacity: 0.5;
 	width: 100%;
+}
+#repo-links {
+	background: var(--background-2);
+	border: 1px solid var(--border-1);
+	margin-top: 6px;
+	border-radius: 2px;
+	padding: 8px;
+	box-shadow: var(--box-shadow-2);
+	display: flex;
+	flex-direction: column;
+	color: var(--color-1);
+	text-align: center;
+	span {
+		margin-block: 8px;
+	}
+	a {
+		color: var(--color-1);
+		text-decoration: none;
+		font-weight: 900;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+.two-in-one-settings-section {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	gap: 8px;
+	.settings-section {
+		flex: 1;
+		width: 100%;
+	}
 }
 /* reshponivv! */
 @media (max-width: 900px) {

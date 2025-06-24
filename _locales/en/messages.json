@@ -146,5 +146,21 @@
 	"clear-prefs": {
 		"message": "Clear preferences?",
 		"description": "Clear preferences clear confirmation dialog."
+	},
+	"unsaved-options": {
+		"message": "Unsaved options",
+		"description": "Unsaved options for the pref list"
+	},
+	"report-issues": {
+		"message": "Report issues:",
+		"description": "Report issues text in about"
+	},
+	"ext-issues": {
+		"message": "Extension issues",
+		"description": "Extension issues text in about"
+	},
+	"theme-issues": {
+		"message": "Theme issues",
+		"description": "Theme issues text in about"
 	}
 }

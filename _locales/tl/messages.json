@@ -8,7 +8,7 @@
 		"description": "A shortened name of the extension."
 	},
 	"extensionDescription": {
-		"message": "isang photon tema para sa Firefox. base sa paxmod.",
+		"message": "photon theme para sa Firefox. based on paxmod.",
 		"description": "Description of the extension."
 	},
 	"extensionOptions": {
@@ -146,5 +146,21 @@
 	"clear-prefs": {
 		"message": "i-Reset ang mga preferences?",
 		"description": "Clear preferences clear confirmation dialog."
+	},
+	"unsaved-options": {
+		"message": "Unsaved options",
+		"description": "Unsaved options for the pref list"
+	},
+	"report-issues": {
+		"message": "Mag-report ng mga isyu:",
+		"description": "Report issues text in about"
+	},
+	"ext-issues": {
+		"message": "Mga isyu tungkol sa extension",
+		"description": "Extension issues text in about"
+	},
+	"theme-issues": {
+		"message": "Mga isyu tungkol sa theme",
+		"description": "Theme issues text in about"
 	}
 }

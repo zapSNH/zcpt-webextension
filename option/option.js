@@ -18,6 +18,8 @@ let optionValues;
 
 // buttons
 document.querySelector("#export").addEventListener("click", async function () {
+	changedPrefs = {};
+	document.querySelector('#unsaved-options').classList.remove("unsaved");
 	document.querySelectorAll(".pref").forEach(async function (e) {
 		if (e.classList.contains("true")) {
 			setOption(e.innerHTML, true);
@@ -32,7 +34,7 @@ document.querySelector("#export").addEventListener("click", async function () {
 				document.querySelector("#newtab-notice").style = "";
 			}
 		});
-	})
+	});
 	
 	await browser.runtime.getBrowserInfo().then((info) => {
 		if (info.version.includes(ESR_VERSION)) {
@@ -157,6 +159,18 @@ document.addEventListener('mousedown', function(event) {
 	}
 }, false);
 // toggle pref
+let changedPrefs = {
+	// "uc.pref1": true/false
+};
+function addToChangedPrefs(pref, value) {
+	if (!(pref in changedPrefs)) {
+		changedPrefs[pref] = value;
+	} else {
+		if (changedPrefs[pref] === !value) {
+			delete changedPrefs[pref];
+		}
+	}
+}
 function toggle() {
 	let requires = this.requires; // what this pref requires (activates required prefs on toggle) (the required prefs should also mark this pref as its provider)
 	let provides = this.provides; // what this pref provides (when this pref gets toggled off, also disable its providees)
@@ -164,29 +178,49 @@ function toggle() {
 
 	if (!this.classList.contains("true")) {
 		this.classList.add("true");
+		addToChangedPrefs(this.textContent, true);
 
 		if (this.classList.contains("warning")) this.classList.remove("warning");
 
 		if (requires != 0) {
-			document.querySelector(".pref:nth-child(" + requires + ")").classList.add("true");
-			document.querySelector(".pref:nth-child(" + requires + ")").classList.remove("warning");
+			const requiresPref = document.querySelector(".pref:nth-child(" + requires + ")");
+			if (!requiresPref.classList.contains("true")) {
+				addToChangedPrefs(requiresPref.textContent, true);
+				requiresPref.classList.add("true");
+			}
+			requiresPref.classList.remove("warning");
 		}
 		if (negates.length) {
 			for (let i = 1; i <= negates.length; i++) {
-				document.querySelector(".pref:nth-child(" + negates[i-1] + ")").classList.remove("true");
-				document.querySelector(".pref:nth-child(" + negates[i-1] + ")").classList.add("warning");
+				const negatesPref = document.querySelector(".pref:nth-child(" + negates[i-1] + ")");
+				if (negatesPref.classList.contains("true")) {
+					addToChangedPrefs(negatesPref.textContent, false);
+					negatesPref.classList.remove("true");
+				}
+				negatesPref.classList.add("warning");
 			}
 		}
 
 	} else {
 		this.classList.remove("true");
+		addToChangedPrefs(this.textContent, false);
 
 		if (provides.length) {
 			for (let i = 1; i <= provides.length; i++) {
-				document.querySelector(".pref:nth-child(" + provides[i-1] + ")").classList.remove("true");
+				const providesPref = document.querySelector(".pref:nth-child(" + provides[i-1] + ")");
+				if (providesPref.classList.contains("true")) {
+					addToChangedPrefs(providesPref.textContent, false);
+					providesPref.classList.remove("true");
+				}
 			}
 		}
 	}
+	if (Object.keys(changedPrefs).length === 0) {
+		document.querySelector('#unsaved-options').classList.remove("unsaved");
+	} else {
+		document.querySelector('#unsaved-options').classList.add("unsaved");
+	}
+	//document.querySelector('#title').innerHTML = JSON.stringify(changedPrefs, null, 2);
 	refreshWarnings();
 }
 
@@ -219,7 +253,7 @@ async function load() {
 
 		prefRow.innerHTML = e[0];
 
-		prefRow.index = e[1][0]; // unused
+		prefRow.index = e[1][0];
 		prefRow.requires = e[1][1];
 		prefRow.provides = e[1][2];
 		prefRow.negates = e[1][3];

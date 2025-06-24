@@ -1,101 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>ZCPT Options</title>
-	<link rel="stylesheet" href="option.css">
-	<link rel="icon" type="image/svg+xml" class="favicon" href="./images/icon-light.svg">
-</head>
-<body>
-	<div id="title">
-		<img id="fav" src="./images/icon-light.svg">
-		<div>
-			<a href="https://github.com/zapSNH/zapsCoolPhotonTheme">zapSNH/zapsCoolPhotonTheme</a>
-			<div id="title-text">Options</div>
-		</div>
-		<button id="settings" title="Other Settings" class=""></button>
-	</div>
-	<div id="sidebar">
-		<div id="pref-list">
-		</div>
-		<div id="description">
-            <div id="topbar">
-                <div id="desc-name" class="i18n-target">
-                    Hover over an item to see its description
-                </div>
-                <div id="incompat-box" class="empty">
-					<span id="incompat-text" class="i18n-target">Incompatible With:</span>
-                    <div>N/A</div>
-                </div>
-            </div>
-			<div id="img-box">
-				
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>ZCPT Options</title>
+		<link rel="stylesheet" href="option.css" />
+		<link
+			rel="icon"
+			type="image/svg+xml"
+			class="favicon"
+			href="./images/icon-light.svg"
+		/>
+	</head>
+	<body>
+		<div id="title">
+			<img id="fav" src="./images/icon-light.svg" />
+			<div>
+				<a href="https://github.com/zapSNH/zapsCoolPhotonTheme"
+					>zapSNH/zapsCoolPhotonTheme</a
+				>
+				<div id="title-text">Options</div>
 			</div>
-			<div id="desc-box">
-				
+			<button id="settings" title="Other Settings" class=""></button>
+		</div>
+		<div id="sidebar">
+			<div id="pref-list"></div>
+			<div id="description">
+				<div id="topbar">
+					<div id="desc-name" class="i18n-target">
+						Hover over an item to see its description
+					</div>
+					<div id="incompat-box" class="empty">
+						<span id="incompat-text" class="i18n-target"
+							>Incompatible With:</span
+						>
+						<div>N/A</div>
+					</div>
+				</div>
+				<div id="img-box"></div>
+				<div id="desc-box"></div>
+				<div id="unsaved-options" class="i18n-target">Unsaved Changes</div>
 			</div>
-		</div>
-		<div id="button-box">
-			<a id="clear" class="i18n-target">Clear</a>
-			<a id="export" class="i18n-target">Apply</a>
-		</div>
-	</div>
-	<div id="settings-menu">
-		<div class="settings-section">
-			<div id="reload-extension-header" class="header i18n-target">Reload Extension</div>
-			<div id="reload">
-				<div id="reload-text" class="i18n-target">Reloads the extension to potentially fix some issues. This does not clear your data.</div>
-				<button id="reload-button" class="i18n-target">Reload</button>
+			<div id="button-box">
+				<a id="clear" class="i18n-target">Clear</a>
+				<a id="export" class="i18n-target">Apply</a>
 			</div>
 		</div>
-		<div class="settings-section">
-			<div id="browser-fork-header" class="header i18n-target">Browser Forks</div>
-			<div id="browser-fork">
-				<div id="browser-fork-text" class="i18n-target">Set this to the browser you're currently using for fixes and adjustments for your browser (if you're not using Firefox).</div>
-				<select name="browser-fork" id="browser-fork-dropdown">
-					<option value="firefox" id="fork-firefox" class="i18n-target">Firefox (Default)</option>
-					<option value="floorp" id="fork-floorp" class="i18n-target">Floorp</option>
-					<option value="librewolf" id="fork-librewolf" class="i18n-target">LibreWolf</option>
-					<option value="tor" id="fork-tor" class="i18n-target">Tor Browser</option>
-					<option value="waterfox" id="fork-waterfox" class="i18n-target">Waterfox</option>
-				</select>
+		<div id="settings-menu">
+			<div class="two-in-one-settings-section">
+				<div class="settings-section">
+					<div id="reload-extension-header" class="header i18n-target">
+						Reload Extension
+					</div>
+					<div id="reload">
+						<div id="reload-text" class="i18n-target">
+							Reloads the extension to potentially fix some issues. This does
+							not clear your data.
+						</div>
+						<button id="reload-button" class="i18n-target">Reload</button>
+					</div>
+				</div>
+				<div class="settings-section">
+					<div id="browser-fork-header" class="header i18n-target">
+						Browser Forks
+					</div>
+					<div id="browser-fork">
+						<div id="browser-fork-text" class="i18n-target">
+							Set this to the browser you're currently using for fixes and
+							adjustments for your browser (if you're not using Firefox).
+						</div>
+						<select name="browser-fork" id="browser-fork-dropdown">
+							<option value="firefox" id="fork-firefox" class="i18n-target">
+								Firefox (Default)
+							</option>
+							<option value="floorp" id="fork-floorp" class="i18n-target">
+								Floorp
+							</option>
+							<option value="librewolf" id="fork-librewolf" class="i18n-target">
+								LibreWolf
+							</option>
+							<option value="tor" id="fork-tor" class="i18n-target">
+								Tor Browser
+							</option>
+							<option value="waterfox" id="fork-waterfox" class="i18n-target">
+								Waterfox
+							</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="settings-section">
+				<div id="new-tab-background-header" class="header i18n-target">
+					New Tab Background
+				</div>
+				<div id="bkgimg">
+					<div id="newtab-notice" class="i18n-target">
+						uc.newtab.background isn't enabled. Background won't be shown.
+					</div>
+					<label for="imagepicker" id="imagepicker-button" class="i18n-target">
+						Browse
+					</label>
+					<input id="imagepicker" type="file" />
+					<a
+						id="preview-container"
+						href=""
+						target="_blank"
+						class="i18n-target-title"
+					>
+						<img id="preview" class="loaded" />
+					</a>
+					<div id="img-name"></div>
+				</div>
+			</div>
+			<div class="settings-section">
+				<div id="custom-css-header" class="header i18n-target">Custom CSS</div>
+				<div id="css-unsaved" class="i18n-target">Unsaved Changes</div>
+				<div id="custom-css-text" class="i18n-target">
+					Place your custom CSS here. It's recommended to test your CSS before
+					applying which will only apply your CSS for one session in case you
+					mess something up.
+				</div>
+				<div id="custom-css-note" class="i18n-target">
+					Your CSS will load as an author sheet and will be injected into
+					everything. It is recommended to encapsulate your CSS with
+					@-moz-document url-prefix("chrome://"), url-prefix("resource://") { }
+					to only load it into the browser chrome.
+				</div>
+				<button id="apply-css-button" class="i18n-target">Apply CSS</button>
+				<button id="test-css-button" class="i18n-target">Test CSS</button>
+				<textarea id="css-textarea" spellcheck="false" wrap="off"></textarea>
+			</div>
+			<div class="settings-section">
+				<div id="about-header" class="header i18n-target">About</div>
+				<div id="about-container">
+					<img id="zcpt-logo" src="./wordmark.svg" />
+				</div>
+				<div id="version">(pee pee poo poo)</div>
+				<div id="webextension-note" class="i18n-target">(zip zap zid zad)</div>
+				<div id="repo-links">
+					<a href="https://github.com/zapSNH/zcpt-webextension" id="webext-link"
+						>https://github.com/zapSNH/zcpt-webextension</a
+					>
+					<a
+						href="https://github.com/zapSNH/zapsCoolPhotonTheme"
+						id="theme-link"
+						>https://github.com/zapSNH/zapsCoolPhotonTheme</a
+					>
+					<br />
+					<span id="report-issues" class="i18n-target">Report Issues:</span>
+					<a
+						href="https://github.com/zapSNH/zcpt-webextension/issues"
+						id="ext-issues"
+						class="i18n-target"
+						>Extension Issues</a
+					>
+					<a
+						href="https://github.com/zapSNH/zapsCoolPhotonTheme/issues"
+						id="theme-issues"
+						class="i18n-target"
+						>Theme Issues</a
+					>
+				</div>
 			</div>
 		</div>
-		<div class="settings-section">
-			<div id="new-tab-background-header" class="header i18n-target">New Tab Background</div>
-			<div id="bkgimg">
-				<div id="newtab-notice" class="i18n-target">uc.newtab.background isn't enabled. Background won't be shown.</div>
-				<label for="imagepicker" id="imagepicker-button" class="i18n-target">
-					Browse
-				</label>
-				<input id="imagepicker" type="file">
-				<a id="preview-container" href="" target="_blank" class="i18n-target-title">
-					<img id="preview" class="loaded">
-				</a>
-				<div id="img-name"></div>
-			</div>
-		</div>
-		<div class="settings-section">
-			<div id="custom-css-header" class="header i18n-target">Custom CSS</div>
-			<div id="css-unsaved" class="i18n-target">Unsaved Changes</div>
-			<div id="custom-css-text" class="i18n-target">Place your custom CSS here. It's recommended to test your CSS before applying which will only apply your CSS for one session in case you mess something up.</div>
-			<div id="custom-css-note" class="i18n-target">Your CSS will load as an author sheet and will be injected into everything. It is recommended to encapsulate your CSS with @-moz-document url-prefix("chrome://"), url-prefix("resource://") { } to only load it into the browser chrome.</div>
-			<button id="apply-css-button" class="i18n-target">Apply CSS</button>
-			<button id="test-css-button" class="i18n-target">Test CSS</button>
-			<textarea id="css-textarea" spellcheck="false" wrap="off"></textarea>
-		</div>
-		<div class="settings-section">
-			<div id="about-header" class="header i18n-target">About</div>
-			<div id="about-container">
-				<img id="zcpt-logo" src="./images/icon-light.svg">
-				<div id="wordmark">zapsCoolPhotonTheme</div>
-			</div>
-			<div id="version">(pee pee poo poo)</div>
-			<div id="webextension-note" class="i18n-target">(pee pee poo poo)</div>
-		</div>
-	</div>
-	<script type="module" src="option.js"></script>
-	<script src="../i18n.js"></script>
-</body>
+		<script type="module" src="option.js"></script>
+		<script src="../i18n.js"></script>
+	</body>
 </html>

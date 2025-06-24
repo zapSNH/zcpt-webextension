@@ -72,7 +72,7 @@ function versionToInt(v) {
 	const minor = version[1];
 	const patch = version[2];
 	const nightly =	version[3] ? version[3] : "0";
-	const toInt = (major * 1_000_000_000) + (minor *	 1_000_000) + (patch * 10) + (nightly * 0.1);
+	const toInt = (major * 1_000_000_000) + (minor * 1_000_000) + (patch * 10) + (nightly * 0.1);
 	return toInt;
 }
 
