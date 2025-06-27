@@ -2,7 +2,7 @@
 	"prefs": [
 		["uc.bottom-tabs",						[1, 0, [2], [], []],			"Bottom tabs"],
 		["uc.bottom-tabs.bookmark-on-top",		[2, 1, [], [], [1]],			"Bottom tabs with bookmarks bar on top"],
-		["uc.sidebery",							[3, 0, [], [], []],         	"Vertical tabs with Sidebery"],
+		["uc.sidebery",							[3, 0, [], [], []],				"Vertical tabs with Sidebery"],
 		["uc.theme.tab-color-same-as-navbar",	[4, 0, [], [5], []],			"Tab color takes the navbar color"],
 		["uc.theme.navbar-color-same-as-tab",	[5, 0, [], [4], []],			"Navbar color takes the tab color"],
 		["uc.reduced-megabar",					[6, 0, [], [7], []],			"Slightly smaller Proton-sized megabar"],

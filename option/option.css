@@ -403,6 +403,9 @@ body.open {
 	&:has(> option[value="librewolf"]:checked) {
 		background-image: url(./images/forks/librewolf.svg);
 	}
+	&:has(> option[value="mullvad"]:checked) {
+		background-image: url(./images/forks/mullvad.svg);
+	}
 	&:has(> option[value="tor"]:checked) {
 		background-image: url(./images/forks/tor.svg);
 	}
