@@ -4,7 +4,7 @@
 :root {
 	--panels-css: 1px;
 }
-@media not -moz-pref("uc.popups.transparent") {
+@media not (-moz-bool-pref: "uc.popups.transparent") {
 	menupopup menuseparator {
 		margin-left: 0 !important;
 		margin-right: 0 !important;
@@ -41,7 +41,7 @@
 		--panel-padding: 4px 0 !important;
 	}
 }
-@media -moz-pref("uc.popups.transparent") {
+@media (-moz-bool-pref: "uc.popups.transparent") {
 	.menupopup-arrowscrollbox {
 		border: none !important;
 		padding: 6px !important;
@@ -201,7 +201,7 @@ menu) {
 	padding: 0 8px !important;
 	margin: 0 !important;
 }
-@media not -moz-pref("browser.profiles.enabled") {
+@media not (-moz-bool-pref: "browser.profiles.enabled") {
 	#appMenu-fxa-separator {
 		margin-top: 4px !important;
 	}
