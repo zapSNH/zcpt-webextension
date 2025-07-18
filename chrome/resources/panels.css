@@ -1,9 +1,10 @@
-/* panels and menus */
+/* Panels */
+/* Full-width menu seperators */
 @-moz-document url-prefix("chrome://"), url-prefix("resource://") {
 :root {
 	--panels-css: 1px;
 }
-@media not -moz-pref("uc.popups.transparent") {
+@media not (-moz-bool-pref: "uc.popups.transparent") {
 	menupopup menuseparator {
 		margin-left: 0 !important;
 		margin-right: 0 !important;
@@ -37,7 +38,7 @@
 		overflow: visible !important;
 	}
 }
-@media -moz-pref("uc.popups.transparent") {
+@media (-moz-bool-pref: "uc.popups.transparent") {
 	.menupopup-arrowscrollbox {
 		border: none !important;
 		padding: 6px !important;
@@ -197,7 +198,7 @@ menu) {
 	padding: 0 8px !important;
 	margin: 0 !important;
 }
-@media not -moz-pref("browser.profiles.enabled") {
+@media not (-moz-bool-pref: "browser.profiles.enabled") {
 	#appMenu-fxa-separator {
 		margin-top: 4px !important;
 	}
@@ -509,12 +510,12 @@ menu.bookmark-item {
 #cta-menu-header-description {
 	margin-inline-start: 0 !important;
 }
+menupopup:not([needsgutter]) :is(menuitem, menu):not([checked="true"], .menuitem-iconic, .menu-iconic) {
+	padding-left: 34px !important;
+}
 @media (-moz-platform: windows) {
 	menuitem[checked="true"] > :is(.menu-icon, .menu-iconic-left) {
 		list-style-image: url("./icons/check.svg") !important;
-	}
-	menupopup:not([needsgutter]) :is(menuitem, menu):not([checked="true"], .menuitem-iconic, .menu-iconic) {
-		padding-left: 34px !important;
 	}
 }
 @media (-moz-platform: linux) {
