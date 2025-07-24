@@ -4,10 +4,12 @@
 		"user_pref(\"svg.context-properties.content.enabled\", true);",
 		"user_pref(\"browser.newtabpage.activity-stream.logowordmark.alwaysVisible\", false);",
 		"user_pref(\"widget.windows.mica.popups\", 0);",
+		"user_pref(\"browser.urlbar.scotchBonnet.enableOverride\", false);",
 
 		"user_pref(\"uc.waterfox\", false);",
 		"user_pref(\"uc.floorp\", false);",
 		"user_pref(\"uc.librewolf\", false);",
-		"user_pref(\"uc.tor\", false);"
+		"user_pref(\"uc.tor\", false);",
+		"user_pref(\"uc.mullvad\", false);"
 	]
 }
