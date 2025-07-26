@@ -12,7 +12,6 @@
 	--photon-back-outline: #2227;
 	--photon-back-shadow: #7771;
 	--photon-back-shadow-hover: #2225;
-	
 	--photon-accent: #0a84ff;
 	--photon-accent-dark: #0a84ff;
 	--photon-accent-light: #74c0ff;
@@ -45,6 +44,8 @@
 	--inactive-titlebar-opacity: 1 !important;
 	
 	--tab-separator-height: var(--tab-min-height);
+	--tab-group-line-toolbar-border-distance: 0 !important;
+	--panel-separator-padding: 0px !important;
 	@media (-moz-platform: linux) {
 		--tab-separator-height: calc(var(--tab-min-height) + 1px);
 	}
