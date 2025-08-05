@@ -48,7 +48,6 @@
 			--button-bgcolor: rgb(55, 55, 55) !important;
 			--button-hover-bgcolor: #aaa6 !important;
 			--button-active-bgcolor: rgb(92, 92, 94) !important;
-
 			--background-color-box: rgb(12, 12, 13, 0.15) !important;
 			--in-content-box-border-color: rgb(90, 90, 94) !important;
 		}
@@ -108,13 +107,10 @@
 			--toolbar-bgcolor: #f9f9fa !important;
 			--in-content-page-background: var(--toolbar-bgcolor) !important;
 			--panel-separator-color: hsla(210,4%,10%,.14) !important;
-			
 			--button-hover-bgcolor: #bdbec0 !important;
 			--button-active-bgcolor: #b3b4b6 !important;
-			
 			--toolbarbutton-hover-background: var(--lwt-toolbarbutton-hover-background, hsla(0,0%,70%,.4)) !important;
-			--toolbarbutton-active-background: var(--lwt-toolbarbutton-active-background, hsla(0,0%,70%,.6)) !important;	
-			
+			--toolbarbutton-active-background: var(--lwt-toolbarbutton-active-background, hsla(0,0%,70%,.6)) !important;
 			--color-gray-60: #4a4a4f !important;
 			--color-gray-80: color-mix(in srgb, var(--color-gray-90) 67%, var(--color-gray-60)) !important;
 			--color-gray-90: #0c0c0d !important;
@@ -126,36 +122,28 @@
 			--toolbar-field-background-color: #474749 !important;
 			--toolbar-field-border-color: #5a5a5c !important;
 			--toolbar-field-focus-background-color: #474749 !important;
-			
 			--button-bgcolor: rgb(55, 55, 55) !important;
 			--button-hover-bgcolor: #aaa6 !important;
 			--button-active-bgcolor: rgb(92, 92, 94) !important;
-			
 			--toolbarbutton-icon-fill: #bebebe !important;
 			--toolbarbutton-active-background: #7f7f80 !important;
-			
 			--input-bgcolor: rgb(60, 60, 64) !important;
 			--input-border-color: rgb(90, 90, 94) !important;
-			
 			--in-content-page-background: var(--toolbar-bgcolor) !important;
-			
 			--panel-separator-color: rgba(249, 249, 250, .1) !important;
-			
 			--color-gray-60: #4a4a4f !important;
 			--color-gray-80: color-mix(in srgb, var(--color-gray-60) 75%, var(--color-gray-90)) !important;
 			--color-gray-90: #0c0c0d !important;
-			
 			--background-color-box: var(--color-gray-80) !important;
-			
 			--box-shadow-color-darker-layer-1: rgba(0, 0, 0, 0.15) !important;
 			--box-shadow-color-darker-layer-2: rgba(0, 0, 0, 0.2) !important;
 			--box-shadow-color-lighter-layer-1: rgba(0, 0, 0, 0.05) !important;
 			--box-shadow-color-lighter-layer-2:  rgba(0, 0, 0, 0.1) !important;
 		}
 	}
-	
 	button:not(.control-button,
-	.preview-button, :has(> span)) {
+	.preview-button,
+	:has(> span)) {
 		-moz-appearance: none !important;
 		border-radius: var(--photon-border-radius) !important;
 		border-color: color-mix(in srgb, transparent 90%, currentColor) !important;
@@ -199,7 +187,8 @@
 		&:not(#login-line-input) {
 			appearance: none !important;
 		}
-		&:is([type="radio"], [type="checkbox"]) {
+		&:is([type="radio"],
+		[type="checkbox"]) {
 			border: 1px solid color-mix(in srgb, transparent 90%, currentColor) !important;
 		}
 		&:not([type="radio"]) {
@@ -216,7 +205,6 @@
 		&[type="radio"] {
 			border-radius: 9999px !important;
 		}
-		
 		&:checked {
 			background-color: var(--photon-accent-dark) !important;
 			&:hover:not([disabled]) {
@@ -286,7 +274,8 @@
 		display: flex;
 		gap: 4px;
 	}
-	#allLogins, #alerts {
+	#allLogins,
+	#alerts {
 		width: 16px;
 		aspect-ratio: 1;
 	}
@@ -332,16 +321,16 @@
 		--quantum-wordmark: url("./icons/quantum/about-wordmark.svg");
 		--wordmark-size: 300px 38px;
 		--wordmark-position: 0px 16px;
-		@media -moz-pref("uc.logo.quantum-beta") {
+		@media (-moz-bool-pref: "uc.logo.quantum-beta") {
 			--quantum-logo: url("./icons/quantum/firefox-logo-beta.svg");
 		}
-		@media -moz-pref("uc.logo.quantum-dev") {
+		@media (-moz-bool-pref: "uc.logo.quantum-dev") {
 			--quantum-logo: url("./icons/quantum/firefox-logo-developer-edition.svg");
 			--quantum-wordmark: url("./icons/quantum/about-wordmark-de.svg");
 			--wordmark-size: 153.29px 72px;
 			--wordmark-position: 0px 0px;
 		}
-		@media -moz-pref("uc.logo.quantum-nightly") {
+		@media (-moz-bool-pref: "uc.logo.quantum-nightly") {
 			--quantum-logo: url("./icons/quantum/firefox-logo-nightly.svg");
 			--quantum-wordmark: url("./icons/quantum/about-wordmark-nightly.svg");
 			--wordmark-size: 270px 48px;
@@ -362,7 +351,7 @@
 		}
 	}
 	
-	@media -moz-pref("uc.logo.quantum") {
+	@media (-moz-bool-pref: "uc.logo.quantum") {
 		#rightBox {
 			background-image: var(--quantum-wordmark) !important;
 			background-size: var(--wordmark-size) !important;
@@ -391,12 +380,25 @@
 	}
 	#organizeButton {
 		list-style-image: url("./icons/settings.svg") !important;
+		--menuitem-icon: url("./icons/settings.svg") !important;
 	}
 	#viewMenu {
 		list-style-image: url("./icons/sort.svg") !important;
+		--menuitem-icon: url("./icons/sort.svg") !important;
 	}
 	#maintenanceButton {
 		list-style-image: url("./icons/import-export.svg") !important;
+		--menuitem-icon: url("./icons/import-export.svg") !important;
+	}
+	#organizeButton,
+	#viewMenu,
+	#maintenanceButton {
+		img {
+			content: var(--menuitem-icon) !important;
+		}
+	}
+	#placesMenu > menu::after {
+		content: url("./icons/arrow-dropdown-12.svg") !important;
 	}
 	#placesMenu > menu,
 	#placesToolbar > toolbarbutton {
@@ -489,7 +491,7 @@
 		:root {
 			--toolbar-bgcolor: #f9f9fa !important;
 			--input-bgcolor: #ccc !important;
-			--input-border-color: #aaa 
+			--input-border-color: #aaa
 		}
 	}
 	@media (prefers-color-scheme: dark) {
@@ -608,7 +610,8 @@
 	input[type="radio"] {
 		border-radius: 999px;
 	}
-	input:is([type="checkbox"], [type="radio"]) {
+	input:is([type="checkbox"],
+	[type="radio"]) {
 		appearance: none;
 		width: 20px !important;
 		height: 20px !important;
@@ -645,7 +648,7 @@
 	}
 	#printer-picker {
 		background-image: url("./icons/arrow-dropdown-16.svg"),
-			url("./icons/print1.svg") !important;
+		url("./icons/print1.svg") !important;
 	}
 	.toggle-group #portrait + .toggle-group-label::before {
 		content: url("./icons/document.svg") !important;
@@ -654,8 +657,6 @@
 		content: url("./icons/document.svg") !important;
 		rotate: 90deg;
 		scale: -1 1
-	
-	
 	}
 	select:not([size],
 	[multiple]) {
@@ -758,8 +759,6 @@
 		background-color: #323234 !important;
 	}
 }
-
-@-moz-document url-prefix("chrome://"), url-prefix("resource://") {
 /* Autoscroller */
 .autoscroller {
 	padding: 15px !important;
@@ -776,7 +775,7 @@
 	box-shadow: 0 0 4px rgba(0,0,0,.2);
 }
 /* Transparent Toolbar */
-@media -moz-pref("uc.toolbar.transparency") {
+@media (-moz-bool-pref: "uc.toolbar.transparency") {
 	#browser {
 		--toolbox-bgcolor: transparent !important;
 		--toolbox-bgcolor-inactive: transparent !important;
@@ -804,8 +803,8 @@
 	}*/
 }
 /* Old style context menus */
-@media -moz-pref("uc.contextmenu.win-10") {
-	@media -moz-pref("uc.contextmenu.dark") {
+@media (-moz-bool-pref: "uc.contextmenu.win-10") {
+	@media (-moz-bool-pref: "uc.contextmenu.dark") {
 		menupopup:not([customoptionstyling="true"]), tooltip {
 			--arrowpanel-background: #2b2b2b !important;
 			--button-hover-bgcolor: #5f5f5f !important;
@@ -821,7 +820,7 @@
 			color: #fff !important;
 		}
 	}
-	@media -moz-pref("uc.contextmenu.light") {
+	@media (-moz-bool-pref: "uc.contextmenu.light") {
 		menupopup:not([customoptionstyling="true"]), tooltip {
 			--arrowpanel-background: #fff !important;
 			--button-hover-bgcolor: #e3e2e3 !important;
@@ -860,9 +859,10 @@
 		margin-inline: 2px !important;
 	}
 }
+
 /* kinda looks like the gnome context menu too */
-@media -moz-pref("uc.contextmenu.win-11") {
-	@media -moz-pref("uc.contextmenu.dark") {
+@media (-moz-bool-pref: "uc.contextmenu.win-11") {
+	@media (-moz-bool-pref: "uc.contextmenu.dark") {
 		menupopup:not([customoptionstyling="true"]), tooltip {
 			--arrowpanel-background: #2c2c2c !important;
 			--button-hover-bgcolor: #5f5f5f !important;
@@ -878,7 +878,7 @@
 			color: #fff !important;
 		}
 	}
-	@media -moz-pref("uc.contextmenu.light") {
+	@media (-moz-bool-pref: "uc.contextmenu.light") {
 		menupopup:not([customoptionstyling="true"]), tooltip {
 			--arrowpanel-background: #fff !important;
 			--button-hover-bgcolor: #e3e2e3 !important;
@@ -927,9 +927,18 @@
 	#context-navigation menuitem * {
 		border-radius: 2px !important;
 	}
+	[placespopup] :is(menuitem:not(.menuitem-with-favicon)) {
+		margin-inline: 4px !important;
+		border-radius: 4px !important;
+		padding-block: 2px !important;
+	}
+	:root .menuitem-with-favicon {
+		margin-inline: 4px !important;
+	}
 }
+
 /* Sidebery */
-@media -moz-pref("uc.sidebery") {
+@media (-moz-bool-pref: "uc.sidebery") {
 	:root[titlepreface="[VT] "] {
 		--sidebar-width: 35px;
 		#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] #sidebar-header {
@@ -990,9 +999,7 @@
 		}
 		@media (-moz-platform: linux) {
 			#sidebar-splitter {
-				visibility: collapse 
-			
-			
+				visibility: collapse
 			}
 			.titlebar-buttonbox-container {
 				margin-block: 5px;
@@ -1135,7 +1142,7 @@
 		&[customizing="true"] #customization-container {
 			margin-inline-start: 35px;
 		}
-		@media -moz-pref("uc.bottom-tabs") {
+		@media (-moz-bool-pref: "uc.bottom-tabs") {
 			#nav-bar {
 				margin-top: 1px;
 				margin-inline-start: 0;
@@ -1218,6 +1225,4 @@
 			}
 		}
 	}
-}
-}
 }
