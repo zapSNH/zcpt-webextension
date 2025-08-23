@@ -38,7 +38,7 @@ jobs:
       uses: actions/checkout@v4
       with:
           repository: zapsnh/zapsCoolPhotonTheme
-          ref: webextension-${{ steps.getesr.outputs.version }}-esr
+          ref: webextension-${{ steps.getesr.outputs.version }}esr
           path: chrome
       
     - name: add gh bot creds
