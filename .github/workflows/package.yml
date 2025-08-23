@@ -10,10 +10,8 @@ jobs:
         include:
           - name: "zapsCoolPhotonTheme"
             branch: "HEAD:main"
-            sync-branch: "webextension"
           - name: "zapsCoolPhotonTheme-esr"
             branch: "HEAD:esr"
-            sync-branch: "webextension-esr"
 
     runs-on: ubuntu-latest
     steps:
@@ -22,12 +20,27 @@ jobs:
           fetch-depth: 0
 
     - name: sync zcpt
+      if: matrix.name == 'zapsCoolPhotonTheme'
       uses: actions/checkout@v4
       with:
           repository: zapsnh/zapsCoolPhotonTheme
-          ref: ${{ matrix.sync-branch }}
+          ref: webextension
           path: chrome
 
+    - name: check current esr version
+      if: matrix.name == 'zapsCoolPhotonTheme-esr'
+      id: getesr
+      run: |
+        echo "version=$(curl -s "https://raw.githubusercontent.com/zapSNH/zapsCoolPhotonTheme/refs/heads/main/.github/workflows/ESR_VERSION")" >> $GITHUB_OUTPUT
+        
+    - name: sync zcpt - ESR
+      if: matrix.name == 'zapsCoolPhotonTheme-esr'
+      uses: actions/checkout@v4
+      with:
+          repository: zapsnh/zapsCoolPhotonTheme
+          ref: webextension-${{ steps.getesr.outputs.version }}-esr
+          path: chrome
+      
     - name: add gh bot creds
       run: |
         git config user.name 'github-actions[bot]'
