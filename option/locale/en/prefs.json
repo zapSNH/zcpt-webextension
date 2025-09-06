@@ -21,6 +21,7 @@
 		["uc.logo.quantum.dev",					[19, 17, [], [18, 20], [17]],	"Use the Firefox quantum developer edition logo everywhere."],
 		["uc.logo.quantum.nightly",				[20, 17, [], [18, 19], [17]],	"Use the Firefox quantum nightly logo everywhere."],
 		["uc.toolbar.transparency",				[21, 0, [], [], []],			"Makes the toolbar transparent to allow transparency effects such as Mica or Acrylic (effects can be configured by using programs such as MicaForEveryone)."],
-		["uc.popups.transparent",				[22, 0, [], [], []],			"Transparent menus for Windows 11 and macOS. (requires widget.windows.mica.popups set to 2 for Windows 11)"]
+		["uc.popups.transparent",				[22, 0, [], [], []],			"Transparent menus for Windows 11 and macOS. (requires widget.windows.mica.popups set to 2 for Windows 11)"],
+		["uc.popups.disable-transition",		[23, 0, [], [], []],			"Disables the fading transition effect on menus and popups"]
 	]
 }
