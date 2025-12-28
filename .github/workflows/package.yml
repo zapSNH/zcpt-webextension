@@ -68,7 +68,7 @@ jobs:
         zip -r -FS ${{ matrix.name }}.xpi *
         
     - name: release
-      uses: softprops/action-gh-release@v2
+      uses: softprops/action-gh-release@v2.4.2
       env:
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
       with:
