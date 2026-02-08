@@ -143,6 +143,14 @@
 		"message": "Waterfox",
 		"description": "Waterfox label in the browser fork dropdown."
 	},
+	"fork-mullvad": {
+		"message": "Mullvad Browser",
+		"description": "Mullvad Browser label in the browser fork dropdown."
+	},
+	"fork-icecat": {
+		"message": "GNU IceCat",
+		"description": "GNU IceCat label in the browser fork dropdown."
+	},
 	"clear-prefs": {
 		"message": "Clear preferences?",
 		"description": "Clear preferences clear confirmation dialog."
