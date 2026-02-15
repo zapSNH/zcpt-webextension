@@ -13,7 +13,7 @@
 		["uc.contextmenu.light",				[11, 0, [], [10], []],			"Light context menu w/ Windows 10/11 styled context menu"],
 		["uc.newtab.background",				[12, 0, [], [], []],			"Background sa new tab"],
 		["uc.full-width-tabs",					[13, 0, [], [], []],			"Buong lapad na tabs"],
-		["uc.style-forms",						[14, 0, [], [], []],			"i-Theme ang mga HTML Form. Maaaring masira ang mga forms sa website."],
+		["uc.style-forms",						[14, 0, [], [], []],			"I-Theme ang mga HTML Form. Maaaring masira ang mga forms sa website."],
 		["uc.revert-all-tabs-behavior",			[15, 0, [], [], []],			"Hindi ipakita ang \"all tabs\" na button kung hindi nag-overflow ang tabs gaya sa pre-Photon/early-Proton"],
 		["uc.always-show-close-button",			[16, 0, [], [], []],			"Palaging ipakita ang button para i-close ang tab kahit maliit na ang mga tab."],
 		["uc.logo.quantum",						[17, 0, [18, 19, 20], [], []],	"Gamitin ang pre-Firefox 70 quantum logo sa halip na ang bagong logo."],
@@ -22,6 +22,7 @@
 		["uc.logo.quantum.nightly",				[20, 17, [], [18, 19], [17]],	"Gamitin ang Firefox quantum nightly logo everywhere."],
 		["uc.toolbar.transparency",				[21, 0, [], [], []],			"Ginagawang transparent ang toolbar upang magkaroon ng mga epekto ng transparency gaya ng Mica o Acrylic (maaaring i-configure ang mga effect nito gamit ng mga program tulad ng MicaForEveryone)."],
 		["uc.popups.transparent",				[22, 0, [], [], []],			"Transparent na menu para sa Windows 11 at macOS. (Ang widget.windows.mica.popups ay dapt na-set sa 2 para sa Windows 11)"],
-		["uc.popups.disable-transition",		[23, 0, [], [], []],			"Hindi ipakita ang fading transition effect sa mga menu at popup"]
+		["uc.popups.disable-transition",		[23, 0, [], [], []],			"Hindi ipakita ang fading transition effect sa mga menu at popup"],
+		["uc.toolbar.force-disable-accent-color",[24, 0, [], [], []],			"I-disable ang pangkulay ng accent ng toolbar sa mga system theme."]
 	]
 }
