@@ -1894,7 +1894,7 @@ button[part="button"], span[part="button"] {
 	fill: var(--icon-fill, currentColor) !important;
 }
 .action-buttons .split-button-container .submenu-button {
-	background-image: url("./icons/arrow-dropdown-16.svg") !important;
+	background-image: url(./icons/arrow-dropdown-16.svg) !important;
 }
 /* tab notes */
 .tab-note-icon {
