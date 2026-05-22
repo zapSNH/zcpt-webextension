@@ -15,13 +15,13 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
       with:
           fetch-depth: 0
 
     - name: sync zcpt
       if: matrix.name == 'zapsCoolPhotonTheme'
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
       with:
           repository: zapsnh/zapsCoolPhotonTheme
           ref: webextension
@@ -35,7 +35,7 @@ jobs:
         
     - name: sync zcpt - ESR
       if: matrix.name == 'zapsCoolPhotonTheme-esr'
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
       with:
           repository: zapsnh/zapsCoolPhotonTheme
           ref: webextension-${{ steps.getesr.outputs.version }}esr
