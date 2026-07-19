@@ -5,17 +5,41 @@
 :root {
 	--icons-css: 1px;
 	--grayscale-logo: url(./icons/aboutdebugging-firefox-logo.svg) !important;
-	@media (-moz-bool-pref: "uc.floorp") {
+	@supports -moz-bool-pref("uc.floorp") {
 		--grayscale-logo: url(./icons/forks/floorp/floorp-grayscale.svg) !important;
 	}
-	@media (-moz-bool-pref: "uc.waterfox") {
+	@supports -moz-bool-pref("uc.waterfox") {
 		--grayscale-logo: url(./icons/forks/waterfox/waterfox-grayscale.svg) !important;
 	}
-	@media (-moz-bool-pref: "uc.librewolf") {
+	@supports -moz-bool-pref("uc.librewolf") {
 		--grayscale-logo: url(./icons/forks/librewolf/librewolf-grayscale.svg) !important;
 	}
-	@media (-moz-bool-pref: "uc.tor") {
+	@supports -moz-bool-pref("uc.tor") {
 		--grayscale-logo: url(./icons/forks/tor/tor-grayscale.svg) !important;
+	}
+	/* Legacy Logos */
+	--quantum-logo: url("./icons/quantum/firefox-logo.svg");
+	@supports -moz-bool-pref("uc.logo.quantum") {
+		--grayscale-logo: url("./icons/quantum/aboutdebugging-firefox-logo.svg") !important;
+	}
+	@supports -moz-bool-pref("uc.logo.quantum-beta") {
+		--quantum-logo: url("./icons/quantum/firefox-logo-beta.svg") !important;
+	}
+	@supports -moz-bool-pref("uc.logo.quantum-dev") {
+		--quantum-logo: url("./icons/quantum/firefox-logo-dev.svg") !important;
+	}
+	@supports -moz-bool-pref("uc.logo.quantum-nightly") {
+		--quantum-logo: url("./icons/quantum/firefox-logo-nightly.svg") !important;
+	}
+}
+@supports -moz-bool-pref("uc.logo.quantum-beta") {
+	img[src="chrome://branding/content/icon32.png"], image[src="chrome://branding/content/icon32.png"] {
+		--quantum-logo: url("./icons/quantum/firefox-logo.svg");
+	}
+}
+@supports -moz-bool-pref("uc.logo.quantum") {
+	img[src="chrome://branding/content/icon32.png"], image[src="chrome://branding/content/icon32.png"] {
+		content: var(--quantum-logo) !important;
 	}
 }
 * {
@@ -32,32 +56,9 @@
   	fill-opacity: 1 !important;
 	stroke-linecap: round !important;
 }
-/* Info icon */
+/* info icon */
 .panel-info-button image {
 	list-style-image: url(./icons/info.svg) !important;
-}
-/* Photon sound icons */
-.tab-icon-overlay[soundplaying] {
-	list-style-image: url(./icons/tab-audio-playing.svg) !important;
-}
-.tab-icon-overlay[muted] {
-	list-style-image: url(./icons/tab-audio-muted.svg) !important;
-}
-.tab-icon-overlay[activemedia-blocked] {
-	list-style-image: url(./icons/tab-audio-blocked.svg) !important;
-}
-.tab-icon-overlay[pictureinpicture] {
-	list-style-image: url(./icons/pictureinpicture.svg) !important;
-}
-/* New tab icon */
-#tabs-newtab-button, #new-tab-button {
-	> image {
-		list-style-image: url(./icons/add.svg) !important;
-	}
-}
-/* All tabs dropdown */
-#alltabs-button {
-	list-style-image: url(./icons/arrow-dropdown-16.svg) !important;
 }
 /* Changes the Firefox logo to that of the Photon grayscale one */
 #identity-box.chromeUI > #identity-icon-box > #identity-icon {
@@ -69,7 +70,7 @@
 	list-style-image: url(./icons/connection-secure.svg) !important
 }
 /* Pretend it still exists */
-@media not (-moz-bool-pref: "security.secure_connection_icon_color_gray") {
+@supports not -moz-bool-pref("security.secure_connection_icon_color_gray") {
 	#identity-box.verifiedDomain[pageproxystate="valid"] #identity-icon {
 		-moz-context-properties: fill !important;
 		fill: #12bc00 !important;
@@ -86,7 +87,7 @@
 }
 /* Changes the search icon to Photon's */
 #identity-box.localResource > #identity-icon-box > #identity-icon,
-#urlbar:not(.searchButton) > .urlbar-input-container > #identity-box[pageproxystate="invalid"] #identity-icon {
+#urlbar:not(.searchButton) > #urlbar-input-container > #identity-box[pageproxystate="invalid"] #identity-icon {
 	list-style-image: url(./icons/find-in-page.svg) !important
 }
 #identity-box.localResource[pageproxystate="valid"] > #identity-icon-box > #identity-icon:has(+ #identity-icon-label:not([value="Nightly"])), 
@@ -615,7 +616,7 @@
 #appMenu-find-button2 {
   margin-bottom: 8px !important;
 }
-@media (-moz-bool-pref: "browser.translations.enable") {
+@supports -moz-bool-pref("browser.translations.enable") {
   #appMenu-translate-button {
   	margin-bottom: 8px !important;
   }
@@ -719,6 +720,7 @@
 	width: 16px !important;
 }
 /* Profiles Button (FF 127+) */ 
+/* Yes, I know this isnt @supports for FF 115 but this is literally just for FF127+ */
 @media (-moz-bool-pref: "browser.profiles.enabled") {
 	#appMenu-profiles-button:after {
 		margin-inline-end: -3px !important;
@@ -835,7 +837,7 @@
 	-moz-context-properties: fill !important;
 	fill: var(--urlbar-box-text-color) !important;
 }
-#urlbar-go-button, :root .search-go-button, .urlbar-go-button {
+#urlbar-go-button, :root .search-go-button {
 	list-style-image: url(./icons/forward.svg) !important;
 	min-width: 28px !important;
 }
@@ -869,9 +871,6 @@
 .urlbarView-favicon[src="chrome://global/skin/icons/clipboard.svg"] {
 	content: url(./icons/edit-paste.svg) !important;
 }
-.urlbarView-favicon[src="chrome://global/skin/icons/trending.svg"] {
-	content: url(./icons/trending.svg) !important;
-}
 #translations-button-locale {
 	margin: 0px !important;
 }
@@ -887,7 +886,7 @@
 #urlbar-search-mode-indicator-close {
 	background-image: url(./icons/close-icon2.svg) !important;
 	-moz-context-properties: fill !important;
-	fill: currentColor !important;
+	fill: var(--urlbar-box-text-color) !important;
 }
 .urlbarView-favicon-img[src="chrome://mozapps/skin/extensions/category-extensions.svg"] {
 	content: url(./icons/extensions.svg) !important;
@@ -1144,9 +1143,6 @@
 #sidebar-switcher-tabs:is(menuitem) .menu-text {
 	background-image: url(./icons/tab.svg);
 }
-#sidebar-switcher-genai-chat:is(menuitem) .menu-text {
-	background-image: url(./icons/glyph-highlights-16.svg);
-}
 #sidebar-reverse-position:is(menuitem) .menu-text {
 	background-image: url(./icons/import-export-rotate90.svg);
 }
@@ -1166,13 +1162,6 @@ menuitem[data-l10n-id="sidebar-menu-close"] .menu-text {
 #sidebar-box[sidebarcommand="viewTabsSidebar"] > #sidebar-header 
   > #sidebar-switcher-target > #sidebar-icon {
 	list-style-image: url(./icons/tab.svg) !important;
-}
-#sidebar-box[sidebarcommand="viewGenaiChatSidebar"] > #sidebar-header 
-  > #sidebar-switcher-target > #sidebar-icon {
-	list-style-image: url(./icons/glyph-highlights-16.svg) !important;
-	width: 16px !important;
-	-moz-context-properties: fill !important;
-	fill: currentColor !important;
 }
 .close-icon image {
 	list-style-image: url(./icons/add.svg) !important;
