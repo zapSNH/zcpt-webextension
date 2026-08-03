@@ -23,6 +23,7 @@
 		["uc.toolbar.transparency",				[21, 0, [], [], []],			"Ginagawang transparent ang toolbar upang magkaroon ng mga epekto ng transparency gaya ng Mica o Acrylic (maaaring i-configure ang mga effect nito gamit ng mga program tulad ng MicaForEveryone)."],
 		["uc.popups.transparent",				[22, 0, [], [], []],			"Transparent na menu para sa Windows 11 at macOS. (Ang widget.windows.mica.popups ay dapt na-set sa 2 para sa Windows 11)"],
 		["uc.popups.disable-transition",		[23, 0, [], [], []],			"Hindi ipakita ang fading transition effect sa mga menu at popup"],
-		["uc.toolbar.force-disable-accent-color",[24, 0, [], [], []],			"I-disable ang pangkulay ng accent ng toolbar sa mga system theme."]
+		["uc.toolbar.force-disable-accent-color",[24, 0, [], [], []],			"I-disable ang pangkulay ng accent ng toolbar sa mga system theme."],
+		["uc.bottom-tabs.no-indent",            [25, 1, [], [], [1]],           "Walang indent sa navbar kung naka-on ang bottom tabs na pref."] 
 	]
 }
