@@ -215,10 +215,6 @@ menu) {
 #appMenu-profiles-button .toolbarbutton-icon {
 	margin-inline-end: 0px !important;
 }
-.subviewbutton-iconic.profile-item > .toolbarbutton-icon {
-	height: 16px !important;
-	width: 16px !important;
-}
 #profiles-edit-this-profile-button {
 	height: 32px !important;
 	width: 32px !important;
@@ -354,16 +350,9 @@ menu) {
 .popup-notification-dropmarker {
 	min-width: 38px !important;
 }
-popupnotification .panel-footer {
-	display: flex !important;
-	moz-button {
-		flex: 1;
-	}
-}
-button:not([popovertarget]) > span.labelled.button-background[part="button"],
-button:not([popovertarget]) > span[part="chevron-button"][type="split"],
 :is(.panel-footer,
 #select-translations-panel-footer-button-group) > button:not(:has(+ moz-button-group)),
+button > span.labelled.button-background[part="button"],
 .action-buttons > div,
 .action-buttons button {
 	border-radius: 0 !important;
@@ -378,35 +367,28 @@ button:not([popovertarget]) > span[part="chevron-button"][type="split"],
 	}
 	margin-bottom: -4px;
 }
-
-button:not([popovertarget]) > span.labelled.button-background[part="button"],
-button:not([popovertarget]) > span[part="chevron-button"][type="split"] {
-	border: none !important;
-	--button-split-separator-background-color: color-mix(in srgb, transparent 80%, currentColor) !important;
-}
-#main-button + #chevron-button {
-	width: fit-content !important;
-}
 moz-button:is(.primary,
 [slot="primary"],
 [default="true"]):not([type="menu"]) {
 	margin-inline-start: 0 !important;
 }
-/* to rework */
+/* I was stubbbbbboooooorrrrrnnnnnn */
 #editBookmarkPanelRemoveButton {
 	background-color: #0002 !important;
 }
 #tab-group-editor-button-cancel {
 	margin-inline-start: 0 !important;
 }
+:is(.panel-footer,
+#select-translations-panel-footer-button-group)
+> button:not(.primary,
+[slot="primary"],
+[default="true"],
+:has(+ moz-button-group)),
 .popup-notification-secondary-button,
-.action-buttons button.secondary,
 #editBookmarkPanelRemoveButton,
-.trustpanel-section.panel-subview-footer-button,
-.panel-footer > .cancel-button, #tab-group-editor-button-cancel {
-	--button-background-color-primary: #aaa2;
-	--button-background-color-primary-hover: #aaa4;
-	--button-background-color-primary-active: #1113;
+button > span.labelled.button-background[type="default"][part="button"],
+.action-buttons button.secondary {
 	background-color: #aaa2 !important;
 	border-top: solid 1px color-mix(in srgb, transparent 80%, currentColor) !important;
 	&:hover {
@@ -415,17 +397,13 @@ moz-button:is(.primary,
 			background-color: #1113 !important;
 		}
 	}
-	&[type="split"] {
-		background-color: transparent !important;
-	}
 }
-.popup-notification-primary-button,
-.action-buttons button.primary,
-#editBookmarkPanelDoneButton,
-.panel-footer > button[slot="primary"], #tab-group-editor-button-create {
-	--button-background-color-primary: #0060df;
-	--button-background-color-primary-hover: #003eaa;
-	--button-background-color-primary-active: #002275;
+:is(.panel-footer,
+#select-translations-panel-footer-button-group) > button:is(.primary,
+[slot="primary"],
+[default="true"]):not([type="menu"]),
+button > span.labelled.button-background[type="primary"][part="button"],
+.action-buttons button.primary {
 	background-color: #0060df !important;
 	color: white !important;
 	border-top: solid 1px color-mix(in srgb, transparent 80%, currentColor) !important;
@@ -513,6 +491,9 @@ moz-button:is(.primary,
 menu.bookmark-item {
 	margin-inline: 0 !important;
 	padding-inline: 11px !important;
+}
+#identity-popup-securityView-extended-info {
+	margin-inline-start: 32px !important;
 }
 :root .all-tabs-item {
 	padding-inline: 0 !important;
@@ -659,9 +640,9 @@ menu.bookmark-item {
 		padding: 0 !important;
 		height: 100% !important;
 		> label {
-			margin-inline: var(--space-xxsmall) !important;
-			padding: var(--space-large) !important;
-			height: 100%;
+			margin-inline: var(--arrowpanel-menuitem-margin-inline) !important;
+			padding: var(--arrowpanel-menuitem-margin-inline) !important;
+			height: 100%
 		}
 		> moz-button-group {
 			justify-content: center !important;
@@ -671,26 +652,6 @@ menu.bookmark-item {
 			}
 		}
 	}
-}
-#trustpanel-graphic-section {
-	margin-inline: 0 !important;
-	border-radius: 0 !important;
-}
-#trustpanel-clear-cookies-button + toolbarseparator {
-	opacity: 0;
-}
-.identity-popup-security-connection {
-	align-self: start !important;
-	padding-top: var(--space-small) !important;
-}
-#identity-popup-securityView-extended-info {
-	--card-padding-block: var(--space-small);
-	border-radius: 0 !important;
-	box-shadow: none !important;
-	border-inline: none !important;
-	border-block-color: var(--panel-separator-color) !important;
-	background-color: transparent !important;
-	margin: 0 !important;
 }
 /* Extensions Menu That I Totally Do Not Dislike */
 :is(#unified-extensions-area,
@@ -937,17 +898,6 @@ toolbarbutton.panel-subview-footer-button {
 #PopupSearchAutoComplete .autocomplete-richlistbox {
 	margin: 0 !important;
 }
-#searchmode-switcher-panel-list-urlbar, #searchmode-switcher-panel-list-searchbar {
-	--panel-subview-body-padding: 0 !important;
-	--panel-menuitem-border-radius: 0 !important;
-	--panel-menuitem-margin: 0 !important;
-	--panel-menuitem-padding: 4px 8px !important;
-	--panel-menuitem-border-radius: 0 !important;
-	> *:not(.searchmode-switcher-panel-description) {
-		padding: 0 !important;
-		margin: 0 !important;
-	}
-}
 #searchmode-switcher-popup, .searchmode-switcher-popup {
 	--panel-padding: 2px 0px 1px 0px !important;
 	> menuseparator {
@@ -1006,6 +956,9 @@ toolbarbutton.panel-subview-footer-button {
 		--button-text-color-ghost-hover: rgb(249, 249, 250); !important;
 		--button-text-color-ghost-active: rgb(249, 249, 250); !important;
 		--button-border: none !important;
+		clip-path: inset(0 7px 0 0 round var(--photon-border-radius-1)) !important;
+		margin-inline-start: 4px;
+		overflow: hidden !important;
 	}
 	#tab-group-default-actions {
 		padding-top: 4px !important;
@@ -1083,15 +1036,9 @@ toolbarbutton.panel-subview-footer-button {
 	}
 }
 .button-background:not(.labelled):has(> img[src="chrome://global/skin/icons/highlights.svg"]) {
-	border-radius: var(--photon-border-radius) !important;/*
+	border-radius: 0 !important;
 	width: 30px !important;
 	min-height: 30px !important;
-	height: 30px !important;*/
-}
-@media -moz-pref("browser.nova.enabled") {
-	:root {
-		--button-border-radius: var(--photon-border-radius) !important;
-		--card-border-radius: var(--photon-border-radius) !important;
-	}
+	height: 30px !important;
 }
 }
